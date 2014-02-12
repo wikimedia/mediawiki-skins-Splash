@@ -475,51 +475,34 @@ a {
 		list-style-image: url('images/blut.png');
 	}
 
-	#bodyContent a.external[href ^="mailto:"],
 	.link-mailto {
-		/* @embed */
-		background: url('images/links/mail_icon.gif') center right no-repeat;
+		background: center right no-repeat;
+		.background-image-svg('images/links/mail-icon.svg','images/links/mail-icon.png');
 		padding-right: 18px;
 	}
-	#bodyContent a.external[href ^="ftp://"],
 	.link-ftp {
-		/* @embed */
-		background: url('images/links/file_icon.gif') center right no-repeat;
+		background: center right no-repeat;
+		.background-image-svg('images/links/file-icon.svg','images/links/file-icon.png');
 		padding-right: 18px;
 	}
-	#bodyContent a.external[href ^="irc://"],
-	#bodyContent a.external[href ^="ircs://"],
 	.link-irc {
-		/* @embed */
-		background: url('images/links/discussionitem_icon.gif') center right no-repeat;
+		background: center right no-repeat;
+		.background-image-svg('images/links/talk-icon.svg','images/links/talk-icon.png');
 		padding-right: 18px;
 	}
-	#bodyContent a.external[href $=".ogg"], #bodyContent a.external[href $=".OGG"],
-	#bodyContent a.external[href $=".mid"], #bodyContent a.external[href $=".MID"],
-	#bodyContent a.external[href $=".midi"], #bodyContent a.external[href $=".MIDI"],
-	#bodyContent a.external[href $=".mp3"], #bodyContent a.external[href $=".MP3"],
-	#bodyContent a.external[href $=".wav"], #bodyContent a.external[href $=".WAV"],
-	#bodyContent a.external[href $=".wma"], #bodyContent a.external[href $=".WMA"],
 	.link-audio {
-		/* @embed */
-		background: url('images/links/audio.png') center right no-repeat;
+		background: center right no-repeat;
+		.background-image-svg('images/links/audio-icon.svg','images/links/audio-icon.png');
 		padding-right: 13px;
 	}
-	#bodyContent a.external[href $=".ogm"], #bodyContent a.external[href $=".OGM"],
-	#bodyContent a.external[href $=".avi"], #bodyContent a.external[href $=".AVI"],
-	#bodyContent a.external[href $=".mpeg"], #bodyContent a.external[href $=".MPEG"],
-	#bodyContent a.external[href $=".mpg"], #bodyContent a.external[href $=".MPG"],
 	.link-video {
-		/* @embed */
-		background: url('images/links/video.png') center right no-repeat;
+		background: center right no-repeat;
+		.background-image-svg('images/links/video-icon.svg','images/links/video-icon.png');
 		padding-right: 13px;
 	}
-	#bodyContent a.external[href $=".pdf"], #bodyContent a.external[href $=".PDF"],
-	#bodyContent a.external[href *=".pdf#"], #bodyContent a.external[href *=".PDF#"],
-	#bodyContent a.external[href *=".pdf?"], #bodyContent a.external[href *=".PDF?"],
 	.link-document {
-		/* @embed */
-		background: url('images/links/document.png') center right no-repeat;
+		background: center right no-repeat;
+		.background-image-svg('images/links/document-icon.svg','images/links/document-icon.png');
 		padding-right: 12px;
 	}
 
