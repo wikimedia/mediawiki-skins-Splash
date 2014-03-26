@@ -36,6 +36,7 @@ $wgExtensionCredits['skin'][] = array(
 	'version' => '0.5.1',
 	'author' => array( 'Calimonius the Estrange' ),
 	'descriptionmsg' => 'splash-skin-desc',
+	'url' => 'https://www.mediawiki.org/wiki/Skin:Splash',
 );
 
 $skinID = basename( dirname( __FILE__ ) );
@@ -61,6 +62,11 @@ $wgResourceModules['skins.splash'] = array(
 
 # Add fallback for no fonts (technically the default, but as a mediawiki
 # developer I reserve the right to do ridiculous backwards things)
+
+# $wgFontCSSLocation specifies the location of a publicly accessible css file
+# containing webfont definitions. This skin uses the 'abridahn' and 'abridahn
+# smallcaps' custom fonts for Zaori.org; other things probably won't want
+# those anyway.
 if ( !isset( $wgFontCSSLocation ) ) {
 	$wgResourceModules['skins.splash']['styles'][] = "skins/$skinID/fallback.less";
 }

@@ -30,9 +30,9 @@ class SkinSplash extends SkinTemplate {
 		global $wgFontCSSLocation;
 		parent::setupSkinUserCss( $out );
 
-		# Need to do something for the fonts here?
+		# Need to do something proper for the fonts here?
 
-		# Because of weird font licensing issues or something
+		# Because of weird font licensing issues or something? (fix this)
 		if ( isset( $wgFontCSSLocation ) ) {
 			$out->addStyle( $wgFontCSSLocation, 'screen' );
 		}
