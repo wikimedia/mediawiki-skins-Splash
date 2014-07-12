@@ -37,7 +37,6 @@ class SkinSplash extends SkinTemplate {
 			$out->addStyle( $wgFontCSSLocation, 'screen' );
 		}
 		# Add css/js
-		$out->addModuleStyles( 'mediawiki.skin.normalize' );
 		$out->addModuleStyles( 'skins.splash' );
 
 		$out->addModuleScripts( 'skins.splash' );

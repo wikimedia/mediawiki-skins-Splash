@@ -54,9 +54,11 @@ $wgAutoloadClasses['SkinSplash'] = $dir . 'Splash.skin.php';
 $wgExtensionMessagesFiles['SkinSplash'] = $dir . 'Splash.i18n.php';
 $wgResourceModules['skins.splash'] = array(
 	'styles' => array(
-		"skins/$skinID/main.less" => array( 'media' => 'screen' )
+		"skins/$skinID/resources/normalise.css" => array( 'media' => 'screen' ),
+		"skins/$skinID/resources/externallinks.css" => array( 'media' => 'screen' ),
+		"skins/$skinID/resources/main.less" => array( 'media' => 'screen' )
 	),
-	'scripts' => "skins/$skinID/main.js",
+	'scripts' => "skins/$skinID/resources/main.js",
 	'position' => 'top'
 );
 
@@ -68,5 +70,5 @@ $wgResourceModules['skins.splash'] = array(
 # smallcaps' custom fonts for Zaori.org; other things probably won't want
 # those anyway.
 if ( !isset( $wgFontCSSLocation ) ) {
-	$wgResourceModules['skins.splash']['styles'][] = "skins/$skinID/fallback.less";
+	$wgResourceModules['skins.splash']['styles'][] = "skins/$skinID/resources/fallback.less";
 }
