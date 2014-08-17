@@ -20,7 +20,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
  * @ingroup Skins
  */
 class SkinSplash extends SkinTemplate {
-	var $skinname = 'splash', $stylename = 'splash',
+	public $skinname = 'splash', $stylename = 'splash',
 		$template = 'SplashTemplate', $useHeadElement = true;
 
 	/**
