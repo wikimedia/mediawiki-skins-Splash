@@ -2,11 +2,12 @@
 
 @text: #333;
 @link: #05b;
-@linkv: #04a;
+@linkv: #039;
 @link-red: #722;
 @link-redv: #623;
 @link-grey: #777; /* Not necessarily always links, and probably a bad idea */
 @link-ext: #36b;
+@link-extv: #26a;
 
 body {
 	direction: ltr; /* Needed for RTL flipping */
@@ -361,6 +362,9 @@ a {
 	#contentSub a {
 		color: #777;
 	}
+	#mw-content-text {
+		min-height: 300px;
+	}
 	hr {
 		/* @embed */
 		background: url('images/hr.png') no-repeat 0 100%;
@@ -483,6 +487,10 @@ a {
 	#bodyContent a.extiw:active,
 	#bodyContent a.external {
 		color: @link-ext;
+
+		&:visited {
+			color: @link-extv;
+		}
 	}
 
 	#siteNotice {
