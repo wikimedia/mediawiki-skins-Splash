@@ -51,6 +51,7 @@ $dir = dirname( __FILE__ ) . '/';
 $wgValidSkinNames[strtolower( $skinID )] = 'Splash';
 
 $wgAutoloadClasses['SkinSplash'] = $dir . 'Splash.skin.php';
+$wgMessagesDirs['SkinSplash'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['SkinSplash'] = $dir . 'Splash.i18n.php';
 $wgResourceModules['skins.splash'] = array(
 	'styles' => array(

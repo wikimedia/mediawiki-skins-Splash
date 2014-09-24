@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Isarra"
+		]
+	},
+	"splash-skin-desc": "Splash skin for MediaWiki, as designed for zaori.org",
+	"site-banner": "{{SITENAME}}"
+}
