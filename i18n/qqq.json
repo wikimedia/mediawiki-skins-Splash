@@ -2,9 +2,10 @@
 	"@metadata": {
 		"authors": [
 			"Isarra",
-			"Raymond"
+			"Raymond",
+			"Beta16"
 		]
 	},
-	"splash-skin-desc": "{{desc|name=Splash}}",
+	"splash-skin-desc": "{{desc|what=skin|name=Splash}}",
 	"site-banner": "{{ignore}}\nUsed as the banner text for the site"
 }
