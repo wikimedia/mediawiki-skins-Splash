@@ -57,19 +57,9 @@ $wgResourceModules['skins.splash'] = array(
 	'styles' => array(
 		"skins/$skinID/resources/normalise.css" => array( 'media' => 'screen' ),
 		"skins/$skinID/resources/externallinks.css" => array( 'media' => 'screen' ),
+		"skins/$skinID/resources/fonts.css" => array( 'media' => 'screen' ),
 		"skins/$skinID/resources/main.less" => array( 'media' => 'screen' )
 	),
 	'scripts' => "skins/$skinID/resources/main.js",
 	'position' => 'top'
 );
-
-# Add fallback for no fonts (technically the default, but as a mediawiki
-# developer I reserve the right to do ridiculous backwards things)
-
-# $wgFontCSSLocation specifies the location of a publicly accessible css file
-# containing webfont definitions. This skin uses the 'abridahn' and 'abridahn
-# smallcaps' custom fonts for Zaori.org; other things probably won't want
-# those anyway.
-if ( !isset( $wgFontCSSLocation ) ) {
-	$wgResourceModules['skins.splash']['styles'][] = "skins/$skinID/resources/fallback.less";
-}
