@@ -5,5 +5,7 @@
 		]
 	},
 	"splash-skin-desc": "Splash skin for MediaWiki, as designed for zaori.org",
-	"site-banner": "{{SITENAME}}"
+	"site-banner": "{{SITENAME}}",
+	"global-links-menu": "",
+	"content-footer": ""
 }

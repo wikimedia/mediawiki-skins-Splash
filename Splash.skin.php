@@ -203,9 +203,6 @@ class SplashTemplate extends BaseTemplate {
 					<?php } ?>
 					</ul>
 				</div>
-				<div id="footer-footer">
-					<?php echo wfMessage( 'footer-footer' )->parse; ?>
-				</div>
 			<?php } ?>
 		</div>
 		</div>
