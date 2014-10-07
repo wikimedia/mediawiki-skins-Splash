@@ -3,7 +3,7 @@
 @font-face {
 	font-family: 'abridahn';
 	src: url('fonts/Abridahnkajira.eot');
-	src: local('catnip'),
+	src: url('fonts/Abridahnkajira.eot?#iefix') format('embedded-opentype'),
 		url('fonts/Abridahnkajira.woff') format('woff'),
 		url('fonts/Abridahnkajira.ttf') format('truetype'),
 		url('fonts/Abridahnkajira.svg') format('svg');
@@ -11,7 +11,7 @@
 @font-face {
 	font-family: 'abridahn smallcaps';
 	src: url('fonts/Abridahniajiradi.eot');
-	src: local('catnip'),
+	src: url('fonts/Abridahniajiradi.eot?#iefix') format('embedded-opentype'),
 		url('fonts/Abridahniajiradi.woff') format('woff'),
 		url('fonts/Abridahniajiradi.ttf') format('truetype'),
 		url('fonts/Abridahniajiradi.svg') format('svg');
