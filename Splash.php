@@ -33,7 +33,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['skin'][] = array(
 	'path' => __FILE__,
 	'name' => 'Splash skin',
-	'version' => '0.5.1',
+	'version' => '0.6',
 	'author' => array( 'Calimonius the Estrange' ),
 	'descriptionmsg' => 'splash-skin-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Skin:Splash',
