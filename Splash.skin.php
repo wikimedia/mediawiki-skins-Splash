@@ -142,7 +142,7 @@ class SplashTemplate extends BaseTemplate {
 				$this->text( 'pageLanguage' );
 				?>">
 				<?php $this->cactions(); ?>
-				<span dir="auto"><?php $this->html( 'title' ) ?></span>
+				<?php $this->html( 'title' ) ?>
 			</h1>
 			<?php
 			if ( $this->data['subtitle'] || $this->data['undelete'] ) {
