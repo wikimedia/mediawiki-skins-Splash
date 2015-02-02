@@ -1,6 +1,7 @@
 @import "mediawiki.mixins";
 
 @text: #000;
+@text-grey: #555;
 @link: #05b;
 @linkv: #039;
 @link-red: #722;
@@ -280,7 +281,7 @@ a {
 			width: 17em;
 		}
 		#searchGoButton {
-			color: #555;
+			color: @text-grey;
 			border: none;
 			border-radius: 3px;
 			padding: .4em 1em;
@@ -458,7 +459,7 @@ a {
 		margin-bottom: -1em;
 		/* @embed */
 		background: url('images/hr.png') 0 0 no-repeat transparent;
-
+		color: @text-grey;
 
 		a {
 			color: @link-grey;
@@ -703,7 +704,7 @@ a {
 		min-width: 50%;
 
 		a {
-			color: #666;
+			color: @link-grey;
 		}
 		ul {
 			list-style: none;
@@ -725,6 +726,29 @@ a {
 			margin-right: .35em;
 			content: ': ';
 		}
+	}
+	.thumb {
+		.thumbinner {
+			box-shadow: 0 1px 5px 1px #bbb;
+			background: #fafafa;
+			padding: 3px;
+		}
+		.thumbimage {
+			border: solid 1px #ccc;
+			box-shadow: inset 0 0 5px #bbb;
+		}
+		.thumbcaption {
+			padding: .25em .5em;
+			font-size: 90%;
+			font-style: italic;
+			color: @text-grey;
+		}
+	}
+	.tright {
+		padding: 0 0 1em 1.75em;
+	}
+	.tleft {
+		padding: 0 1.75em 1em 0;
 	}
 }
 
