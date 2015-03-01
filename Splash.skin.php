@@ -30,15 +30,11 @@ class SkinSplash extends SkinTemplate {
 		global $wgFontCSSLocation;
 		parent::setupSkinUserCss( $out );
 
-		# Need to do something proper for the fonts here?
-
-		# Because of weird font licensing issues or something? (fix this)
-		if ( isset( $wgFontCSSLocation ) ) {
-			$out->addStyle( $wgFontCSSLocation, 'screen' );
-		}
 		# Add css/js
-		$out->addModuleStyles( 'skins.splash' );
-
+		$out->addModuleStyles( array (
+			'mediawiki.skinning.content.externallinks',
+			'skins.splash'
+		) );
 		$out->addModuleScripts( 'skins.splash' );
 	}
 }
@@ -67,6 +63,8 @@ class SplashTemplate extends BaseTemplate {
 		?>
 		<div id="globalWrapper">
 		<div id="container-top">
+		<div id="container-top-l1">
+		<div id="container-top-l2">
 		<div id="container-bottom">
 		<div id="container-content">
 		<div id="header" class="noprint"<?php $this->html( 'userlangattributes' ); ?>>
@@ -204,6 +202,8 @@ class SplashTemplate extends BaseTemplate {
 					</ul>
 				</div>
 			<?php } ?>
+		</div>
+		</div>
 		</div>
 		</div>
 		</div>
