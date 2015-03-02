@@ -45,7 +45,18 @@ a {
 
 #container-top {
 	background: #dbdbdb url('images/top.gif') no-repeat 50% 0;
+
+	#container-top-l1 {
+		.background-image-svg('images/top-daji.svg','images/top-daji.png');
+		background-position: 50% 35px;
+		background-repeat: no-repeat;
+		background-color: transparent;
+	}
+	#container-top-l2 {
+		background: transparent url('images/top-over.png') no-repeat 50% 0;
+	}
 }
+
 #container-bottom {
 	background: url('images/bottom-splash.gif') repeat-x 50% 100%;
 }
@@ -92,8 +103,10 @@ a {
 			display: none;
 		}
 		.pBody {
-			/* @embed */
-			background: url('images/hr-white.png') 0px 95% no-repeat transparent;
+			.background-image-svg('images/hr-white.svg','images/hr-white.png');
+			background-position: 0px 95%;
+			background-repeat: no-repeat;
+			background-color: transparent;
 		}
 		ul {
 			margin: 0;
@@ -115,8 +128,10 @@ a {
 					}
 				}
 				&.selected {
-					/* @embed */
-					background: url('images/mainlinks-underline.png') no-repeat 0 100%;
+					.background-image-svg('images/mainlinks-underline.svg','images/mainlinks-underline.png');
+					background-position: -10px 100%;
+					background-repeat: no-repeat;
+					background-color: transparent;
 				}
 			}
 		}
@@ -134,10 +149,11 @@ a {
 				margin-top: -4px;
 				margin-bottom: -8px;
 				.background-image-svg('images/mainlinks-daji.svg','images/mainlinks-daji.png');
+				background-position: -1px -1px;
 				background-repeat: no-repeat;
 
 				&:hover {
-					.background-image-svg('images/mainlinks-daji-white.svg','images/mainlinks-daji-white.png');
+					background-position: -1px -24px;
 				}
 			}
 		}
@@ -147,7 +163,7 @@ a {
 	#global-links li,
 	#site-navigation h3 {
 		font-variant: small-caps;
-		text-shadow: 0px 1px 0px #DDDDDD, 0px -1px 0px #000000, 0px 3px 2px #000000;
+		text-shadow: 0px .5px 0px #DDDDDD, 0px 1px 0px #DDDDDD, 0px -1px 0px #000000, 0px 3px 2px #000000;
 	}
 	#p-personal {
 		position: absolute;
@@ -249,8 +265,9 @@ a {
 			padding-left: 1.5em;
 			margin: 0;
 			list-style: none;
-			/* @embed */
-			background: url('images/blut.png') no-repeat 0 5px;
+			.background-image-svg('images/blut.svg','images/blut.png');
+			background-repeat: no-repeat;
+			background-position: 0 2px;
 			line-height: 130%;
 			font-size: 90%;
 			color: #999;
@@ -299,7 +316,7 @@ a {
 #footer {
 	text-align: center;
 	color: #fff;
-	text-shadow: 0 1px 0 #999, 0 1px 0 #333, 0 1px 1px #000;
+	text-shadow: 0 1px 0 #999, 0 1px 0 #333, 0 1px 1px #222, 0 2px 2px #666;
 	font-size: 80%;
 	line-height: 1.75em;
 	padding: 0 2em 1em;
@@ -309,7 +326,7 @@ a {
 	}
 	a {
 		color: #cef;
-		text-shadow: 0 -1px 0 #bbb, 0 1px 2px #000;
+		text-shadow: 0 -1px 0 #bbb, 0 1px 1px #444, 0 2px 3px #666;
 		text-decoration: none;
 	}
 	ul {
@@ -367,8 +384,9 @@ a {
 		min-height: 300px;
 	}
 	hr {
-		/* @embed */
-		background: url('images/hr.png') no-repeat 0 100%;
+		.background-image-svg('images/hr.svg','images/hr.png');
+		background-repeat: no-repeat;
+		background-position: 0 100%;
 		border: none;
 		height: 1px;
 		padding: 0;
@@ -390,8 +408,10 @@ a {
 	h1, h2 {
 		margin-top: 2.3em;
 		padding: .2em 0;
-		/* @embed */
-		background: url('images/hr.png') 0px 99% no-repeat transparent;
+		.background-image-svg('images/hr.svg','images/hr.png');
+		background-repeat: no-repeat;
+		background-position: 0 95%;
+		background-color: transparent;
 	}
 	h1 {
 		font-size: 2em;
@@ -457,8 +477,10 @@ a {
 		padding-top: .75em;
 		margin-top: 2em;
 		margin-bottom: -1em;
-		/* @embed */
-		background: url('images/hr.png') 0 0 no-repeat transparent;
+		.background-image-svg('images/hr.svg','images/hr.png');
+		background-position: 0 0;
+		background-repeat: no-repeat;
+		background-color: transparent;
 		color: @text-grey;
 
 		a {
@@ -476,8 +498,7 @@ a {
 	}
 	ul {
 		list-style: disc;
-		/* @embed */
-		list-style-image: url('images/blut.png');
+		.list-style-image-svg('images/blut.svg', 'images/blut.png');
 	}
 	li {
 		padding-top: .2em;
@@ -702,7 +723,6 @@ a {
 		margin-top: 2em;
 		box-shadow: 0 1px 5px 1px #bbb;
 		padding: 1em 4em 1em 2em;
-		min-width: 40%;
 
 		a {
 			color: @link-grey;
@@ -714,10 +734,9 @@ a {
 			margin: 0;
 			background: none;
 			font-size: 120%;
+			display: inline;
 		}
 		.toctoggle {
-			float: right;
-			margin-top: -1.85em;
 			font-size: 85%;
 		}
 		.toclevel-1 {

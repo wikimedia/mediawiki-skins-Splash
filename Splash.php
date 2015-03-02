@@ -56,7 +56,6 @@ $wgExtensionMessagesFiles['SkinSplash'] = $dir . 'Splash.i18n.php';
 $wgResourceModules['skins.splash'] = array(
 	'styles' => array(
 		"skins/$skinID/resources/normalise.css" => array( 'media' => 'screen' ),
-		"skins/$skinID/resources/externallinks.css" => array( 'media' => 'screen' ),
 		"skins/$skinID/resources/fonts.css" => array( 'media' => 'screen' ),
 		"skins/$skinID/resources/main.less" => array( 'media' => 'screen' )
 	),
