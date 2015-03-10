@@ -400,7 +400,7 @@ a {
 	h1, h2, h3, h4, h5, h6, dt {
 		line-height: 120%;
 		font-variant: small-caps;
-		text-shadow: 0 -1px 0 #ddd, 0 1px 2px #888;
+		text-shadow: 0 -1px 0 #fff, 0 1px 2px #888;
 		font-weight: normal;
 		color: #823;
 	}
@@ -536,6 +536,7 @@ a {
 	input.mw-summary,
 	.mw-input input,
 	input.mw-input,
+	.mw-ui-input,
 	input#wpTemplateSandboxPage,
 	textarea {
 		padding: .3em;
@@ -629,6 +630,39 @@ a {
 	}
 	.mw-submit {
 		padding-top: 2em;
+	}
+
+	/* Login form stuff */
+	#userloginForm {
+		.mw-ui-vform-field {
+			padding-top: .75em;
+
+			input.mw-ui-input {
+				display: block;
+				min-width: 25em;
+				margin-top: .2em;
+			}
+			label {
+				padding: 0;
+			}
+			input[type="checkbox"] {
+				margin: .2em .75em .5em 0;
+				vertical-align: top;
+			}
+			input[type="submit"] {
+				min-width: 10em;
+				margin-top: 1em;
+			}
+		}
+
+		.mw-form-related-link-container {
+			display: inline-block;
+			margin-top: 1em;
+		}
+		#mw-userlogin-help:after {
+			content: "|";
+			color: @text-grey;
+		}
 	}
 
 	/* Preferences toc */
@@ -774,4 +808,12 @@ a {
 
 .ns-special #page-content #p-cactions li[id^="ca-nstab-"]::after {
 	content: '';
+}
+
+/* Account creation tweaks */
+@media (min-width: 900px) {
+	.mw-ui-container #userloginForm {
+		max-width: 500px;
+		margin-right: 1em;
+	}
 }

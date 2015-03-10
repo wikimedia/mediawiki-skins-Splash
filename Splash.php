@@ -57,8 +57,19 @@ $wgResourceModules['skins.splash'] = array(
 	'styles' => array(
 		"skins/$skinID/resources/normalise.css" => array( 'media' => 'screen' ),
 		"skins/$skinID/resources/fonts.css" => array( 'media' => 'screen' ),
-		"skins/$skinID/resources/main.less" => array( 'media' => 'screen' )
+		"skins/$skinID/resources/screen.less" => array( 'media' => 'screen' )
 	),
-	'scripts' => "skins/$skinID/resources/main.js",
 	'position' => 'top'
+);
+
+# Get rid of weird wikimedia ui form styling
+$wgResourceModuleSkinStyles['splash'] = array(
+	'mediawiki.ui' => array(),
+	'mediawiki.ui.checkbox' => array(),
+	'mediawiki.ui.anchor' => array(),
+	'mediawiki.ui.button' => array(),
+	'mediawiki.ui.input' => array(),
+	'mediawiki.ui.radio' => array(),
+	'mediawiki.ui.icon' => array(),
+	'mediawiki.ui.text' => array(),
 );
