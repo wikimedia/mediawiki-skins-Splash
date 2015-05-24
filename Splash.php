@@ -24,52 +24,15 @@
  * @date 2014
  */
 
-if ( !defined( 'MEDIAWIKI' ) ) {
-	die( -1 );
+if ( function_exists( 'wfLoadSkin' ) ) {
+	wfLoadSkin( 'Splash' );
+	// Keep i18n globals so mergeMessageFileList.php doesn't break
+	$wgMessagesDirs['Splash'] = __DIR__ . '/i18n';
+	wfWarn(
+		'Deprecated PHP entry point used for Splash skin. Please use wfLoadSkin instead, ' .
+		'see https://www.mediawiki.org/wiki/Extension_registration for more details.'
+	);
+	return;
+} else {
+	die( 'This version of the Splash skin requires MediaWiki 1.25+' );
 }
-
-# Skin credits that will show up on Special:Version
-
-$wgExtensionCredits['skin'][] = array(
-	'path' => __FILE__,
-	'name' => 'Splash skin',
-	'version' => '0.6',
-	'author' => array( 'Calimonius the Estrange' ),
-	'descriptionmsg' => 'splash-skin-desc',
-	'url' => 'https://www.mediawiki.org/wiki/Skin:Splash',
-);
-
-$skinID = basename( dirname( __FILE__ ) );
-$dir = dirname( __FILE__ ) . '/';
-
-# Autoload the skin class, make it a valid skin, set up i18n
-
-# The first instance must be strtolower()ed so that useskin=nimbus works and
-# so that it does *not* force an initial capital (i.e. we do NOT want
-# useskin=Splash) and the second instance is used to determine the name of
-# *this* file.
-$wgValidSkinNames[strtolower( $skinID )] = 'Splash';
-
-$wgAutoloadClasses['SkinSplash'] = $dir . 'Splash.skin.php';
-$wgMessagesDirs['SkinSplash'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['SkinSplash'] = $dir . 'Splash.i18n.php';
-$wgResourceModules['skins.splash'] = array(
-	'styles' => array(
-		"skins/$skinID/resources/normalise.css" => array( 'media' => 'screen' ),
-		"skins/$skinID/resources/fonts.css" => array( 'media' => 'screen' ),
-		"skins/$skinID/resources/screen.less" => array( 'media' => 'screen' )
-	),
-	'position' => 'top'
-);
-
-# Get rid of weird wikimedia ui form styling
-$wgResourceModuleSkinStyles['splash'] = array(
-	'mediawiki.ui' => array(),
-	'mediawiki.ui.checkbox' => array(),
-	'mediawiki.ui.anchor' => array(),
-	'mediawiki.ui.button' => array(),
-	'mediawiki.ui.input' => array(),
-	'mediawiki.ui.radio' => array(),
-	'mediawiki.ui.icon' => array(),
-	'mediawiki.ui.text' => array(),
-);
