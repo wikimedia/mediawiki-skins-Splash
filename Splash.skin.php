@@ -372,8 +372,8 @@ class SplashTemplate extends BaseTemplate {
 					<li id="t-purge"><?php echo $link; ?></li>
 
 					<?php
-					wfRunHooks( 'MonoBookTemplateToolboxEnd', array( &$this ) );
-					wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ) );
+					Hooks::run( 'MonoBookTemplateToolboxEnd', array( &$this ) );
+					Hooks::run( 'SkinTemplateToolboxEnd', array( &$this, true ) );
 				?>
 				</ul>
 			</div>
