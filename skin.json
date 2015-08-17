@@ -6,6 +6,7 @@
 	],
 	"url": "https://www.mediawiki.org/wiki/Skin:Splash",
 	"descriptionmsg": "splash-skin-desc",
+	"license-name": "GPL-2.0+",
 	"type": "skin",
 	"ValidSkinNames": {
 		"splash": "Splash"
@@ -18,16 +19,20 @@
 	"AutoloadClasses": {
 		"SkinSplash": "Splash.skin.php"
 	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteSkinPath": "Splash"
+	},
 	"ResourceModules": {
 		"skins.splash": {
 			"styles": {
-				"skins/Splash/resources/normalise.css": {
+				"resources/normalise.css": {
 					"media": "screen"
 				},
-				"skins/Splash/resources/fonts.css": {
+				"resources/fonts.css": {
 					"media": "screen"
 				},
-				"skins/Splash/resources/screen.less": {
+				"resources/screen.less": {
 					"media": "screen"
 				}
 			},
