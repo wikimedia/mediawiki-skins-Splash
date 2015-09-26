@@ -17,7 +17,8 @@
 		]
 	},
 	"AutoloadClasses": {
-		"SkinSplash": "Splash.skin.php"
+		"SkinSplash": "Splash.skin.php",
+		"SplashTemplate": "Splash.skin.php"
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
