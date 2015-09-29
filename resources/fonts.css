@@ -1,7 +1,7 @@
 /* Font definitions for fancy layout (font sources last updated 2013) */
 
 @font-face {
-	font-family: 'abridahn';
+	font-family: 'abridahn web';
 	src: url('fonts/Abridahnkajira.eot');
 	src: url('fonts/Abridahnkajira.eot?#iefix') format('embedded-opentype'),
 		url('fonts/Abridahnkajira.woff') format('woff'),
@@ -9,7 +9,7 @@
 		url('fonts/Abridahnkajira.svg') format('svg');
 }
 @font-face {
-	font-family: 'abridahn smallcaps';
+	font-family: 'abridahn smallcaps web';
 	src: url('fonts/Abridahniajiradi.eot');
 	src: url('fonts/Abridahniajiradi.eot?#iefix') format('embedded-opentype'),
 		url('fonts/Abridahniajiradi.woff') format('woff'),
