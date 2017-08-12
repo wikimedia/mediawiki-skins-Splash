@@ -9,11 +9,12 @@ class SkinSplash extends SkinTemplate {
 		$template = 'SplashTemplate', $useHeadElement = true;
 
 	/**
-	 * @param $out OutputPage
+	 * @param OutputPage $out
 	 */
-	function setupSkinUserCss( OutputPage $out ) {
-		global $wgFontCSSLocation;
-		parent::setupSkinUserCss( $out );
+	public function initPage( OutputPage $out ) {
+		parent::initPage( $out );
+
+		$out->addMeta( 'viewport', 'width=device-width, initial-scale=1, maximum-scale=1' );
 
 		# Add css/js
 		$out->addModuleStyles( array (
@@ -21,5 +22,14 @@ class SkinSplash extends SkinTemplate {
 			'skins.splash'
 		) );
 		$out->addModuleScripts( 'skins.splash' );
+	}
+
+	/**
+	 * Add CSS via ResourceLoader
+	 * @param $out OutputPage
+	 */
+	function setupSkinUserCss( OutputPage $out ) {
+		global $wgFontCSSLocation;
+		parent::setupSkinUserCss( $out );
 	}
 }
