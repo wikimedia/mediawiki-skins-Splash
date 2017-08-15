@@ -17,10 +17,10 @@ class SkinSplash extends SkinTemplate {
 		$out->addMeta( 'viewport', 'width=device-width, initial-scale=1, maximum-scale=1' );
 
 		# Add css/js
-		$out->addModuleStyles( array (
+		$out->addModuleStyles( [
 			'mediawiki.skinning.content.externallinks',
 			'skins.splash'
-		) );
+		] );
 		$out->addModuleScripts( 'skins.splash' );
 	}
 
@@ -29,7 +29,6 @@ class SkinSplash extends SkinTemplate {
 	 * @param $out OutputPage
 	 */
 	function setupSkinUserCss( OutputPage $out ) {
-		global $wgFontCSSLocation;
 		parent::setupSkinUserCss( $out );
 	}
 }

@@ -5,7 +5,10 @@
 		]
 	},
 	"splash-skin-desc": "Splash skin for MediaWiki, as designed for zaori.org",
+	"splash-personaltools": "$1",
+	"splash-purge": "Purge this page",
 	"site-banner": "{{SITENAME}}",
 	"global-links-menu": "",
+	"global-links-menu-header": "Other navigation",
 	"content-footer": ""
 }
