@@ -7,210 +7,246 @@
 class SplashTemplate extends BaseTemplate {
 
 	/**
-	 * Template filter callback for Splash skin.
-	 * Takes an associative array of data set from a SkinTemplate-based
-	 * class, and a wrapper for MediaWiki's localization database, and
-	 * outputs a formatted page.
-	 *
-	 * @access private
+	 * Outputs the entire contents of the page
 	 */
 	function execute() {
+		// Open html, body elements, etc
+		$html = $this->get( 'headelement' );
+
+		$html .= Html::openElement( 'div', [ 'id' => 'globalWrapper' ] );
+		$html .= Html::openElement( 'div', [ 'id' => 'container-top' ] );
+		$html .= Html::openElement( 'div', [ 'id' => 'container-top-l1' ] );
+		$html .= Html::openElement( 'div', [ 'id' => 'container-top-l2' ] );
+		$html .= Html::openElement( 'div', [ 'id' => 'container-bottom' ] );
+
+		$html .= Html::rawElement( 'div', [ 'id' => 'container-content' ],
+			Html::rawElement(
+				'div',
+				[ 'id' => 'header', 'class' => [ 'noprint', $this->get( 'userlangattributes' ) ] ],
+				$this->getGlobalLinks() .
+				Html::rawElement(
+					'div',
+					[ 'id' => 'site-links' ],
+					$this->getPersonalToolsBlock() .
+					Html::rawElement( 'div', [ 'id' => 'site-navigation' ],
+						$this->getMainNavigation()
+					) .
+					$this->getSearchBox() .
+					Html::rawElement( 'div', [ 'id' => 'main-logo', 'role' => 'banner' ],
+						Html::rawElement(
+							'a',
+							[ 'class' => [ 'mw-wiki-title' ], 'href' => htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] ) ],
+							Html::rawElement( 'div', [ 'id' => 'mainlogo-text' ],
+								Html::rawElement( 'h1', [], $this->getMsg( 'site-banner' )->text() )
+							)
+						)
+					)
+				)
+			) .
+			Html::rawElement( 'div', [ 'id' => 'page-content' ],
+				Html::rawElement( 'div', [ 'id' => 'content-container' ],
+					Html::rawElement(
+						'div',
+						[ 'id' => 'content', 'class' => 'mw-body-primary', 'role' => 'main' ],
+						Html::element( 'a', [ 'id' => 'top' ] ) .
+						$this->getIndicators() .
+						$this->getSiteNotices() .
+						Html::rawElement(
+							'h1',
+							[
+								'id' => 'firstHeading',
+								'class' => 'firstHeading',
+								'lang' => $this->get( 'pageLanguage' )
+							],
+							$this->getCactions() .
+							$this->get( 'title' )
+						) .
+						$this->getSiteSubChrome() .
+						Html::rawElement( 'div', [ 'id' => 'bodyContent', 'class' => 'mw-body' ],
+							Html::rawElement(
+								'div',
+								[ 'id' => 'siteSub' ],
+								$this->getMsg( 'tagline' )->parse()
+							) .
+							$this->get( 'bodytext' ) .
+							$this->getClear() .
+							$this->getCategoryBlock() .
+							$this->getDataAfterContent()
+						) .
+						Html::rawElement( 'div', [ 'id' => 'content-footer' ],
+							$this->getMsg( 'content-footer' )->parse()
+						)
+					)
+				)
+			) .
+			Html::rawElement(
+				'div',
+				[ 'id' => 'footer' ],
+				$this->getFooter()
+			)
+		);
+
+		$html .= Html::closeElement( 'div' );
+		$html .= Html::closeElement( 'div' );
+		$html .= Html::closeElement( 'div' );
+		$html .= Html::closeElement( 'div' );
+		$html .= Html::closeElement( 'div' );
+
+		$html .= $this->getTrail();
+		$html .= Html::closeElement( 'body' );
+		$html .= Html::closeElement( 'html' );
+
+		// The unholy echo
+		echo $html;
+	}
+
+	/**
+	 * Menu for global navigation (for cross-wiki stuff or just whatever things)
+	 *
+	 * @return string html
+	 */
+	protected function getGlobalLinks() {
+		$html = '';
+		if ( wfMessage( 'global-links-menu' )->escaped() ) {
+			$html = Html::rawElement(
+				'div',
+				[ 'id' => 'global-links', 'class' => 'mw-portlet', 'role' => 'navigation' ],
+				$this->getNavigation( 'global-links-menu', 'global-links-menu-header' )
+			);
+		}
+
+		return $html;
+	}
+
+	/**
+	 * Personal tools dropdown information
+	 *
+	 * @return string html
+	 */
+	protected function getPersonalToolsBlock() {
 		$user = $this->getSkin()->getUser();
 
-		# Suppress warnings to prevent notices about missing indexes in $this->data
-		wfSuppressWarnings();
+		$personalToolsMsg = 'personaltools';
+		$personalToolsClass = 'not-logged-in';
+		if ( $user->isLoggedIn() ) {
+			$personalToolsMsg = [ 'splash-personaltools', $user->getName() ];
+			$personalToolsClass = 'logged-in';
+		}
 
-		$this->html( 'headelement' );
-		?>
-		<div id="globalWrapper">
-		<div id="container-top">
-		<div id="container-top-l1">
-		<div id="container-top-l2">
-		<div id="container-bottom">
-		<div id="container-content">
-		<div id="header" class="noprint"<?php $this->html( 'userlangattributes' ); ?>>
-			<div id="global-links" class="portlet" role="navigation">
-				<?php
-				# Menu for global navigation (between wiki and other things)
-				if ( wfMessage( 'global-links-menu' )->escaped() ) {
-					$this->renderNavigation( 'global-links-menu', 'main-links' );
-				}
-				?>
-			</div>
-			<div id="site-links">
-				<div class="portlet" id="p-personal" role="navigation">
-					<?php
-					# Display status, and make a dropdown if logged in
-					if ( $user->isLoggedIn() ) {
-						?>
-						<div id="p-loggedin">
-							<?php echo $user->getName(); ?>
-						</div>
-						<div class="pBody dropdown">
-						<?php
-					} else {
-						?>
-						<div class="pBody no-dropdown">
-						<?php
-					}
-					?>
-					<ul<?php $this->html( 'userlangattributes' ) ?>>
-					<?php
-						foreach ( $this->getPersonalTools() as $key => $item ) {
-							echo $this->makeListItem( $key, $item );
-						}
-					?>
-					</ul>
-					</div>
-				</div>
-				<div id="site-navigation">
-					<?php $this->renderPortals( $this->data['sidebar'] ); ?>
-				</div>
-				<?php $this->searchBox(); ?>
+		return $this->getPortlet( 'personal', $this->getPersonalTools(), $personalToolsMsg, $personalToolsClass );
+	}
 
-			</div>
-			<div id="main-logo" role="banner">
-			<a href="/"><div id="mainlogo-text"><h1><?php echo wfMessage( 'site-banner' )->parse(); ?></h1></div></a>
-		</div>
-		</div>
-		<div id="page-content">
-		<div id="content-container">
-		<div id="content" class="mw-body-primary" role="main">
-			<a id="top"></a>
-			<?php
-			if ( $this->data['sitenotice'] ) {
-			?>
-				<div id="siteNotice">
-				<?php
-					$this->html( 'sitenotice' )
-				?>
-				</div>
-				<?php
+	/**
+	 * Categories
+	 *
+	 * @return string html
+	 */
+	protected function getCategoryBlock() {
+		$html = '';
+		if( $this->data['catlinks'] ) {
+			$html = $this->get( 'catlinks' );
+		};
+
+		return $html;
+	}
+
+	/**
+	 * Site subtitle, undelete stuff, etc
+	 *
+	 * @return string html
+	 */
+	protected function getSiteSubChrome() {
+		$html = '';
+		if ( $this->data['subtitle'] || $this->data['undelete'] ) {
+			$html .= Html::rawElement( 'div', [ 'id' => 'contentSub' ],
+				$this->get( 'subtitle' )
+			);
+			if ( $this->data['undelete'] ) {
+				$html .= Html::rawElement( 'div', [ 'id' => 'contentSub2' ],
+					$this->get( 'undelete' )
+				);
 			}
+		}
 
-			if ( $this->data['newtalk'] ) {
-				if ( $this->data['newtalk'] ) {
-					?>
-					<div class="usermessage"><?php $this->html( 'newtalk' ) ?></div>
-					<?php
-				}
-			}
-			?>
-			<h1 id="firstHeading" class="firstHeading" lang="<?php
-				$this->data['pageLanguage'] = $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode();
-				$this->text( 'pageLanguage' );
-				?>">
-				<?php $this->cactions(); ?>
-				<?php $this->html( 'title' ) ?>
-			</h1>
-			<?php
-			if ( $this->data['subtitle'] || $this->data['undelete'] ) {
-			?>
-				<div id="contentSub"<?php $this->html( 'userlangattributes' ) ?>>
-					<?php $this->html( 'subtitle' ) ?>
-				</div>
-				<?php
-				if ( $this->data['undelete'] ) {
-					?>
-					<div id="contentSub2"><?php $this->html( 'undelete' ) ?></div>
-					<?php
-				}
-			}
-			?>
-			<div id="bodyContent" class="mw-body">
-				<div id="siteSub"><?php $this->msg( 'tagline' ) ?></div>
+		return $html;
+	}
 
-				<!-- start content -->
-				<?php $this->html( 'bodytext' ) ?>
-				<!-- end content -->
+	/**
+	 * I'm not actually sure what this is, but all skins have it
+	 *
+	 * @return string html
+	 */
+	protected function getDataAfterContent() {
+		$html = '';
+		if ( $this->data['dataAfterContent'] ) {
+			$html = $this->get( 'dataAfterContent' );
+		}
 
-				<div class="visualClear"></div>
-				<?php if( $this->data['catlinks'] ) { $this->html( 'catlinks' ); } ?>
-				<?php if( $this->data['dataAfterContent'] ) { $this->html( 'dataAfterContent' ); } ?>
-			</div>
-			<div id="content-footer">
-				<?php echo wfMessage( 'content-footer' )->parse(); ?>
-			</div>
-		</div>
-		</div>
-		</div>
-		<?php
-			$validFooterIcons = $this->getFooterIcons( "icononly" );
-			$validFooterLinks = $this->getFooterLinks( "flat" ); // Additional footer links
-			?>
-			<div id="footer" role="contentinfo"<?php $this->html('userlangattributes') ?>>
-			<?php
-			foreach ( $validFooterIcons as $blockName => $footerIcons ) {
-				?>
-				<div id="f-<?php echo htmlspecialchars( $blockName ); ?>ico" class="footer-icons">
-				<?php
-				foreach ( $footerIcons as $icon ) {
-					?>
-					<?php echo $this->getSkin()->makeFooterIcon( $icon );
-				}
-				?>
-				</div>
-				<?php
-			}
-			if ( count( $validFooterLinks ) > 0 ) {
-				?>
-				<div>
-					<ul id="f-list">
-					<?php
-					foreach( $validFooterLinks as $aLink ) { ?>
-						<li id="<?php echo $aLink ?>"><?php $this->html($aLink) ?></li>
-					<?php } ?>
-					</ul>
-				</div>
-			<?php } ?>
-		</div>
-		</div>
-		</div>
-		</div>
-		</div>
-		<?php
-		$this->printTrail();
-		echo Html::closeElement( 'body' );
-		echo Html::closeElement( 'html' );
-		wfRestoreWarnings();
-	} // end of execute() method
+		return $html;
+	}
 
-	/*************************************************************************************************/
+	/**
+	 * Notices that may appear above the firstHeading
+	 *
+	 * @return string html
+	 */
+	protected function getSiteNotices() {
+		$html = '';
+
+		if ( $this->data['sitenotice'] ) {
+			$html .= Html::rawElement( 'div', [ 'id' => 'siteNotice' ], $this->get( 'sitenotice' ) );
+		}
+		if ( $this->data['newtalk'] ) {
+			$html .= Html::rawElement( 'div', [ 'class' => 'usermessage' ], $this->get( 'newtalk' ) );
+		}
+
+		return $html;
+	}
 
 	/**
 	 * Print arbitrary block of navigation
-	 * @param $linksMessage
-	 * @param $blockId
 	 * Message parsing is limited to first 10 lines only for this skin.
+	 *
+	 * @param string $linksMessage
+	 * @param string $id
 	 */
-	private function renderNavigation( $linksMessage, $blockId ) {
+	protected function getNavigation( $linksMessage, $id ) {
 		$message = trim(  wfMessage( $linksMessage )->text() );
 		$lines = array_slice( explode( "\n", $message ), 0, 10 );
-		$links = array();
+		$links = [];
 		foreach ( $lines as $line ) {
-			# ignore empty lines
+			// ignore empty lines
 			if ( strlen( $line ) == 0 ) {
 				continue;
 			}
 			$links[] = $this->parseItem( $line );
 		}
 
-		$this->customBox( $blockId, $links );
+		return $this->getPortlet( $id, $links );
 	}
 
 	/**
-	 * Extract the link text and destination (href) from a MediaWiki message
+	 * Extract the link text and target (href) from a MediaWiki message
 	 * and return them as an array.
+	 * Follows general MediaWiki:Sidebar format: $1|$2|$3
+	 * 	$1 - link target (full url or internal page target, or mw
+	 * 	     message containing either of these)
+	 * 	$2 - display text (plain text or mw message)
+	 * 	$3 - css class to apply to item
+	 *
+	 * @param string $line
+	 *
+	 * @return array $item
 	 */
-	private function parseItem( $line ) {
-		$item = array();
+	protected function parseItem( $line ) {
+		$item = [];
 
 		$line_temp = explode( '|', trim( $line, '* ' ), 3 );
 		if ( count( $line_temp ) > 1 ) {
 			$line = $line_temp[1];
 			$link = wfMessage( $line_temp[0] )->inContentLanguage()->text();
 
-			# Pull out third item as a class
+			// Pull out third item as a class
 			if ( count( $line_temp ) == 3 ) {
 				$item['class'] =  Sanitizer::escapeClass( $line_temp[2] );
 			}
@@ -220,15 +256,15 @@ class SplashTemplate extends BaseTemplate {
 		}
 		$item['id'] = Sanitizer::escapeId( $line );
 
-		# Determine what to show as the human-readable link description
+		// Determine what to show as the human-readable link description
 		if ( $line == 'zaori-link' ) {
-			# Daji time
+			// Daji time
 			$item['text'] = '';
 		} else if ( wfMessage( $line )->isDisabled() ) {
-			# It's *not* the name of a MediaWiki message, so display it as-is
+			// It's *not* the name of a MediaWiki message, so display it as-is
 			$item['text'] = $line;
 		} else {
-			# Guess what -- it /is/ a MediaWiki message!
+			// Guess what -- it /is/ a MediaWiki message!
 			$item['text'] = wfMessage( $line )->text();
 		}
 
@@ -254,148 +290,295 @@ class SplashTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * @param $sidebar array
+	 *
+	 * @return string html
 	 */
-	protected function renderPortals( $sidebar ) {
-		if ( !isset( $sidebar['TOOLBOX'] ) ) $sidebar['TOOLBOX'] = true;
-		if ( !isset( $sidebar['LANGUAGES'] ) ) $sidebar['LANGUAGES'] = true;
+	protected function getMainNavigation() {
+		$sidebar = $this->getSidebar();
+		$html = '';
 
-		foreach( $sidebar as $boxName => $content ) {
-			if ( $content === false )
-				continue;
+		// Add toolbox and languages at end if not specified earlier
+		if ( !isset( $sidebar['TOOLBOX'] ) ) {
+			$sidebar['TOOLBOX'] = true;
+		}
+		if ( !isset( $sidebar['LANGUAGES'] ) ) {
+			$sidebar['LANGUAGES'] = true;
+		}
 
-			if ( $boxName == 'SEARCH' ) {
+		foreach ( $sidebar as $name => $content ) {
+			if ( $content === false ) {
 				continue;
-			} elseif ( $boxName == 'TOOLBOX' ) {
-				$this->toolbox();
-			} elseif ( $boxName == 'LANGUAGES' ) {
-				$this->languageBox();
-			} else {
-				$this->customBox( $boxName, $content );
+			}
+			// Numeric strings gets an integer when set as key, cast back - T73639
+			$name = (string)$name;
+
+			switch ( $name ) {
+				case 'SEARCH':
+					// Already hardcoded into header
+					break;
+				case 'TOOLBOX':
+					$toolbox = $this->getToolbox();
+					$title = $this->getSkin()->getTitle();
+
+					// add purge
+					$toolbox['purge'] = [
+						'text' => $this->getMsg( 'splash-purge' )->text(),
+						'href' => $title->getLocalURL( [ 'action' => 'purge' ] ),
+						'rel' => 'nofolow',
+						'id' => 't-purge'
+					];
+
+					$html .= $this->getPortlet( 'tb', $toolbox, 'toolbox', 'SkinTemplateToolboxEnd' );
+					break;
+				case 'LANGUAGES':
+					if ( $this->data['language_urls'] !== false ) {
+						$html .= $this->getPortlet( 'lang', $this->data['language_urls'], 'otherlanguages' );
+					}
+					break;
+				default:
+					$html .= $this->getPortlet( $name, $content['content'] );
 			}
 		}
+
+		return $html;
 	}
 
-	function searchBox() {
-	?>
-		<div id="p-search" class="portlet" role="search">
-			<form action="<?php $this->text( 'wgScript' ) ?>" id="searchform">
-			<div id="simpleSearch">
-				<?php echo $this->makeSearchInput( array( 'id' => 'searchInput', 'type' => 'text' ) ); ?>
-				<?php echo $this->makeSearchButton( 'go', array( 'id' => 'searchGoButton', 'class' => 'searchButton' ) ); ?>
-				<?php # echo $this->makeSearchButton( 'fulltext', array( 'id' => 'mw-searchButton', 'class' => 'searchButton' ) ); ?>
-				<input type='hidden' name="title" value="<?php $this->text( 'searchtitle' ) ?>"/>
-			</div>
-		</form>
-		</div>
-	<?php
+	/**
+	 * Generate the search form for the top of the page
+	 *
+	 * @return string html
+	 */
+	protected function getSearchBox() {
+		$html = '';
+
+		$html .= Html::openElement( 'div', [ 'id' => 'p-search', 'class' => 'mw-portlet', 'role' => 'search' ] );
+
+		$html .= Html::rawElement(
+			'h3',
+			[ 'lang' => $this->get( 'userlang' ), 'dir' => $this->get( 'dir' ) ],
+			Html::rawElement( 'label', [ 'for' => 'searchInput' ], $this->getMsg( 'search' )->text() )
+		);
+
+		$html .= Html::rawElement( 'form', [ 'action' => $this->get( 'wgScript' ), 'id' => 'searchform' ],
+			Html::rawElement( 'div', [ 'id' => 'simpleSearch' ],
+				$this->makeSearchInput( [ 'id' => 'searchInput', 'type' => 'text' ] ) .
+				Html::hidden( 'title', $this->get( 'searchtitle' ) ) .
+				$this->makeSearchButton(
+					'go',
+					[ 'id' => 'searchGoButton', 'class' => 'searchButton' ]
+				) .
+				$this->makeSearchButton(
+					'fulltext',
+					[ 'id' => 'mw-searchButton', 'class' => [ 'searchButton', 'mw-fallbackSearchButton' ] ]
+				)
+			)
+		);
+
+		$html .= Html::closeElement( 'div' );
+
+		return $html;
 	}
 
 	/**
 	 * Prints the cactions bar.
+	 *
+	 * @return string html
 	 */
-	function cactions() {
-	?>
-		<div id="p-cactions" class="portlet" role="navigation">
-			<div class="pBody">
-				<ul>
-				<?php
-				foreach ( $this->data['content_actions'] as $key => $tab ) {
-					echo $this->makeListItem( $key, $tab );
-				}
-				?>
-				</ul>
-			</div>
-		</div>
-	<?php
+	protected function getCactions() {
+		return $this->getPortlet( 'cactions', $this->data['content_actions'], 'actions' );
 	}
 
-	/*************************************************************************************************/
-	function toolbox() {
-	?>
-		<div class="portlet" id="p-tb" role="navigation">
-			<h3><?php $this->msg( 'toolbox' ) ?></h3>
-			<div class="pBody">
-				<ul>
-				<?php
-					foreach ( $this->getToolbox() as $key => $tbitem ) {
-						echo $this->makeListItem( $key, $tbitem );
-					}
-					$title = $this->getSkin()->getTitle();
-					# history
-					if ( $this->getSkin()->getOutput()->isArticleRelated() ) {
-						$link = Linker::link( $title, wfMessage( 'greystuff-history' )->text(), array(), array( 'action' => 'history' ) ); ?>
-						<li id="t-history"><?php echo $link; ?></li>
-						<?php
-					}
-					# purge
-					$link = Linker::link( $title, wfMessage( 'greystuff-purge' )->text(), array(), array( 'action' => 'purge' ) ); ?>
-					<li id="t-purge"><?php echo $link; ?></li>
-
-					<?php
-					Hooks::run( 'MonoBookTemplateToolboxEnd', array( &$this ) );
-					Hooks::run( 'SkinTemplateToolboxEnd', array( &$this, true ) );
-				?>
-				</ul>
-			</div>
-		</div>
-	<?php
-	}
-
-	/*************************************************************************************************/
-	function languageBox() {
-		if ( $this->data['language_urls'] ) {
-		?>
-			<div id="p-lang" class="portlet" role="navigation">
-				<h3<?php $this->html( 'userlangattributes' ) ?>><?php $this->msg( 'otherlanguages' ) ?></h3>
-				<div class="pBody">
-					<ul>
-					<?php
-					foreach ( $this->data['language_urls'] as $key => $langlink ) {
-						?>
-						<?php echo $this->makeListItem( $key, $langlink );
-					}
-					?>
-					</ul>
-				</div>
-			</div>
-		<?php
-		}
-	}
-
-	/*************************************************************************************************/
 	/**
-	 * @param $bar string
-	 * @param $cont array|string
+	 * Generates a block of navigation links with a header
+	 *
+	 * @param string $name
+	 * @param array|string $content array of links for use with makeListItem, or a block of text
+	 * @param null|string|array|bool $msg
+	 * @class string $class cssclass to add
+	 *
+	 * @return string html
 	 */
-	function customBox( $bar, $cont ) {
-		$portletAttribs = array( 'class' => 'generated-sidebar portlet', 'id' => Sanitizer::escapeId( "p-$bar" ), 'role' => 'navigation' );
-		$tooltip = Linker::titleAttrib( "p-$bar" );
-		if ( $tooltip !== false ) {
-			$portletAttribs['title'] = $tooltip;
+	protected function getPortlet( $name, $content, $msg = null, $class = '' ) {
+		if ( $msg === null ) {
+			$msg = $name;
+		} elseif ( is_array( $msg ) ) {
+			$msgString = array_shift( $msg );
+			$msgParams = $msg;
+			$msg = $msgString;
 		}
-		echo Html::openElement( 'div', $portletAttribs );
-		$msgObj = wfMessage( $bar );
-		?>
-
-		<h3><?php echo htmlspecialchars( $msgObj->exists() ? $msgObj->text() : $bar ); ?></h3>
-		<div class='pBody'>
-			<?php   if ( is_array( $cont ) ) { ?>
-			<ul>
-			<?php
-				foreach ( $cont as $key => $val ) {
-					echo $this->makeListItem( $key, $val );
-				}
-			?>
-			</ul>
-			<?php
+		$msgObj = wfMessage( $msg );
+		if ( $msgObj->exists() ) {
+			if ( isset( $msgParams ) && !empty( $msgParams ) ) {
+				$msgString = $this->getMsg( $msg, $msgParams )->parse();
+			} else {
+				$msgString = $msgObj->parse();
+			}
 		} else {
-			# allow raw HTML block to be defined by extensions
-			print $cont;
+			$msgString = htmlspecialchars( $msg );
 		}
-		?>
-		</div>
-	</div>
-	<?php
+
+		// HACK: Compatibility with extensions still using SkinTemplateToolboxEnd
+		$hookContents = '';
+		if ( $name == 'tb' ) {
+			if ( isset( $boxes['TOOLBOX'] ) ) {
+				ob_start();
+				// We pass an extra 'true' at the end so extensions using BaseTemplateToolbox
+				// can abort and avoid outputting double toolbox links
+				// Avoid PHP 7.1 warning from passing $this by reference
+				$template = $this;
+				Hooks::run( 'SkinTemplateToolboxEnd', [ &$template, true ] );
+				$hookContents = ob_get_contents();
+				ob_end_clean();
+				if ( !trim( $hookContents ) ) {
+					$hookContents = '';
+				}
+			}
+		}
+		// END hack
+
+		$labelId = Sanitizer::escapeId( "p-$name-label" );
+
+		if ( is_array( $content ) ) {
+			$contentText = Html::openElement( 'ul' );
+			foreach ( $content as $key => $item ) {
+				$contentText .= $this->makeListItem(
+					$key,
+					$item,
+					[ 'text-wrapper' => [ 'tag' => 'span' ] ]
+				);
+			}
+			// Add in SkinTemplateToolboxEnd, if any
+			$contentText .= $hookContents;
+			$contentText .= Html::closeElement( 'ul' );
+		} else {
+			$contentText = $content;
+		}
+
+		$html = Html::rawElement( 'div', [
+				'role' => 'navigation',
+				'class' => [ 'mw-portlet', $class ],
+				'id' => Sanitizer::escapeId( 'p-' . $name ),
+				'title' => Linker::titleAttrib( 'p-' . $name ),
+				'aria-labelledby' => $labelId
+			],
+			Html::rawElement( 'h3', [
+					'id' => $labelId,
+					'lang' => $this->get( 'userlang' ),
+					'dir' => $this->get( 'dir' )
+				],
+				$msgString
+			) .
+			Html::rawElement( 'div', [ 'class' => 'mw-portlet-body' ],
+				$contentText .
+				$this->getAfterPortlet( $name )
+			)
+		);
+
+		return $html;
 	}
-} // end of class
+
+	/* Backwards compatibility functions - remove when LTS hits version listed. */
+
+	/**
+	 * Allows extensions to hook into known portlets and add stuff to them
+	 *
+	 * @param string $name
+	 *
+	 * @return string html
+	 * @since 1.29
+	 */
+	protected function getAfterPortlet( $name ) {
+		$html = '';
+		$content = '';
+		Hooks::run( 'BaseTemplateAfterPortlet', [ $this, $name, &$content ] );
+
+		if ( $content !== '' ) {
+			$html = Html::rawElement(
+				'div',
+				[ 'class' => [ 'after-portlet', 'after-portlet-' . $name ] ],
+				$content
+			);
+		}
+
+		return $html;
+	}
+
+	/**
+	 * Get a div with the core visualClear class, for clearing floats
+	 *
+	 * @return string html
+	 * @since 1.29
+	 */
+	protected function getClear() {
+		return Html::element( 'div', [ 'class' => 'visualClear' ] );
+	}
+
+	/**
+	 * Renderer for getFooterIcons and getFooterLinks
+	 *
+	 * @param string $iconStyle $option for getFooterIcons: "icononly", "nocopyright"
+	 * @param string $linkStyle $option for getFooterLinks: "flat"
+	 *
+	 * @return string html
+	 * @since 1.29
+	 */
+	protected function getFooter( $iconStyle = 'icononly', $linkStyle = 'flat' ) {
+		$validFooterIcons = $this->getFooterIcons( $iconStyle );
+		$validFooterLinks = $this->getFooterLinks( $linkStyle );
+
+		$html = '';
+
+		if ( count( $validFooterIcons ) + count( $validFooterLinks ) > 0 ) {
+			$html .= Html::openElement( 'div', [
+				'id' => 'footer-bottom',
+				'role' => 'contentinfo',
+				'lang' => $this->get( 'userlang' ),
+				'dir' => $this->get( 'dir' )
+			] );
+			$footerEnd = Html::closeElement( 'div' );
+		} else {
+			$footerEnd = '';
+		}
+		foreach ( $validFooterIcons as $blockName => $footerIcons ) {
+			$html .= Html::openElement( 'div', [
+				'id' => Sanitizer::escapeId( "f-{$blockName}ico" ),
+				'class' => 'footer-icons'
+			] );
+			foreach ( $footerIcons as $icon ) {
+				$html .= $this->getSkin()->makeFooterIcon( $icon );
+			}
+			$html .= Html::closeElement( 'div' );
+		}
+		if ( count( $validFooterLinks ) > 0 ) {
+			$html .= Html::openElement( 'ul', [ 'id' => 'f-list', 'class' => 'footer-places' ] );
+			foreach ( $validFooterLinks as $aLink ) {
+				$html .= Html::rawElement(
+					'li',
+					[ 'id' => Sanitizer::escapeId( $aLink ) ],
+					$this->get( $aLink )
+				);
+			}
+			$html .= Html::closeElement( 'ul' );
+		}
+
+		$html .= $this->getClear() . $footerEnd;
+
+		return $html;
+	}
+
+	/**
+	 * Get the basic end-page trail including bottomscripts, reporttime, and
+	 * debug stuff. This should be called right before outputting the closing
+	 * body and html tags.
+	 *
+	 * @return string
+	 * @since 1.29
+	 */
+	function getTrail() {
+		$html = MWDebug::getDebugHTML( $this->getSkin()->getContext() );
+		$html .= $this->get( 'bottomscripts' );
+		$html .= $this->get( 'reporttime' );
+
+		return $html;
+	}
+}

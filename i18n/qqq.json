@@ -8,7 +8,10 @@
 		]
 	},
 	"splash-skin-desc": "{{desc|what=skin|name=Splash|url=https://www.mediawiki.org/wiki/Skin:Splash}}",
+	"splash-personaltools": "{{ignore}}\nToggle for dropdown for personal tools menu for logged-in users",
+	"splash-purge": "Label for purge action tool in toolbox",
 	"site-banner": "{{ignore}}\nUsed as the banner text for the site.",
 	"global-links-menu": "{{ignore}}\nOptional menu that appears at the top left of the skin, above the banner. Parses like a mini sidebar.",
+	"global-links-menu-header": "Header message for optional global-links-menu",
 	"content-footer": "{{ignore}}\nOptional footer content to display after the page content."
 }
