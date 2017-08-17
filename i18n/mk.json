@@ -4,5 +4,8 @@
 			"Bjankuloski06"
 		]
 	},
-	"splash-skin-desc": "Руво „Плисок“ за МедијаВики изработено од zaori.org"
+	"splash-skin-desc": "Руво „Плисок“ за МедијаВики изработено од zaori.org",
+	"splash-personaltools": "$1",
+	"splash-purge": "Превчитај ја страницава",
+	"global-links-menu-header": "Друг прегледник"
 }
