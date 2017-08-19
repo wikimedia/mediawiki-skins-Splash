@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Darellur"
+			"Darellur",
+			"Chrumps"
 		]
 	},
-	"splash-skin-desc": "Splash, skórka do MediaWiki, stworzona dla zaori.org"
+	"splash-skin-desc": "Splash, skórka do MediaWiki, stworzona dla zaori.org",
+	"splash-personaltools": "$1"
 }
