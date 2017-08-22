@@ -3,8 +3,11 @@
 		"authors": [
 			"Jonathan rrr",
 			"Macofe",
-			"Themasterriot"
+			"Themasterriot",
+			"Fitoschido"
 		]
 	},
-	"splash-skin-desc": "Apariencia Splash para MediaWiki, diseñado para zaori.org"
+	"splash-skin-desc": "Apariencia Splash para MediaWiki, diseñado para zaori.org",
+	"splash-purge": "Purgar esta página",
+	"global-links-menu-header": "Otra navegación"
 }
