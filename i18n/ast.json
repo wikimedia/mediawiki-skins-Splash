@@ -4,5 +4,8 @@
 			"Xuacu"
 		]
 	},
-	"splash-skin-desc": "Tema Splash pa MediaWiki, diseñau por zaori.org"
+	"splash-skin-desc": "Tema Splash pa MediaWiki, diseñau por zaori.org",
+	"splash-personaltools": "$1",
+	"splash-purge": "Purgar esta páxina",
+	"global-links-menu-header": "Otra navegación"
 }
