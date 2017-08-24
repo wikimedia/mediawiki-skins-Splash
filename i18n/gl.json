@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Elisardojm"
+			"Elisardojm",
+			"Banjo"
 		]
 	},
-	"splash-skin-desc": "Tema Splash para MediaWiki, deseñado por zaori.org"
+	"splash-skin-desc": "Tema Splash para MediaWiki, deseñado por zaori.org",
+	"splash-personaltools": "$1",
+	"splash-purge": "Purgar esta páxina",
+	"global-links-menu-header": "Outra navegación"
 }
