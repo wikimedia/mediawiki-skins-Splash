@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Cainamarques"
+			"Cainamarques",
+			"Felipe L. Ewald"
 		]
 	},
-	"splash-skin-desc": "Tema Splash para o MediaWiki, projetado para zaori.org"
+	"splash-skin-desc": "Tema Splash para o MediaWiki, projetado para zaori.org",
+	"splash-purge": "Purgar esta página",
+	"global-links-menu-header": "Outra navegação"
 }
