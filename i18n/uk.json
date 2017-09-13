@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ата"
+			"Ата",
+			"Piramidion"
 		]
 	},
-	"splash-skin-desc": "Тема оформлення Splash для MediaWiki, розроблена для zaori.org"
+	"splash-skin-desc": "Тема оформлення Splash для MediaWiki, розроблена для zaori.org",
+	"splash-purge": "Очистити кеш цієї сторінки",
+	"global-links-menu-header": "Інша навігація"
 }
