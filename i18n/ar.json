@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mido"
+			"Mido",
+			"Meno25"
 		]
 	},
-	"splash-skin-desc": "واجهة سبلاش للميدياويكي، كما صُممت لموقع zaori.org"
+	"splash-skin-desc": "واجهة سبلاش للميدياويكي، كما صُممت لموقع zaori.org",
+	"splash-purge": "تحديث هذه الصفحة",
+	"global-links-menu-header": "تصفح آخر"
 }
