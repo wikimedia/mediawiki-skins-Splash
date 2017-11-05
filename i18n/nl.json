@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Siebrand"
+			"Siebrand",
+			"Mainframe98"
 		]
 	},
-	"splash-skin-desc": "Splashuiterlijk voor MediaWiki, ontworpen voor zaori.org"
+	"splash-skin-desc": "Splashuiterlijk voor MediaWiki, ontworpen voor zaori.org",
+	"splash-purge": "Ververs deze pagina"
 }
