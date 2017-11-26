@@ -6,5 +6,6 @@
 		]
 	},
 	"splash-skin-desc": "Splashuiterlijk voor MediaWiki, ontworpen voor zaori.org",
-	"splash-purge": "Ververs deze pagina"
+	"splash-purge": "Ververs deze pagina",
+	"global-links-menu-header": "Andere navigatie"
 }
