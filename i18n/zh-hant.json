@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Cwlin0416"
+			"Cwlin0416",
+			"Kly"
 		]
 	},
-	"splash-skin-desc": "MediaWiki 的 Splash 外觀，專為 zaori.org 設計"
+	"splash-skin-desc": "MediaWiki 的 Splash 外觀，專為 zaori.org 設計",
+	"splash-purge": "清除此頁面",
+	"global-links-menu-header": "其它導航"
 }
