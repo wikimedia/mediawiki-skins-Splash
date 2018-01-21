@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Shirayuki"
+			"Shirayuki",
+			"Otokoume"
 		]
 	},
-	"splash-skin-desc": "zaori.org 向けに設計された MediaWiki の Splash 外装"
+	"splash-skin-desc": "zaori.org 向けに設計された MediaWiki の Splash 外装",
+	"splash-purge": "このページのキャッシュを破棄"
 }
