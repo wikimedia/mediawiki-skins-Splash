@@ -33,8 +33,7 @@
 				"resources/screen.less": {
 					"media": "screen"
 				}
-			},
-			"position": "top"
+			}
 		}
 	},
 	"manifest_version": 1
