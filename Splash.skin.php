@@ -6,7 +6,7 @@
  */
 class SkinSplash extends SkinTemplate {
 	public $skinname = 'splash', $stylename = 'splash',
-		$template = 'SplashTemplate', $useHeadElement = true;
+		$template = 'SplashTemplate';
 
 	/**
 	 * @param OutputPage $out
