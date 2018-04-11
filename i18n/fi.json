@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"McSalama"
+			"McSalama",
+			"Pyscowicz"
 		]
 	},
-	"splash-skin-desc": "Roiskahdus-teema MediaWikiin, kuten zaori.orgille suunniteltu"
+	"splash-skin-desc": "Roiskahdus-teema MediaWikiin, kuten zaori.orgille suunniteltu",
+	"splash-purge": "Tyhjennä välimuistista"
 }
