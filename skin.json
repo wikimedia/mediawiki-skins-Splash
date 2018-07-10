@@ -32,6 +32,9 @@
 				},
 				"resources/screen.less": {
 					"media": "screen"
+				},
+				"resources/screen-hd.less": {
+					"media": "screen and (min-width: 900px)"
 				}
 			}
 		}
