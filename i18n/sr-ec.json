@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Obsuser"
+			"Obsuser",
+			"BadDog"
 		]
 	},
-	"splash-skin-desc": "Сплеш скин за Медијавики, по дизајну за zaori.org",
+	"splash-skin-desc": "Сплеш тема за Медијавики, по дизајну за zaori.org",
 	"splash-purge": "Освежи ову страницу",
 	"global-links-menu-header": "Друга навигација"
 }
