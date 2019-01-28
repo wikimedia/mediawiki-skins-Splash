@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"William Surya Permana"
+		]
+	},
+	"splash-skin-desc": "Kulit percikan untuk MediaWiki, seperti yang dirancang untuk zaori.org",
+	"splash-purge": "Hapus singgahan halaman ini",
+	"global-links-menu-header": "Navigasi lain"
+}
