@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Reza1615"
+			"Reza1615",
+			"Iriman"
 		]
 	},
 	"splash-skin-desc": "خراب شدن پوسته برای مدیاویکی، به عنوان طراحی‌شده برای zaori.org",
-	"splash-purge": "خالی کردن کاشه این صفحه",
+	"splash-purge": "خالی‌کردن حافظهٔ نهان این صفحه",
 	"global-links-menu-header": "هدایت‌کننده دیگر"
 }
