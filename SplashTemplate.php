@@ -10,7 +10,7 @@ class SplashTemplate extends BaseTemplate {
 	 * Outputs the entire contents of the page
 	 */
 	function execute() {
-		// Open html, body elements, etc
+		// Open <html>, body elements, etc.
 		$html = $this->get( 'headelement' );
 
 		$html .= Html::openElement( 'div', [ 'id' => 'globalWrapper' ] );
@@ -103,11 +103,11 @@ class SplashTemplate extends BaseTemplate {
 	/**
 	 * Menu for global navigation (for cross-wiki stuff or just whatever things)
 	 *
-	 * @return string html
+	 * @return string HTML
 	 */
 	protected function getGlobalLinks() {
 		$html = '';
-		if ( wfMessage( 'global-links-menu' )->escaped() ) {
+		if ( $this->getMsg( 'global-links-menu' )->escaped() ) {
 			$html = Html::rawElement(
 				'div',
 				[ 'id' => 'global-links', 'class' => 'mw-portlet', 'role' => 'navigation' ],
@@ -121,7 +121,7 @@ class SplashTemplate extends BaseTemplate {
 	/**
 	 * Personal tools dropdown information
 	 *
-	 * @return string html
+	 * @return string HTML
 	 */
 	protected function getPersonalToolsBlock() {
 		$user = $this->getSkin()->getUser();
@@ -139,13 +139,13 @@ class SplashTemplate extends BaseTemplate {
 	/**
 	 * Categories
 	 *
-	 * @return string html
+	 * @return string HTML
 	 */
 	protected function getCategoryBlock() {
 		$html = '';
-		if( $this->data['catlinks'] ) {
+		if ( $this->data['catlinks'] ) {
 			$html = $this->get( 'catlinks' );
-		};
+		}
 
 		return $html;
 	}
@@ -153,7 +153,7 @@ class SplashTemplate extends BaseTemplate {
 	/**
 	 * Site subtitle, undelete stuff, etc
 	 *
-	 * @return string html
+	 * @return string HTML
 	 */
 	protected function getSiteSubChrome() {
 		$html = '';
@@ -174,7 +174,7 @@ class SplashTemplate extends BaseTemplate {
 	/**
 	 * I'm not actually sure what this is, but all skins have it
 	 *
-	 * @return string html
+	 * @return string HTML
 	 */
 	protected function getDataAfterContent() {
 		$html = '';
@@ -188,7 +188,7 @@ class SplashTemplate extends BaseTemplate {
 	/**
 	 * Notices that may appear above the firstHeading
 	 *
-	 * @return string html
+	 * @return string HTML
 	 */
 	protected function getSiteNotices() {
 		$html = '';
@@ -211,7 +211,7 @@ class SplashTemplate extends BaseTemplate {
 	 * @param string $id
 	 */
 	protected function getNavigation( $linksMessage, $id ) {
-		$message = trim(  wfMessage( $linksMessage )->text() );
+		$message = trim( $this->getMsg( $linksMessage )->text() );
 		$lines = array_slice( explode( "\n", $message ), 0, 10 );
 		$links = [];
 		foreach ( $lines as $line ) {
@@ -229,10 +229,10 @@ class SplashTemplate extends BaseTemplate {
 	 * Extract the link text and target (href) from a MediaWiki message
 	 * and return them as an array.
 	 * Follows general MediaWiki:Sidebar format: $1|$2|$3
-	 * 	$1 - link target (full url or internal page target, or mw
+	 * 	$1 - link target (full URL or internal page target, or MW
 	 * 	     message containing either of these)
-	 * 	$2 - display text (plain text or mw message)
-	 * 	$3 - css class to apply to item
+	 * 	$2 - display text (plain text or MW message)
+	 * 	$3 - CSS class to apply to item
 	 *
 	 * @param string $line
 	 *
@@ -244,32 +244,32 @@ class SplashTemplate extends BaseTemplate {
 		$line_temp = explode( '|', trim( $line, '* ' ), 3 );
 		if ( count( $line_temp ) > 1 ) {
 			$line = $line_temp[1];
-			$link = wfMessage( $line_temp[0] )->inContentLanguage()->text();
+			$link = $this->getMsg( $line_temp[0] )->inContentLanguage()->text();
 
 			// Pull out third item as a class
 			if ( count( $line_temp ) == 3 ) {
-				$item['class'] =  Sanitizer::escapeClass( $line_temp[2] );
+				$item['class'] = Sanitizer::escapeClass( $line_temp[2] );
 			}
 		} else {
 			$line = $line_temp[0];
 			$link = $line_temp[0];
 		}
-		$item['id'] = Sanitizer::escapeId( $line );
+		$item['id'] = Sanitizer::escapeIdForAttribute( $line );
 
 		// Determine what to show as the human-readable link description
 		if ( $line == 'zaori-link' ) {
 			// Daji time
 			$item['text'] = '';
-		} else if ( wfMessage( $line )->isDisabled() ) {
+		} elseif ( $this->getMsg( $line )->isDisabled() ) {
 			// It's *not* the name of a MediaWiki message, so display it as-is
 			$item['text'] = $line;
 		} else {
 			// Guess what -- it /is/ a MediaWiki message!
-			$item['text'] = wfMessage( $line )->text();
+			$item['text'] = $this->getMsg( $line )->text();
 		}
 
 		if ( $link != null ) {
-			if ( wfMessage( $line_temp[0] )->isDisabled() ) {
+			if ( $this->getMsg( $line_temp[0] )->isDisabled() ) {
 				$link = $line_temp[0];
 			}
 			if ( Skin::makeInternalOrExternalUrl( $link ) ) {
@@ -291,7 +291,7 @@ class SplashTemplate extends BaseTemplate {
 
 	/**
 	 *
-	 * @return string html
+	 * @return string HTML
 	 */
 	protected function getMainNavigation() {
 		$sidebar = $this->getSidebar();
@@ -346,7 +346,7 @@ class SplashTemplate extends BaseTemplate {
 	/**
 	 * Generate the search form for the top of the page
 	 *
-	 * @return string html
+	 * @return string HTML
 	 */
 	protected function getSearchBox() {
 		$html = '';
@@ -382,7 +382,7 @@ class SplashTemplate extends BaseTemplate {
 	/**
 	 * Prints the cactions bar.
 	 *
-	 * @return string html
+	 * @return string HTML
 	 */
 	protected function getCactions() {
 		return $this->getPortlet( 'cactions', $this->data['content_actions'], 'actions' );
@@ -396,7 +396,7 @@ class SplashTemplate extends BaseTemplate {
 	 * @param null|string|array|bool $msg
 	 * @class string $class cssclass to add
 	 *
-	 * @return string html
+	 * @return string HTML
 	 */
 	protected function getPortlet( $name, $content, $msg = null, $class = '' ) {
 		if ( $msg === null ) {
@@ -406,7 +406,7 @@ class SplashTemplate extends BaseTemplate {
 			$msgParams = $msg;
 			$msg = $msgString;
 		}
-		$msgObj = wfMessage( $msg );
+		$msgObj = $this->getMsg( $msg );
 		if ( $msgObj->exists() ) {
 			if ( isset( $msgParams ) && !empty( $msgParams ) ) {
 				$msgString = $this->getMsg( $msg, $msgParams )->parse();
@@ -436,7 +436,7 @@ class SplashTemplate extends BaseTemplate {
 		}
 		// END hack
 
-		$labelId = Sanitizer::escapeId( "p-$name-label" );
+		$labelId = Sanitizer::escapeIdForAttribute( "p-$name-label" );
 
 		if ( is_array( $content ) ) {
 			$contentText = Html::openElement( 'ul' );
@@ -457,7 +457,7 @@ class SplashTemplate extends BaseTemplate {
 		$html = Html::rawElement( 'div', [
 				'role' => 'navigation',
 				'class' => [ 'mw-portlet', $class ],
-				'id' => Sanitizer::escapeId( 'p-' . $name ),
+				'id' => Sanitizer::escapeIdForAttribute( 'p-' . $name ),
 				'title' => Linker::titleAttrib( 'p-' . $name ),
 				'aria-labelledby' => $labelId
 			],
@@ -484,7 +484,7 @@ class SplashTemplate extends BaseTemplate {
 	 *
 	 * @param string $name
 	 *
-	 * @return string html
+	 * @return string HTML
 	 * @since 1.29
 	 */
 	protected function getAfterPortlet( $name ) {
@@ -506,7 +506,7 @@ class SplashTemplate extends BaseTemplate {
 	/**
 	 * Get a div with the core visualClear class, for clearing floats
 	 *
-	 * @return string html
+	 * @return string HTML
 	 * @since 1.29
 	 */
 	protected function getClear() {
@@ -519,7 +519,7 @@ class SplashTemplate extends BaseTemplate {
 	 * @param string $iconStyle $option for getFooterIcons: "icononly", "nocopyright"
 	 * @param string $linkStyle $option for getFooterLinks: "flat"
 	 *
-	 * @return string html
+	 * @return string HTML
 	 * @since 1.29
 	 */
 	protected function getFooter( $iconStyle = 'icononly', $linkStyle = 'flat' ) {
@@ -539,13 +539,14 @@ class SplashTemplate extends BaseTemplate {
 		} else {
 			$footerEnd = '';
 		}
+		$skin = $this->getSkin();
 		foreach ( $validFooterIcons as $blockName => $footerIcons ) {
 			$html .= Html::openElement( 'div', [
-				'id' => Sanitizer::escapeId( "f-{$blockName}ico" ),
+				'id' => Sanitizer::escapeIdForAttribute( "f-{$blockName}ico" ),
 				'class' => 'footer-icons'
 			] );
 			foreach ( $footerIcons as $icon ) {
-				$html .= $this->getSkin()->makeFooterIcon( $icon );
+				$html .= $skin->makeFooterIcon( $icon );
 			}
 			$html .= Html::closeElement( 'div' );
 		}
@@ -554,7 +555,7 @@ class SplashTemplate extends BaseTemplate {
 			foreach ( $validFooterLinks as $aLink ) {
 				$html .= Html::rawElement(
 					'li',
-					[ 'id' => Sanitizer::escapeId( $aLink ) ],
+					[ 'id' => Sanitizer::escapeIdForAttribute( $aLink ) ],
 					$this->get( $aLink )
 				);
 			}
