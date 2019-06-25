@@ -44,7 +44,8 @@
 	},
 	"ResourceModuleSkinStyles": {
 		"splash": {
-			"+mediawiki.special.userlogin.common.styles": "resources/skinStyles/mediawiki.special.userlogin.common.styles.less"
+			"+mediawiki.special.userlogin.common.styles": "resources/skinStyles/mediawiki.special.userlogin.common.styles.less",
+			"+mediawiki.special.userlogin.signup.styles": "resources/skinStyles/mediawiki.special.userlogin.signup.styles.less"
 		}
 	},
 	"manifest_version": 1
