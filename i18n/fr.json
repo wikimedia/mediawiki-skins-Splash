@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Gomoko",
-			"Wladek92"
+			"Wladek92",
+			"Thibaut120094"
 		]
 	},
-	"splash-skin-desc": "Habillage éclaboussant pour MédiaWiki, tel que désigné pour zaori.org",
+	"splash-skin-desc": "Habillage éclaboussant pour MediaWiki, tel que désigné pour zaori.org",
 	"splash-purge": "Purger cette page",
 	"global-links-menu-header": "Autre navigation"
 }
