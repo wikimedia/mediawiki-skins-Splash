@@ -324,7 +324,7 @@ class SplashTemplate extends BaseTemplate {
 					$toolbox['purge'] = [
 						'text' => $this->getMsg( 'splash-purge' )->text(),
 						'href' => $title->getLocalURL( [ 'action' => 'purge' ] ),
-						'rel' => 'nofolow',
+						'rel' => 'nofollow',
 						'id' => 't-purge'
 					];
 
