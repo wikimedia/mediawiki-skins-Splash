@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ильнар"
+			"Ильнар",
+			"Ерней"
 		]
 	},
 	"splash-skin-desc": "MediaWiki тәэминтында эшләүче zaori.org өчен ясалган Splash бизәлеше",
-	"splash-purge": "Битне кэштан чистарту",
+	"splash-purge": "Бит кэшын бушату",
 	"global-links-menu-header": "Башка навигация"
 }
