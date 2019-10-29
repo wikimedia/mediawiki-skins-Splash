@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Violetanka"
+			"Violetanka",
+			"BaRaN6161 TURK"
 		]
 	},
-	"splash-skin-desc": "zaori.org için tasarlandığı şekliyle Splash kaplaması."
+	"splash-skin-desc": "zaori.org için tasarlandığı şekliyle Splash kaplaması.",
+	"splash-purge": "Bu sayfayı temizle",
+	"global-links-menu-header": "Diğer gezinti"
 }
