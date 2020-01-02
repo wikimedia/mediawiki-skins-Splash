@@ -1,4 +1,4 @@
-@import "variables.less";
+@import 'variables.less';
 
 #global-links h3,
 #p-search h3,
@@ -63,7 +63,7 @@ a {
 	position: relative;
 	min-width: 500px;
 	max-width: 980px;
-	width: 900px ~"!ie";
+	width: 900px ~'!ie';
 	box-sizing: border-box;
 	word-wrap: break-word;
 }
@@ -301,7 +301,7 @@ a {
 			margin: 0;
 			width: 17em;
 		}
-		input[type="submit"] {
+		input[type='submit'] {
 			color: @text-grey;
 			border: none;
 			border-radius: 3px;
@@ -395,10 +395,10 @@ a {
 		height: 1px;
 		padding: 0;
 		margin: .5em 0;
-		display: list-item ~"!ie";
-		list-style: url('images/hr.png') inside ~"!ie";
-		filter: alpha(opacity=0) ~"!ie";
-		width: 0 ~"!ie";
+		display: list-item ~'!ie';
+		list-style: url('images/hr.png') inside ~'!ie';
+		filter: alpha(opacity=0) ~'!ie';
+		width: 0 ~'!ie';
 	}
 
 	h1, h2, h3, h4, h5, h6, dt {
@@ -462,7 +462,7 @@ a {
 		&.new a {
 			color: @link-red;
 		}
-		&[id^="ca-nstab-"]:after {
+		&[id^='ca-nstab-']:after {
 			content: ':';
 		}
 	}
@@ -536,10 +536,10 @@ a {
 	}
 
 	/* Form stuff */
-	input[name="target"],
-	input[type="text"],
-	input[type="checkbox"],
-	input[type="radio"],
+	input[name='target'],
+	input[type='text'],
+	input[type='checkbox'],
+	input[type='radio'],
 	input.mw-summary,
 	.mw-input input,
 	input.mw-input,
@@ -552,14 +552,14 @@ a {
 		margin: .5em 0;
 		box-sizing: border-box;
 	}
-	input[type="checkbox"],
-	input[type="radio"] {
+	input[type='checkbox'],
+	input[type='radio'] {
 		border-color: #bbb;
 	}
-	input[type="radio"] {
+	input[type='radio'] {
 		border-radius: 7px;
 	}
-	input[type="submit"],
+	input[type='submit'],
 	button {
 		color: #222;
 		border: solid 1px #ccc;
@@ -592,13 +592,13 @@ a {
 		border: none;
 		padding: 0;
 
-		input[type="submit"] {
+		input[type='submit'] {
 			margin: 0 .5em 0 0;
 		}
 		label {
 			padding: 1em 1.5em 0 0;
 		}
-		input[type="checkbox"] {
+		input[type='checkbox'] {
 			margin-right: .5em;
 		}
 		input#wpTemplateSandboxPreview {
@@ -786,6 +786,6 @@ a {
 	}
 }
 
-.ns-special #page-content #p-cactions li[id^="ca-nstab-"]::after {
+.ns-special #page-content #p-cactions li[id^='ca-nstab-']::after {
 	content: '';
 }
