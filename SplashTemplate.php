@@ -279,12 +279,10 @@ class SplashTemplate extends BaseTemplate {
 				if ( $title ) {
 					$title = $title->fixSpecialName();
 					$href = $title->getLocalURL();
-				} else {
-					$href = '#';
 				}
 			}
 		}
-		$item['href'] = $href;
+		$item['href'] = $href ?? '#';
 
 		return $item;
 	}
