@@ -35,9 +35,9 @@ class SplashTemplate extends BaseTemplate {
 					Html::rawElement( 'div', [ 'id' => 'main-logo', 'role' => 'banner' ],
 						Html::rawElement(
 							'a',
-							[ 'class' => [ 'mw-wiki-title' ], 'href' => htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] ) ],
+							[ 'class' => [ 'mw-wiki-title' ], 'href' => $this->data['nav_urls']['mainpage']['href'] ],
 							Html::rawElement( 'div', [ 'id' => 'mainlogo-text' ],
-								Html::rawElement( 'h1', [], $this->getMsg( 'site-banner' )->text() )
+								Html::element( 'h1', [], $this->getMsg( 'site-banner' )->text() )
 							)
 						)
 					)
@@ -334,6 +334,7 @@ class SplashTemplate extends BaseTemplate {
 					}
 					break;
 				default:
+					// @phan-suppress-next-line SecurityCheck-DoubleEscaped
 					$html .= $this->getPortlet( $name, $content['content'] );
 			}
 		}
