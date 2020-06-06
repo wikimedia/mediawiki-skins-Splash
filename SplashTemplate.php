@@ -355,7 +355,7 @@ class SplashTemplate extends BaseTemplate {
 		$html .= Html::rawElement(
 			'h3',
 			[ 'lang' => $this->get( 'userlang' ), 'dir' => $this->get( 'dir' ) ],
-			Html::rawElement( 'label', [ 'for' => 'searchInput' ], $this->getMsg( 'search' )->text() )
+			Html::rawElement( 'label', [ 'for' => 'searchInput' ], $this->getMsg( 'search' )->escaped() )
 		);
 
 		$html .= Html::rawElement( 'form', [ 'action' => $this->get( 'wgScript' ), 'id' => 'searchform' ],
