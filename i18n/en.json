@@ -5,10 +5,17 @@
 		]
 	},
 	"splash-skin-desc": "Splash skin for MediaWiki, as designed for zaori.org",
-	"splash-personaltools": "$1",
-	"splash-purge": "Purge this page",
-	"site-banner": "{{SITENAME}}",
+	"splash-loggedinas": "$1",
+	"splash-notloggedin": "Not logged in",
+	"splash-userpage": "User page",
+	"splash-talkpage": "Talk page",
+	"splash-page-tools": "Page tools",
+	"splash-talk": "Discuss",
+	"splash-jumptonavigation": "Jump to navigation",
+	"splash-jumptocontent": "Jump to content",
+	"splash-jumptosearch": "Jump to search",
+	"site-banner": "$1",
 	"global-links-menu": "",
-	"global-links-menu-header": "Other navigation",
+	"global-links": "Other navigation",
 	"content-footer": ""
 }

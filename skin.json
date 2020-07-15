@@ -1,6 +1,6 @@
 {
 	"name": "Splash",
-	"version": "1.4.0",
+	"version": "2.0",
 	"author": [
 		"Calimonius the Estrange"
 	],
@@ -9,10 +9,32 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "skin",
 	"requires": {
-		"MediaWiki": ">= 1.31.0"
+		"MediaWiki": ">= 1.35.0"
 	},
 	"ValidSkinNames": {
-		"splash": "Splash"
+		"splash": {
+			"displayname": "Splash",
+			"class": "SkinSplash",
+			"args": [
+				{
+					"name": "splash",
+					"styles": [
+						"mediawiki.skinning.content.externallinks",
+						"skins.splash"
+					]
+				}
+			]
+		}
+	},
+	"config": {
+		"SplashUseOverlayImage": {
+			"value": false,
+			"description": "Whether or not to use the crazy daji cutout, and associated silliness"
+		},
+		"SplashUseLogoImage": {
+			"value": true,
+			"description": "Whether or not to use $wgLogo"
+		}
 	},
 	"MessagesDirs": {
 		"SkinSplash": [
@@ -20,8 +42,8 @@
 		]
 	},
 	"AutoloadClasses": {
-		"SkinSplash": "Splash.skin.php",
-		"SplashTemplate": "SplashTemplate.php"
+		"SkinSplash": "includes/SkinSplash.php",
+		"SplashTemplate": "includes/SplashTemplate.php"
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
@@ -29,24 +51,56 @@
 	},
 	"ResourceModules": {
 		"skins.splash": {
+			"targets": [
+				"desktop",
+				"mobile"
+			],
+			"class": "ResourceLoaderSkinModule",
 			"styles": {
-				"resources/normalise.css": {
+				"resources/libraries/normalise.css": {
 					"media": "screen"
 				},
-				"resources/screen.less": {
+				"resources/screen-common.less": {
 					"media": "screen"
 				},
-				"resources/screen-hd.less": {
-					"media": "screen and (min-width: 900px)"
+				"resources/screen-desktop.less": {
+					"media": "screen and (min-width: 700px)"
+				},
+				"resources/screen-mobile.less": {
+					"media": "screen and (max-width: 699px)"
+				},
+				"resources/forms.less": {
+					"media": "screen"
+				},
+				"0": "resources/screen.less",
+				"resources/print.less": {
+					"media": "print"
 				}
 			}
+		},
+		"skins.splash.js": {
+			"targets": [
+				"desktop",
+				"mobile"
+			],
+			"scripts": [
+				"resources/main.js"
+			]
 		}
 	},
 	"ResourceModuleSkinStyles": {
 		"splash": {
-			"+mediawiki.special.userlogin.common.styles": "resources/skinStyles/mediawiki.special.userlogin.common.styles.less",
-			"+mediawiki.special.userlogin.signup.styles": "resources/skinStyles/mediawiki.special.userlogin.signup.styles.less"
+			"+ext.echo.styles.badge": "resources/extensions/Echo.styles.badge.less",
+			"ext.echo.ui": "resources/extensions/Echo.ui.less",
+			"+ext.uls.pt": "resources/extensions/ULS.pt.less",
+			"+ext.uls.interface": "resources/extensions/ULS.interface.less",
+			"+ext.visualEditor.core": "resources/extensions/VisualEditor.core.less",
+			"+ext.visualEditor.desktopArticleTarget.noscript": "resources/extensions/VisualEditor.article.less",
+			"+ext.dismissableSiteNotice.styles": "resources/extensions/DismissableSiteNotice.less",
+			"+mediawiki.action.view.filepage": "resources/modules/filepage.less",
+			"+mediawiki.action.edit.styles": "resources/modules/edit.less",
+			"+mediawiki.special.preferences.styles.ooui": "resources/modules/preferences.less"
 		}
 	},
-	"manifest_version": 1
+	"manifest_version": 2
 }

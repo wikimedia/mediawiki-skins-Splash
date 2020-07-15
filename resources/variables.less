@@ -1,38 +1,26 @@
-@import 'mediawiki.mixins';
+@red: #822;
+@red-dark: #722;
+@red-bright: lighten( @red, 10% );
+@blue: #16b;
+@blue-dark: darken( @blue, 10% );
+@purple: #64a;
+@purple-dark: #447;
 
-@text: #000;
-@text-grey: #555;
-@link: #05b;
-@linkv: #039;
-@link-red: #722;
-@link-redv: #623;
-@link-grey: #777; /* Not necessarily always links, and probably a bad idea */
-@link-ext: #36b;
-@link-extv: #26a;
+@grey0: #000; // black
+@grey1: #666;
+@grey2: #ccc;
+@grey3: #ddd;
+@grey4: #eee;
+@grey5: #f0f0f0;
+@grey6: #fff; // white
 
-// Miscellaneous functions
+@content-width: 1100px;
+@text-resize: 90%;
+@header-height: 123px;
 
-// To hide objects, but keep them accessible for screen-readers
-.hidden() {
-	position: absolute;
-	top: -9999px;
-	left: 0;
-}
-
-// Font definitions for fancy layout (font sources last updated 2013)
-@font-face {
-        font-family: 'abridahn web';
-        src: url('fonts/Abridahnkajira.eot');
-        src: url('fonts/Abridahnkajira.eot?#iefix') format('embedded-opentype'),
-                url('fonts/Abridahnkajira.woff') format('woff'),
-                url('fonts/Abridahnkajira.ttf') format('truetype'),
-                url('fonts/Abridahnkajira.svg') format('svg');
-}
-@font-face {
-        font-family: 'abridahn smallcaps web';
-        src: url('fonts/Abridahniajiradi.eot');
-        src: url('fonts/Abridahniajiradi.eot?#iefix') format('embedded-opentype'),
-                url('fonts/Abridahniajiradi.woff') format('woff'),
-                url('fonts/Abridahniajiradi.ttf') format('truetype'),
-                url('fonts/Abridahniajiradi.svg') format('svg');
-}
+@fonts-main: 'Libertinus Sans', 'Libertinus Sans web', 'Linux Biolinum', 'Corbel', 'Candara', 'Segoe UI', 'Segoe UI Historic Regular', 'Noto Sans', 'Lato', 'Helvetica Neue', 'Liberation Sans', 'Helvetica', sans-serif;
+// Windows is bad at fonts... see js.
+@fonts-main-windows: 'Corbel', 'Candara', 'Segoe UI', 'Segoe UI Historic Regular', 'Noto Sans', 'Lato', 'Helvetica Neue', 'Liberation Sans', 'Helvetica', sans-serif;
+@fonts-header: 'Libertinus Serif', 'Linux Libertine', 'Cambria', 'Constantia', 'Times New Roman', 'Liberation Serif', 'Nimbus Roman', 'Noto Serif', 'Times', serif;
+@fonts-banner: 'Abridahn Capitals', 'Linux Libertine Capitals', 'Libertinus Serif', 'Linux Libertine', 'Cambria', 'Constantia', 'Times New Roman', 'Times', serif;
+@fonts-mono: 'Menlo', 'Consolas', 'Monaco', 'Nimbus Mono', 'Noto Mono', monospace;
