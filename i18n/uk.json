@@ -6,6 +6,5 @@
 		]
 	},
 	"splash-skin-desc": "Тема оформлення Splash для MediaWiki, розроблена для zaori.org",
-	"splash-purge": "Очистити кеш цієї сторінки",
-	"global-links-menu-header": "Інша навігація"
+	"global-links": "Інша навігація"
 }

@@ -7,6 +7,5 @@
 		]
 	},
 	"splash-skin-desc": "zaori.org 向けに設計された MediaWiki の Splash 外装",
-	"splash-purge": "このページのキャッシュを破棄",
-	"global-links-menu-header": "その他のナビゲーション"
+	"global-links": "その他のナビゲーション"
 }

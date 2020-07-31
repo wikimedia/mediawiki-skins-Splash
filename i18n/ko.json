@@ -6,6 +6,6 @@
 		]
 	},
 	"splash-skin-desc": "zaori.org를 위해 설계된, 미디어위키를 위한 스플래시 스킨",
-	"splash-purge": "이 문서를 새로고침",
-	"global-links-menu-header": "기타 둘러보기"
+	"splash-loggedinas": "$1",
+	"global-links": "기타 둘러보기"
 }

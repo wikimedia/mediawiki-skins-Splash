@@ -5,6 +5,6 @@
 		]
 	},
 	"splash-skin-desc": "Tema Splash pa MediaWiki, diseñau por zaori.org",
-	"splash-purge": "Purgar esta páxina",
-	"global-links-menu-header": "Otra navegación"
+	"splash-loggedinas": "$1",
+	"global-links": "Otra navegación"
 }

@@ -6,6 +6,14 @@
 		]
 	},
 	"splash-skin-desc": "MediaWiki 的 Splash 外觀，專為 zaori.org 設計",
-	"splash-purge": "清除此頁面",
-	"global-links-menu-header": "其它導覽"
+	"splash-loggedinas": "$1",
+	"splash-notloggedin": "未登入",
+	"splash-userpage": "使用者頁面",
+	"splash-talkpage": "討論頁",
+	"splash-page-tools": "頁面工具",
+	"splash-talk": "討論",
+	"splash-jumptonavigation": "跳至導覽",
+	"splash-jumptocontent": "跳至內容",
+	"splash-jumptosearch": "跳至搜尋",
+	"global-links": "其它導覽"
 }

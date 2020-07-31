@@ -6,6 +6,6 @@
 		]
 	},
 	"splash-skin-desc": "Splash-utseende för MediaWiki, designat för zaori.org",
-	"splash-purge": "Rensa denna sida",
-	"global-links-menu-header": "Annan navigering"
+	"splash-loggedinas": "$1",
+	"global-links": "Annan navigering"
 }

@@ -5,6 +5,6 @@
 		]
 	},
 	"splash-skin-desc": "Interface \"Splash\" fir MediaWiki, wéi et fir zaori.org entworf gouf",
-	"splash-purge": "Dës Säit eidelmaachen",
-	"global-links-menu-header": "Aner Navigatioun"
+	"splash-loggedinas": "$1",
+	"global-links": "Aner Navigatioun"
 }

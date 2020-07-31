@@ -8,6 +8,6 @@
 		]
 	},
 	"splash-skin-desc": "Splash, skórka do MediaWiki, stworzona dla zaori.org",
-	"splash-purge": "Wyczyść pamięć podręczną tej strony",
-	"global-links-menu-header": "Inna nawigacja"
+	"splash-loggedinas": "$1",
+	"global-links": "Inna nawigacja"
 }
