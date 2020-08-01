@@ -151,6 +151,7 @@ class SplashTemplate extends BaseTemplate {
 
 	/**
 	 * Get wiki-configurable page footer
+	 * TODO: set dir as main language direction, regardless of current...
 	 *
 	 * @return string html
 	 */

@@ -99,7 +99,8 @@
 			"+ext.dismissableSiteNotice.styles": "resources/extensions/DismissableSiteNotice.less",
 			"+mediawiki.action.view.filepage": "resources/modules/filepage.less",
 			"+mediawiki.action.edit.styles": "resources/modules/edit.less",
-			"+mediawiki.special.preferences.styles.ooui": "resources/modules/preferences.less"
+			"+mediawiki.special.preferences.styles.ooui": "resources/modules/preferences.less",
+			"+ext.screenplay": "resources/extensions/Screenplay.less"
 		}
 	},
 	"manifest_version": 2
