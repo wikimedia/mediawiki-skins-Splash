@@ -519,9 +519,34 @@ ul {
 		}
 	}
 
+	.mw_metadata th,
 	.mw-datatable th,
 	.wikitable th {
 		background: lighten( @grey5, 2.5% );
+	}
+}
+
+div.mw-content-ltr {
+	ol,
+	ul {
+		/* @noflip */
+		margin: 0.25em 0 0.25em 2em;
+	}
+}
+
+div.mw-content-rtl {
+	ol,
+	ul {
+		/* @noflip */
+		margin: 0.25em 3em 0.25em 0;
+	}
+}
+
+.mw-content-ltr,
+.mw-content-rtl,
+#content-footer {
+	li {
+		margin: 0.35em 0;
 	}
 }
 
@@ -626,6 +651,11 @@ pre {
 	a {
 		font-size: @text-resize;
 	}
+}
+
+div.toc ul {
+	// Reset from our generic content list margins
+	margin-left: 0;
 }
 
 .toctitle {
