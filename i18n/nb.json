@@ -7,5 +7,13 @@
 	},
 	"splash-skin-desc": "Splash-drakt for MediaWiki, designet for zaori.org",
 	"splash-loggedinas": "$1",
+	"splash-notloggedin": "Ikke innlogget",
+	"splash-userpage": "Brukerside",
+	"splash-talkpage": "Diskusjonsside",
+	"splash-page-tools": "Sideverktøy",
+	"splash-talk": "Diskuter",
+	"splash-jumptonavigation": "Til navigasjon",
+	"splash-jumptocontent": "Til innhold",
+	"splash-jumptosearch": "Til søk",
 	"global-links": "Annen navigering"
 }

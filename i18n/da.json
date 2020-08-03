@@ -1,9 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Joedalton"
+			"Joedalton",
+			"Saederup92"
 		]
 	},
 	"splash-skin-desc": "Splash-tema for MediaWiki, som designet for zaori.org",
+	"splash-userpage": "Brugerside",
+	"splash-talkpage": "Diskussionsside",
+	"splash-page-tools": "Sideværktøjer",
+	"splash-talk": "Diskuter",
+	"splash-jumptocontent": "Spring til indhold",
+	"splash-jumptosearch": "Spring til søgning",
 	"global-links": "Anden navigation"
 }

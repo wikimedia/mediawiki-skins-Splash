@@ -2,9 +2,19 @@
 	"@metadata": {
 		"authors": [
 			"Cainamarques",
+			"Eduardo Addad de Oliveira",
 			"Felipe L. Ewald"
 		]
 	},
 	"splash-skin-desc": "Tema Splash para o MediaWiki, projetado para zaori.org",
+	"splash-loggedinas": "$1",
+	"splash-notloggedin": "Não está entrado",
+	"splash-userpage": "Pagina de usuário",
+	"splash-talkpage": "Página de discussão",
+	"splash-page-tools": "Ferramentas de páginas",
+	"splash-talk": "Discussão",
+	"splash-jumptonavigation": "Ir para navegação",
+	"splash-jumptocontent": "Ir para o conteúdo",
+	"splash-jumptosearch": "Ir para pesquisar",
 	"global-links": "Outra navegação"
 }
