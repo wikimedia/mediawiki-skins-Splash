@@ -6,6 +6,13 @@
 		]
 	},
 	"splash-skin-desc": "Tema Splash para o MediaWiki, como projetado por zaori.org",
-	"splash-loggedinas": "$1",
+	"splash-notloggedin": "Não autenticado",
+	"splash-userpage": "Página de utilizador",
+	"splash-talkpage": "Página de discussão",
+	"splash-page-tools": "Ferramentas de página",
+	"splash-talk": "Discutir",
+	"splash-jumptonavigation": "Saltar para a navegação",
+	"splash-jumptocontent": "Saltar para o conteúdo",
+	"splash-jumptosearch": "Saltar para a pesquisa",
 	"global-links": "Outra navegação"
 }
