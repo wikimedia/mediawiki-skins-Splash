@@ -480,6 +480,7 @@ class SplashTemplate extends BaseTemplate {
 		// Ext:Collection tools
 		$sidebar = $this->getSidebar();
 		if ( isset( $sidebar['coll-print_export'] ) ) {
+			// @phan-suppress-next-line SecurityCheck-DoubleEscaped
 			$dropdowns .= $this->getPortlet(
 				'coll-print_export',
 				$sidebar['coll-print_export']['content'],
