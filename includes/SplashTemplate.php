@@ -309,13 +309,13 @@ class SplashTemplate extends BaseTemplate {
 
 				// Pull out third item as a class
 				if ( count( $line_temp ) == 3 ) {
-					$item['class'] = htmlspecialchars( Sanitizer::escapeIdForAttribute( $line_temp[2] ) );
+					$item['class'] = Sanitizer::escapeIdForAttribute( $line_temp[2] );
 				}
 			} else {
 				$line = $line_temp[0];
 				$link = $line_temp[0];
 			}
-			$item['id'] = htmlspecialchars( Sanitizer::escapeIdForAttribute( $line ) );
+			$item['id'] = Sanitizer::escapeIdForAttribute( $line );
 
 			// Determine what to show as the human-readable link description
 			if ( $this->getMsg( $line )->isDisabled() ) {
