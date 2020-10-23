@@ -2,9 +2,14 @@
 
 // Don't use Libertinus sans/biolinum for content on low-res windows (massive over-bolding)
 $( function () {
-	if ( navigator.appVersion.indexOf( 'Win' ) !== -1 && !window.devicePixelRatio < 1.5 ) {
+	if ( navigator.appVersion.indexOf( 'Win' ) !== -1 && window.devicePixelRatio < 1.5 ) {
 		$( 'body' ).addClass( 'windows-fonts' );
 	}
+} );
+
+// Remove empty ContentSub subpages thing on deleted pages (this is so stupid...)
+$( function () {
+	$( 'p span:empty' ).remove();
 } );
 
 // Mobile popups
@@ -22,6 +27,17 @@ $( function () {
 			'#p-variants-label': '#p-variants .mw-portlet-body',
 			'#p-coll-print_export-label': 'p-coll-print_export .mw-portlet-body'
 		};
+
+	// Special mainapge handling; Just totally override the toggles, whoo!
+	if ( $( '.splash-mainpage' ).length ) {
+		toggles = {
+			'#p-personal-label': '#p-personal .mw-portlet-body',
+			'#p-global-links-label': '#p-global-links .mw-portlet-body',
+			'#p-lang-label': '#p-lang .mw-portlet-body',
+			'#mw-sidebar h2': '#sidebar-inner',
+			'#mw-tools h2': '#tools-inner'
+		};
+	}
 
 	function setToggled() {
 		if ( !toggled ) {

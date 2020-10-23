@@ -17,6 +17,7 @@
 	"splash-jumptonavigation": "Label for navigation jump link",
 	"splash-jumptocontent": "Label for content jump link",
 	"splash-jumptosearch": "Label for search jump link",
+	"splash-toolbox": "Label for toolbox when grouped in with page tools on custom mainpage",
 	"site-banner": "{{ignore}}\nUsed as the banner text for the site.",
 	"global-links-menu": "{{ignore}}\nOptional menu that appears at the top left of the skin, above the banner. Parses like a mini sidebar.",
 	"global-links": "Header message for optional global-links-menu",

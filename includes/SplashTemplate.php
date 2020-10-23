@@ -5,11 +5,22 @@
  * @ingroup Skins
  */
 class SplashTemplate extends BaseTemplate {
+
+	/**
+	 * Is this the mainpage, and to be treated in any way special?
+	 * @var bool
+	 */
+	protected $isMainPage;
+
 	/**
 	 * Outputs the entire contents of the page
 	 */
 	public function execute() {
-		$config = $this->getSkin()->getContext()->getConfig();
+		$skin = $this->getSkin();
+		$title = $skin->getTitle();
+		$request = $skin->getRequest();
+		$action = $request->getVal( 'action', 'view' );
+		$config = $skin->getContext()->getConfig();
 
 		$wrapperClass = '';
 		if ( $config->get( 'SplashUseOverlayImage' ) ) {
@@ -19,17 +30,38 @@ class SplashTemplate extends BaseTemplate {
 		$html = '';
 		$html .= $this->get( 'headelement' );
 
-		$html .= Html::rawElement( 'div', [ 'id' => 'mw-wrapper', 'class' => $wrapperClass ],
-			Html::rawElement( 'div', [ 'id' => 'container-bottom' ],
-			Html::rawElement( 'div', [ 'id' => 'container-content-margin' ],
-			Html::rawElement( 'div', [ 'id' => 'container-content' ],
-				Html::element( 'div', [ 'id' => 'container-content-overlay' ] ) .
-				$this->getHeaderBlock() .
-				$this->getContentBlock() .
-				$this->getFooterBlock()
+		// Special case the mainpage! And we'll be hella dumb about it because who cares, really...
+		if ( $title->isMainPage() && $action == 'view' && $config->get( 'SplashUseNewMainPage' ) ) {
+			// Paranoia...
+			$wrapperClass = [ $wrapperClass, 'splash-mainpage' ];
+			$this->isMainPage = true;
 
-			) ) )
-		);
+			$html .= Html::rawElement( 'div', [ 'id' => 'mw-wrapper', 'class' => $wrapperClass ],
+				Html::rawElement( 'div', [ 'id' => 'container-bottom' ],
+				Html::rawElement( 'div', [ 'id' => 'container-content-margin' ],
+				Html::rawElement( 'div', [ 'id' => 'container-content' ],
+					$this->getHeaderBlock( [ 'banner', 'search' ] ) .
+					$this->getMainPage() .
+					$this->getFooterBlock()
+
+				) ) )
+			);
+		} else {
+			$wrapperClass = [ $wrapperClass, 'splash-standard' ];
+			$this->isMainPage = false;
+
+			$html .= Html::rawElement( 'div', [ 'id' => 'mw-wrapper', 'class' => $wrapperClass ],
+				Html::rawElement( 'div', [ 'id' => 'container-bottom' ],
+				Html::rawElement( 'div', [ 'id' => 'container-content-margin' ],
+				Html::rawElement( 'div', [ 'id' => 'container-content' ],
+					Html::element( 'div', [ 'id' => 'container-content-overlay' ] ) .
+					$this->getHeaderBlock() .
+					$this->getContentBlock() .
+					$this->getFooterBlock()
+
+				) ) )
+			);
+		}
 
 		$html .= $this->getTrail();
 		$html .= Html::closeElement( 'body' );
@@ -55,9 +87,11 @@ class SplashTemplate extends BaseTemplate {
 	/**
 	 * Generate the page header html, neater like this?
 	 *
+	 * @param array $skip elements to skip
+	 *
 	 * @return string html
 	 */
-	protected function getHeaderBlock() {
+	protected function getHeaderBlock( $skip = [] ) {
 		$globalLinks = $this->getGlobalLinks();
 
 		$mobileSpoofs = '';
@@ -75,14 +109,14 @@ class SplashTemplate extends BaseTemplate {
 			Html::element( 'div', [ 'id' => 'menus-cover' ] ) .
 			$mobileSpoofs .
 			$globalLinks .
-			$this->getLogo() .
+			( in_array( 'banner', $skip ) ? '' : $this->getLogo( [ 'banner-id' => 'p-banner' ] ) ).
 			// Site navigation (mw:sidebar)
 			Html::rawElement(
 				'div',
 				[ 'id' => 'site-navigation' ],
 				$this->getSiteNavigation()
 			) .
-			$this->getSearch() .
+			( in_array( 'search', $skip ) ? '' : $this->getSearch() ) .
 			// User profile links
 			Html::rawElement(
 				'div',
@@ -150,8 +184,45 @@ class SplashTemplate extends BaseTemplate {
 	}
 
 	/**
+	 * Generate special cased Main Page
+	 *
+	 * @return string html
+	 */
+	protected function getMainPage() {
+		$config = $this->getSkin()->getContext()->getConfig();
+		$html = '';
+
+		if ( $config->get( 'SplashUseOverlayImage' ) ) {
+			$daji = Html::rawElement( 'div', [ 'id' => 'mainpage-daji' ],
+				Html::element( 'img', [ 'src' => $config->get( 'ScriptPath' ) . '/skins/Splash/resources/images/daji-cutout.svg' ] )
+			);
+		} else {
+			$daji = '';
+		}
+
+		$html .= Html::rawElement( 'div',
+			[ 'class' => 'mw-body', 'id' => 'content', 'role' => 'main' ],
+			Html::rawElement( 'div', [ 'id' => 'content-inner' ],
+				$daji .
+				$this->getLogo( [ 'link' => false ] ) .
+				$this->getSearch() .
+				$this->getJumpLink( 'splash-jumptonavigation', '#mw-navigation' ) .
+			//	Html::rawElement( 'div', [ 'id' => 'content-container' ],
+					$this->get( 'bodycontent' )
+			//	)
+			) .
+			$this->getClear() .
+			Html::rawElement( 'div', [ 'class' => 'printfooter' ],
+				$this->get( 'printfooter' )
+			)
+		);
+
+		return $html;
+	}
+
+	/**
 	 * Get wiki-configurable page footer
-	 * TODO: set dir as main language direction, regardless of current...
+	 * TODO: set an appropriate lang/dir for this
 	 *
 	 * @return string html
 	 */
@@ -173,25 +244,32 @@ class SplashTemplate extends BaseTemplate {
 	/**
 	 * Generate the logo and site title
 	 *
-	 * @param string $id
+	 * @param array|mixed $setOptions
 	 *
 	 * @return string html
 	 */
-	protected function getLogo( $id = 'p-logo' ) {
+	protected function getLogo( $setOptions = [] ) {
 		$config = $this->getSkin()->getContext()->getConfig();
+		$options = $setOptions + [
+			'id' => 'p-logo',
+			'link' => $this->data['nav_urls']['mainpage']['href'],
+			'banner-id' => ''
+		];
+		$wrapper = ( !$options['link'] ? 'span' : 'a' );
+
 		$html = Html::openElement(
 			'div',
 			[
-				'id' => $id,
+				'id' => $options['id'],
 				'class' => 'mw-portlet',
 				'role' => 'banner'
 			]
 		);
 		if ( $config->get( 'SplashUseLogoImage' ) ) {
 			$html .= Html::element(
-				'a',
+				$wrapper,
 				[
-					'href' => $this->data['nav_urls']['mainpage']['href'],
+					'href' => $options['link'],
 					'class' => 'mw-wiki-logo',
 				] + Linker::tooltipAndAccesskeyAttribs( 'p-logo' )
 			);
@@ -201,11 +279,11 @@ class SplashTemplate extends BaseTemplate {
 		$siteTitle = $language->convert( $this->getMsg( 'sitetitle' )->inContentLanguage()->escaped() );
 
 		$html .= Html::rawElement(
-			'a',
+			$wrapper,
 			[
-				'id' => 'p-banner',
+				'id' => $options['banner-id'],
 				'class' => 'mw-wiki-title',
-				'href' => $this->data['nav_urls']['mainpage']['href']
+				'href' => $options['link']
 			] + Linker::tooltipAndAccesskeyAttribs( 'p-logo' ),
 			$this->getMsg( 'site-banner', $siteTitle )->escaped()
 		);
@@ -277,7 +355,45 @@ class SplashTemplate extends BaseTemplate {
 			) . Html::rawElement( 'div', [ 'id' => 'sidebar-inner' ], $html )
 		);
 
-		return $html . $this->getPortlet( 'tb', $this->getToolbox(), 'toolbox' );
+		if ( $this->isMainPage ) {
+			// Gonna break some gadgets, but it's just the mainpage, so whatevs
+			$views = $this->getPortlet(
+				'page-views',
+				// @phan-suppress-next-line PhanTypeMismatchArgument
+				$this->data['content_navigation']['namespaces'] + $this->data['content_navigation']['views'],
+				'actions'
+			);
+			$actions = $this->getPortlet(
+				'page-tools',
+				$this->data['content_navigation']['actions'],
+				'splash-page-tools'
+			);
+			$tools = $this->getPortlet(
+				'toolbox',
+				$this->data['sidebar']['TOOLBOX'],
+				'splash-toolbox'
+			);
+
+			$toolBox = Html::rawElement( 'div', [ 'id' => 'mw-tools' ],
+				Html::rawElement(
+					'h2',
+					[],
+					$this->getMsg( 'toolbox' )->parse()
+				) .
+				Html::rawElement( 'div', [ 'id' => 'tools-inner' ],
+					$views .
+					$actions .
+					$tools
+				)
+			);
+
+			// Just tack this on here...
+			$toolBox .= $this->getLanguageLinks();
+		} else {
+			$toolBox = $this->getPortlet( 'tb', $this->data['sidebar']['TOOLBOX'], 'toolbox' );
+		}
+
+		return $html . $toolBox;
 	}
 
 	/**
@@ -357,7 +473,7 @@ class SplashTemplate extends BaseTemplate {
 	protected function getGlobalLinks() {
 		$html = '';
 		if ( !$this->getMsg( 'global-links-menu' )->inContentLanguage()->isDisabled() ) {
-			$html = $this->getNavigation( 'global-links-menu', 'global-links' );
+			$html = $this->getNavigation( 'global-links-menu', 'global-links', true );
 		}
 
 		return $html;
@@ -535,17 +651,18 @@ class SplashTemplate extends BaseTemplate {
 			$personalTools['mytalk']['links'][0]['text'] = $this->getMsg( 'splash-talkpage' )->text();
 		}
 
+		// Move ULS trigger
+		if ( isset( $personalTools['uls'] ) ) {
+			$extraTools['uls'] = $personalTools['uls'];
+			unset( $personalTools['uls'] );
+		}
+
 		$personalToolsClass = 'not-logged-in';
 		// Dropdown header, ULS trigger
 		if ( $user->isLoggedIn() ) {
 			$headerMsg = [ 'splash-loggedinas', $user->getName() ];
 			$personalToolsClass = 'logged-in';
 
-			// Move ULS trigger
-			if ( isset( $personalTools['uls'] ) ) {
-				$extraTools['uls'] = $personalTools['uls'];
-				unset( $personalTools['uls'] );
-			}
 		} else {
 			$headerMsg = [ 'splash-notloggedin', $user->getName() ];
 		}
@@ -565,7 +682,7 @@ class SplashTemplate extends BaseTemplate {
 			);
 		}
 
-		$html .= $this->getPortlet( 'personal', $personalTools, $headerMsg, [ 'extra-classes' => $personalToolsClass ] );
+		$html .= $this->getPortlet( 'personal', $personalTools, $headerMsg, [ 'extra-classes' => $personalToolsClass, 'extra-header' => $headerMsg ] );
 
 		$html .= Html::closeElement( 'div' );
 

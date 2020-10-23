@@ -2,25 +2,27 @@
 
 @media screen {
 	@media ( max-width: 699px ) {
-		li#ca-edit {
-			a {
-				.icon( '../images/pencil-source' );
-				.icon-only();
+		.splash-standard {
+			li#ca-edit {
+				a {
+					.icon( '../images/pencil-source' );
+					.icon-only();
+				}
+
+				&.selected a {
+					.icon( '../images/pencil-source-active' );
+				}
 			}
 
-			&.selected a {
-				.icon( '../images/pencil-source-active' );
-			}
-		}
+			#ca-ve-edit {
+				a {
+					.icon( '../images/pencil' );
+					.icon-only();
+				}
 
-		#ca-ve-edit {
-			a {
-				.icon( '../images/pencil' );
-				.icon-only();
-			}
-
-			&.selected a {
-				.icon( '../images/pencil-active' );
+				&.selected a {
+					.icon( '../images/pencil-active' );
+				}
 			}
 		}
 	}

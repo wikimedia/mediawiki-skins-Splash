@@ -33,13 +33,20 @@
 		},
 		"SplashUseLogoImage": {
 			"value": true,
-			"description": "Whether or not to use $wgLogo"
+			"description": "Whether or not to use $wgLogo with the site banner"
+		},
+		"SplashUseNewMainPage": {
+			"value": false,
+			"description": "Whether or not to use a special-cased mainpage layout"
 		}
 	},
 	"MessagesDirs": {
 		"SkinSplash": [
 			"i18n"
 		]
+	},
+	"Hooks": {
+		"ResourceLoaderRegisterModules": "SkinSplash::registerCustomMainPageStyles"
 	},
 	"AutoloadClasses": {
 		"SkinSplash": "includes/SkinSplash.php",

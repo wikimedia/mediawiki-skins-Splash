@@ -1,7 +1,7 @@
 @import 'fonts.less';
 @import 'mixins.less';
 
-#mw-navigation h2,
+.splash-standard #mw-navigation h2,
 #p-search h3,
 #p-namespaces h3,
 #p-views h3,
@@ -16,6 +16,8 @@ body {
 	background: #c5c5c5;
 	color: @grey0;
 	font-family: @fonts-main;
+	// Override browser settings to ensure things line up... sorry, not sorry
+	font-size: 16px;
 
 	// Possible class applied via js to low-res windows devices
 	&.windows-fonts {
@@ -84,7 +86,7 @@ ul {
 	display: block;
 	content: '';
 	position: absolute;
-	top: 26px;
+	top: 27px;
 	left: -349px;
 	z-index: 0;
 	height: 602px;
@@ -129,16 +131,26 @@ ul {
 	position: relative;
 	z-index: 10;
 	white-space: nowrap;
+
+	#p-banner {
+		display: inline-block;
+		padding: 0.3em 0 0.1em 0.5em;
+		text-shadow: 0 -0.5px 0 @grey6, 0 -1px 0 @grey6, // Avoid visible gaps on HiDPI
+			0 1px 0 @grey0,
+			0 3px 3px @grey0;
+		color: @grey3;
+	}
 }
 
-#p-banner {
+.splash-standard {
+	#p-global-links .mw-portlet-body h3,
+	#p-personal .mw-portlet-body h3 {
+		display: none;
+	}
+}
+
+.mw-wiki-title {
 	font-family: @fonts-banner;
-	display: inline-block;
-	padding: 0.3em 0 0.1em 0.5em;
-	text-shadow: 0 1px 0 @grey0,
-		0 -1px 0 @grey6,
-		0 3px 3px @grey0;
-	color: @grey3;
 	font-size: 250%;
 }
 
@@ -152,9 +164,10 @@ ul {
 	background: @grey4;
 	.box-shadow( 0 2px 7px -3px @grey0 inset );
 	margin: 0;
+	border-radius: 0;
 }
 
-#searchGoButton {
+.splash-standard #searchGoButton {
 	color: @grey1;
 	border-radius: 3px;
 	margin: 0 0 0 0.5em;
@@ -207,7 +220,10 @@ ul {
 	color: @grey6;
 	font-size: @text-resize;
 	padding: 0 0 1em;
-	text-shadow: 0 1px 0 #999, 0 1px 0 #333, 0 1px 1px #222, 0 2px 2px #666;
+	text-shadow: 0 0.5px 0 rgba( 0, 0, 0, 0.35 ), 0 1px 0 rgba( 0, 0, 0, 0.35 ), // Avoid visible gaps on HiDPI
+		0 1px 1px rgba( 0, 0, 0, 0.25 ),
+		0 -0.5px 1px rgba( 0, 0, 0, 0.45 ),
+		0 2px 2px rgba( 0, 0, 0, 0.35 );
 
 	div {
 		margin-bottom: 0.25em;
@@ -248,7 +264,7 @@ ul {
 }
 
 #footer-info li {
-	margin: 0.5em 0;
+	margin: 0.25em 0;
 }
 
 /* CONTENT */
@@ -266,104 +282,104 @@ ul {
 	background-position: left top;
 }
 
-#page-tools {
-	margin-top: 0.45em;
-
-	div:empty {
-		display: none;
-	}
-}
-
-.page-tools-inline {
-	li {
-		list-style: none;
-		margin-left: 0.75em;
-
-		&.selected a {
-			color: @grey0;
+.splash-standard {
+	#page-tools {
+		div:empty {
+			display: none;
 		}
 	}
 
-	ul {
-		padding: 0;
-		margin: 0;
-	}
-}
+	.page-tools-inline {
+		li {
+			list-style: none;
+			margin-left: 0.75em;
 
-.mw-indicators,
-.mw-indicator,
-#page-tools-dropdowns,
-#page-tools-dropdowns .mw-portlet,
-#page-tools-right,
-.page-tools-inline,
-.page-tools-inline ul,
-.page-tools-inline li {
-	display: inline-block;
-}
-
-.mw-indicators,
-#page-tools-dropdowns h3,
-.page-tools-inline {
-	font-variant: small-caps;
-	text-shadow: 0 -1px 0 #fff, 0 1px 2px #aaa;
-}
-
-#page-tools-dropdowns {
-	.mw-portlet {
-		padding-left: 0.5em;
-
-		&:before {
-			content: '';
-			display: inline-block;
-			width: 16px;
-			height: 14px;
-			background-image: url( images/arrow-down-red.svg );
-			background-position: left top;
-			opacity: 0.9;
+			&.selected a {
+				color: @grey0;
+			}
 		}
 
-		> h3 {
-			.dropdown-header();
-			.icon( 'images/page-misc' );
-			.icon-only();
-			font-size: 100%;
-			color: @red-dark;
+		ul {
+			padding: 0;
 			margin: 0;
 		}
 	}
 
-	#p-lang > h3 {
-		.icon( 'images/languages' );
+	.mw-indicators,
+	.mw-indicator,
+	#page-tools-dropdowns,
+	#page-tools-dropdowns .mw-portlet,
+	#page-tools-right,
+	.page-tools-inline,
+	.page-tools-inline ul,
+	.page-tools-inline li {
+		display: inline-block;
 	}
 
-	.emptyPortlet {
-		&:before {
-			display: none;
+	.mw-indicators,
+	#page-tools-dropdowns h3,
+	.page-tools-inline {
+		font-variant: small-caps;
+		text-shadow: 0 -1px 0 #fff, 0 1px 2px #aaa;
+	}
+
+	#page-tools-dropdowns {
+		.mw-portlet {
+			padding-left: 0.5em;
+
+			&:before {
+				content: '';
+				display: inline-block;
+				width: 16px;
+				height: 14px;
+				background-image: url( images/arrow-down-red.svg );
+				background-position: left top;
+				opacity: 0.9;
+			}
+
+			> h3 {
+				.dropdown-header();
+				.icon( 'images/page-misc' );
+				.icon-only();
+				font-size: 100%;
+				color: @red-dark;
+				margin: 0;
+			}
 		}
 
-		h3:hover {
-			cursor: unset;
+		#p-lang > h3 {
+			.icon( 'images/languages' );
+		}
+
+		.emptyPortlet {
+			&:before {
+				display: none;
+			}
+
+			h3:hover {
+				cursor: unset;
+			}
 		}
 	}
-}
 
-.mw-indicator {
-	margin-left: 1em;
-	opacity: 0.9;
-}
+	.mw-indicator {
+		margin-left: 1em;
+		opacity: 0.9;
+	}
 
-#ca-view {
-	.hidden();
-}
+	#ca-view {
+		.hidden();
+	}
 
-#ca-watch a {
-	.icon( 'images/star' );
-	.icon-only();
-}
+	#ca-watch a {
+		.icon( 'images/star' );
+		.icon-only();
+	}
 
-#ca-unwatch a {
-	.icon( 'images/star-filled' );
-	.icon-only();
+	#ca-unwatch a {
+		.icon( 'images/star-filled' );
+		.icon-only();
+	}
 }
 
 #content-inner {
@@ -384,7 +400,7 @@ ul {
 .mw-body {
 	position: relative;
 	word-wrap: break-word;
-	line-height: 1.35em;
+	line-height: 1.35;
 	margin: 0 auto 1em;
 	padding: 1em 1.75em 1.5em;
 
@@ -401,6 +417,7 @@ ul {
 		text-shadow: 0 -1px 0 @grey6, 0 1px 1px @grey2;
 		color: @red-dark;
 		font-family: @fonts-main;
+		line-height: 1;
 	}
 
 	h1,
@@ -424,8 +441,7 @@ ul {
 	}
 
 	.firstHeading h1 {
-		margin: 0.75em 0 0.75em;
-		padding-bottom: 0.2em;
+		margin: 0.5em 0 0.75em;
 	}
 
 	h1 {
@@ -478,6 +494,7 @@ ul {
 		h1,
 		h2 {
 			background-image: unset;
+			padding-bottom: 0;
 
 			&:after {
 				content: '';
@@ -636,7 +653,7 @@ pre {
 	margin-top: 1em;
 	margin-bottom: 1em;
 	min-width: 15em;
-	line-height: 1.2;
+	line-height: 1.125;
 	padding: 1em;
 
 	li {
@@ -742,7 +759,7 @@ div.toc ul {
 }
 
 #siteNotice {
-	margin: 0.5em auto 1.5em;
+	margin: 0.5em auto 1.25em;
 }
 
 #localNotice {
@@ -801,6 +818,7 @@ div.toc ul {
 
 .thumbcaption {
 	font-size: @text-resize;
+	line-height: 1.125;
 	color: @grey1;
 	padding: 0.5em 0 0;
 	/* For the magnify link on empty captions */
@@ -831,6 +849,13 @@ ul.gallery {
 div.gallerytext {
 	text-align: left;
 	font-size: @text-resize;
+}
+
+// Keep images from overflowing
+.mw-body a > img,
+.mw-body .floatnone > img {
+	height: auto !important;
+	max-width: 100% !important;
 }
 
 #content-footer {

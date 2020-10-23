@@ -34,7 +34,7 @@
 	color: @grey3;
 	font-variant: small-caps;
 	font-weight: normal;
-	text-shadow: 0 -1px 0 @grey6,
+	text-shadow: 0 -1px 0 @grey6, 0 -0.5px 0 @grey6,  // Avoid visible gaps on HiDPI
 		0 1px 0 @grey0,
 		0 2px 2px @grey0;
 
@@ -86,9 +86,10 @@
 	.box-shadow( 0px 4px 7px rgba( 0, 0, 0, 0.25 ) );
 	padding-right: 1em;
 	font-family: @fonts-main;
+	min-width: 10em;
 
 	ul {
-		margin: 1.125em;
+		margin: 1.125em 1.125em 1.5em;
 		padding-left: 1em;
 	}
 
@@ -109,6 +110,19 @@
 	.windows-fonts & {
 		font-family: @fonts-main-windows;
 	}
+
+	h3 {
+		font-weight: normal;
+		font-variant: small-caps;
+		text-shadow: 0 -1px 0 @grey6, 0 1px 1px @grey2;
+		color: @red-dark;
+		font-family: @fonts-main;
+		font-size: 115%;
+		margin: 0.75em 0.5em 1em 0.75em;
+		.line();
+		padding: 0 0 0.125em;
+		background-position: right bottom;
+	}
 }
 
 .icon( @icon: '' ) {
@@ -125,6 +139,6 @@
 }
 
 .icon-only() {
-	width: 1.25em;
+	width: 22px;
 	text-indent: -9999px;
 }
