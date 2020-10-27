@@ -16,10 +16,11 @@
 		.nav();
 	}
 
-	&:hover div {
+	.client-nojs &:hover div,
+	&.dropdown-active div {
 		left: unset;
 		right: 0;
-		top: 1.5em;
+		top: 2em;
 		z-index: 10;
 	}
 }

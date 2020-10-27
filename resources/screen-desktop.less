@@ -171,13 +171,15 @@
 			}
 		}
 
+		&.dropdown-active h3,
 		&:hover h3 {
 			color: @grey6;
 		}
-	}
 
-	#site-navigation .mw-portlet:hover .mw-portlet-body {
-		top: 2em;
+		.client-nojs &:hover div,
+		&.dropdown-active div {
+			top: 1.5em;
+		}
 	}
 
 	#p-personal-extra li,
@@ -224,7 +226,8 @@
 		.mw-portlet {
 			.dropdown();
 
-			&:hover div {
+			.client-nojs &:hover div,
+			&.dropdown-active div {
 				top: 1.5em;
 			}
 		}

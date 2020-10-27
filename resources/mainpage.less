@@ -229,15 +229,21 @@
 	}
 
 	// parents
-	#p-personal:hover .mw-portlet-body,
-	#p-lang:hover .mw-portlet-body,
-	#mw-sidebar:hover #sidebar-inner,
-	#mw-tools:hover #tools-inner {
+
+	#p-personal.dropdown-active .mw-portlet-body,
+	#p-lang.dropdown-active .mw-portlet-body,
+	#mw-sidebar.dropdown-active #sidebar-inner,
+	#mw-tools.dropdown-active #tools-inner,
+	.client-nojs #p-personal:hover .mw-portlet-body,
+	.client-nojs #p-lang:hover .mw-portlet-body,
+	.client-nojs #mw-sidebar:hover #sidebar-inner,
+	.client-nojs #mw-tools:hover #tools-inner {
 		top: 1.85em;
 		left: 0;
 	}
 
-	#p-personal:hover .mw-portlet-body {
+	#p-personal.dropdown-active .mw-portlet-body,
+	.client-nojs #p-personal:hover .mw-portlet-body {
 		left: unset;
 		right: 0;
 	}
