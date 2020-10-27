@@ -18,13 +18,14 @@
 		text-align: center;
 	}
 
-	#footer-info,
-	#footer-icons {
-		.hidden();
+	#footer {
+		font-size: @text-resize;
+		margin-top: 5em;
 	}
 
-	#footer {
-		margin-top: 5em;
+	#footer-icons,
+	#footer-info {
+		.hidden();
 	}
 
 	#mw-content-text,
@@ -111,7 +112,6 @@
 	}
 
 	#p-personal,
-	#p-global-links,
 	#p-lang,
 	#mw-sidebar,
 	#mw-tools {
@@ -130,7 +130,6 @@
 		}
 	}
 
-	#p-global-links:before,
 	#p-lang:before,
 	#mw-sidebar:before,
 	#mw-tools:before {
@@ -144,7 +143,6 @@
 	}
 
 	#p-personal > h3,
-	#p-global-links > h3,
 	#p-lang > h3,
 	#mw-sidebar > h2,
 	#mw-tools > h2 {
@@ -171,45 +169,29 @@
 	#mw-tools {
 		left: 100px;
 
-		.with-global-nav & {
-			left: 150px;
-		}
-
 		> h2 {
-			background-image: url( 'images/gear.svg' );
+			background-image: url( 'images/pencil-menu.svg' );
 		}
 	}
 
-	#p-global-links {
-		left: 0;
-
-		> h3 {
-			background-image: url( 'images/globe.svg' );
-		}
-
-		.splash-overlay & > h3 {
-			background-image: url( 'images/daji.svg' );
-		}
+	#p-global-links  .mw-portlet-body h3 {
+		display: none;
 	}
 
 	#mw-sidebar {
 		left: 0;
 
-		.with-global-nav & {
-			left: 50px;
-		}
-
 		> h2 {
 			background-image: url( 'images/nav.svg' );
+		}
+
+		.splash-overlay .with-global-nav & > h2 {
+			background-image: url( 'images/daji.svg' );
 		}
 	}
 
 	#p-lang {
 		left: 50px;
-
-		.with-global-nav & {
-			left: 100px;
-		}
 
 		> h3 {
 			background-image: url( 'images/languages.svg' );
@@ -217,6 +199,10 @@
 	}
 
 	#p-personal-extra {
+		a {
+			color: @grey1;
+		}
+
 		ul {
 			padding: 0;
 			margin: 0;
@@ -235,7 +221,6 @@
 
 	// blocks
 	#p-personal .mw-portlet-body,
-	#p-global-links .mw-portlet-body,
 	#p-lang .mw-portlet-body,
 	#sidebar-inner,
 	#tools-inner {
@@ -245,7 +230,6 @@
 
 	// parents
 	#p-personal:hover .mw-portlet-body,
-	#p-global-links:hover .mw-portlet-body,
 	#p-lang:hover .mw-portlet-body,
 	#mw-sidebar:hover #sidebar-inner,
 	#mw-tools:hover #tools-inner {
@@ -267,7 +251,6 @@
 	@media ( min-width: 700px ) {
 		// Override menu display from mobile toggling
 		#p-personal .mw-portlet-body,
-		#p-global-links .mw-portlet-body,
 		#p-lang .mw-portlet-body,
 		#sidebar-inner,
 		#tools-inner {
@@ -279,7 +262,6 @@
 		// Mobile click toggling styles for consistency
 		.client-js {
 			#p-personal .mw-portlet-body,
-			#p-global-links .mw-portlet-body,
 			#p-lang .mw-portlet-body,
 			#sidebar-inner,
 			#tools-inner {

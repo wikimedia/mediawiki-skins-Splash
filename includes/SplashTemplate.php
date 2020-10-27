@@ -92,7 +92,7 @@ class SplashTemplate extends BaseTemplate {
 	 * @return string html
 	 */
 	protected function getHeaderBlock( $skip = [] ) {
-		$globalLinks = $this->getGlobalLinks();
+		$globalLinks = $this->isMainPage ? '' : $this->getGlobalLinks();
 
 		$mobileSpoofs = '';
 		$mobileSpoofs .= Html::element( 'div', [ 'id' => 'main-menu-toggle' ] );
@@ -344,6 +344,10 @@ class SplashTemplate extends BaseTemplate {
 
 			// @phan-suppress-next-line SecurityCheck-DoubleEscaped
 			$html .= $this->getPortlet( $name, $content['content'] );
+		}
+
+		if ( $this->isMainPage ) {
+			$html .= $this->getGlobalLinks();
 		}
 
 		// Not really a sidebar, but tradition!

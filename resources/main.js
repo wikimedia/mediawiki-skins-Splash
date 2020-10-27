@@ -7,11 +7,6 @@ $( function () {
 	}
 } );
 
-// Remove empty ContentSub subpages thing on deleted pages (this is so stupid...)
-$( function () {
-	$( 'p span:empty' ).remove();
-} );
-
 // Mobile popups
 $( function () {
 	var toggleTime = 200,
@@ -32,7 +27,6 @@ $( function () {
 	if ( $( '.splash-mainpage' ).length ) {
 		toggles = {
 			'#p-personal-label': '#p-personal .mw-portlet-body',
-			'#p-global-links-label': '#p-global-links .mw-portlet-body',
 			'#p-lang-label': '#p-lang .mw-portlet-body',
 			'#mw-sidebar h2': '#sidebar-inner',
 			'#mw-tools h2': '#tools-inner'
