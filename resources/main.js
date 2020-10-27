@@ -25,7 +25,7 @@ $( function () {
 			'#p-coll-print_export-label': 'p-coll-print_export .mw-portlet-body'
 		};
 
-	// Special mainapge handling; no special toggles, whoo!
+	// Special main page handling; no special toggles, whoo!
 	if ( $( '.splash-mainpage' ).length ) {
 		toggles = {
 			'#p-personal-label': '#p-personal .mw-portlet-body',
