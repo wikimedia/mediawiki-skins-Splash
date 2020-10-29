@@ -451,15 +451,8 @@ class SplashTemplate extends BaseTemplate {
 				if ( $this->getMsg( $line_temp[0] )->isDisabled() ) {
 					$link = $line_temp[0];
 				}
-				if ( Skin::makeInternalOrExternalUrl( $link ) ) {
-					$href = $link;
-				} else {
-					$title = Title::newFromText( $link );
-					if ( $title ) {
-						$title = $title->fixSpecialName();
-						$href = $title->getLocalURL();
-					}
-				}
+
+				$href = Skin::makeInternalOrExternalUrl( $link );
 			}
 			$item['href'] = $href;
 

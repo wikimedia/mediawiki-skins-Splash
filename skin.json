@@ -98,7 +98,7 @@
 	"ResourceModuleSkinStyles": {
 		"splash": {
 			"+ext.echo.styles.badge": "resources/extensions/Echo.styles.badge.less",
-			"ext.echo.ui": "resources/extensions/Echo.ui.less",
+			"+ext.echo.ui": "resources/extensions/Echo.ui.less",
 			"+ext.uls.pt": "resources/extensions/ULS.pt.less",
 			"+ext.uls.interface": "resources/extensions/ULS.interface.less",
 			"+ext.visualEditor.core": "resources/extensions/VisualEditor.core.less",
@@ -107,7 +107,9 @@
 			"+mediawiki.action.view.filepage": "resources/modules/filepage.less",
 			"+mediawiki.action.edit.styles": "resources/modules/edit.less",
 			"+mediawiki.special.preferences.styles.ooui": "resources/modules/preferences.less",
-			"+ext.screenplay": "resources/extensions/Screenplay.less"
+			"+ext.screenplay": "resources/extensions/Screenplay.less",
+			"+ext.CodeMirror": "resources/extensions/CodeMirror.less",
+			"+ext.wikiEditor.styles": "resources/extensions/WikiEditor.less"
 		}
 	},
 	"manifest_version": 2
