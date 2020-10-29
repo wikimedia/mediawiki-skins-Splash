@@ -518,7 +518,7 @@ ul {
 	.mw-datatable,
 	.wikitable {
 		border-color: @grey5;
-		background: rgba( 255, 255, 255, 0.65 );
+		background-color: rgba( 255, 255, 255, 0.65 );
 		.box-shadow( 0 1px 5px 1px rgba( 0, 0, 0, 0.15 ) );
 		margin: 0.5em 0 1em;
 
@@ -539,7 +539,7 @@ ul {
 	.mw_metadata th,
 	.mw-datatable th,
 	.wikitable th {
-		background: lighten( @grey5, 2.5% );
+		background-color: lighten( @grey5, 2.5% );
 	}
 }
 
@@ -575,7 +575,7 @@ div.mw-content-rtl {
 }
 
 #contentSub {
-	margin: -0.75em 0 1em;
+	margin: -0.85em 0 1em;
 	color: @grey1;
 	font-style: italic;
 
@@ -584,8 +584,9 @@ div.mw-content-rtl {
 		color: transparent;
 		display: inline-block;
 		.icon( 'images/arrow-large-rtl' );
-		margin: 0 0 0.5em;
+		margin: 0 1em 0.5em 0;
 		padding-left: 0.5em;
+		top: 0;
 
 		a {
 			display: inline-block;
@@ -593,6 +594,7 @@ div.mw-content-rtl {
 			.icon( 'images/arrow-rtl' );
 			background-position: left 60%;
 			margin-left: -0.75em;
+			top: 0;
 
 			&:first-child {
 				background-image: unset;
