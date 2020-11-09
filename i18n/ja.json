@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Omotecho",
 			"Otokoume",
 			"Shirayuki",
 			"Yusuke1109"
@@ -13,6 +14,8 @@
 	"splash-page-tools": "ページツール",
 	"splash-talk": "議論",
 	"splash-jumptonavigation": "ナビゲーションに移動",
+	"splash-jumptocontent": "コンテンツにスキップ",
 	"splash-jumptosearch": "検索に移動",
+	"splash-toolbox": "その他のツール",
 	"global-links": "その他のナビゲーション"
 }
