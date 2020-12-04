@@ -637,13 +637,23 @@ div.magnify a {
 code,
 kbd,
 pre,
-samp {
+samp,
+.skin-splash .monospace {
 	font-family: @fonts-mono;
+	font-size: 0.875em;
 }
 
 pre {
 	overflow: auto;
 	white-space: pre-wrap;
+}
+
+.skin-splash .serif {
+	font-family: @fonts-header;
+}
+
+.skin-splash .sans-serif {
+	font-family: @fonts-main;
 }
 
 .messagebox,
@@ -764,7 +774,7 @@ div.toc ul {
 }
 
 #siteNotice {
-	margin: 0.5em auto 1.25em;
+	margin: 0.5em auto 1.5em;
 }
 
 #localNotice {
