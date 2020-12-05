@@ -1,0 +1,24 @@
+@import '../mixins.less';
+
+@media screen {
+	// What why is the default just floating on its lonesome?
+	.ve-init-mw-desktopArticleTarget .CodeMirror {
+		padding: 0 1.75em;
+	}
+
+	@media ( max-width: @content-width ) {
+		.ve-init-mw-desktopArticleTarget .CodeMirror {
+			padding: 0 1em;
+		}
+	}
+
+	@media ( max-width: 900px ) {
+		.ve-init-mw-desktopArticleTarget .CodeMirror {
+			padding: 0 0.75em;
+		}
+	}
+
+	div.CodeMirror {
+		font-family: @fonts-mono;
+	}
+}

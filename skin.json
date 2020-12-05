@@ -104,6 +104,8 @@
 			"+ext.uls.interface": "resources/extensions/ULS.interface.less",
 			"+ext.visualEditor.core": "resources/extensions/VisualEditor.core.less",
 			"+ext.visualEditor.desktopArticleTarget.noscript": "resources/extensions/VisualEditor.article.less",
+			"+ext.visualEditor.mwwikitext": "resources/extensions/VisualEditor.mwwikitext.less",
+			"+ext.CodeMirror.visualEditor.init": "resources/extensions/VisualEditor.CodeMirror.less",
 			"+ext.dismissableSiteNotice.styles": "resources/extensions/DismissableSiteNotice.less",
 			"+mediawiki.action.view.filepage": "resources/modules/filepage.less",
 			"+mediawiki.action.edit.styles": "resources/modules/edit.less",
