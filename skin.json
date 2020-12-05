@@ -20,8 +20,10 @@
 					"name": "splash",
 					"responsive": "true",
 					"styles": [
-						"mediawiki.skinning.content.externallinks",
 						"skins.splash"
+					],
+					"scripts": [
+						"skins.splash.js"
 					]
 				}
 			]
@@ -64,6 +66,11 @@
 				"mobile"
 			],
 			"class": "ResourceLoaderSkinModule",
+			"features": {
+				"logo": true,
+				"legacy": true,
+				"content-links": true
+			},
 			"styles": {
 				"resources/libraries/normalise.css": {
 					"media": "screen"

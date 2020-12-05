@@ -14,9 +14,6 @@ class SkinSplash extends SkinTemplate {
 	public function initPage( OutputPage $out ) {
 		parent::initPage( $out );
 
-		// Add JS (mobile, etc)
-		$out->addModules( 'skins.splash.js' );
-
 		// Special mainpage styles
 		$config = $this->getConfig();
 		$title = $this->getTitle();
