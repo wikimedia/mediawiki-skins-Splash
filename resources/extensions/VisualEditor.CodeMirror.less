@@ -18,7 +18,18 @@
 		}
 	}
 
+	// re-enforce because it overrides it, I guess???
+	.mw-editfont-monospace .CodeMirror,
+	.mw-editfont-sans-serif .CodeMirror,
+	.mw-editfont-serif .CodeMirror,
 	div.CodeMirror {
 		font-family: @fonts-mono;
+	}
+
+	// The line-height seems to be different here and needs to be overridden?
+	.ve-init-mw-desktopArticleTarget .CodeMirror-code,
+	.ve-init-mw-desktopArticleTarget .CodeMirror-code *,
+	.ve-init-mw-desktopArticleTarget .ve-ui-mwWikitextSurface .ve-ce-paragraphNode {
+		line-height: 1.65;
 	}
 }
