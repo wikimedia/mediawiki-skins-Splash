@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Seipinne",
 			"Yupik"
 		]
 	},
-	"splash-notloggedin": "Jieh lah čälittâm jieijâd siisâ"
+	"splash-notloggedin": "Jieh lah čälittâm jieijâd siisâ",
+	"splash-userpage": "Kevtteesijđo",
+	"splash-talk": "Savâstâl"
 }
