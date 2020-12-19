@@ -656,7 +656,7 @@ class SplashTemplate extends BaseTemplate {
 
 		$personalToolsClass = 'not-logged-in';
 		// Dropdown header, ULS trigger
-		if ( $user->isLoggedIn() ) {
+		if ( $user->isRegistered() ) {
 			$headerMsg = [ 'splash-loggedinas', $user->getName() ];
 			$personalToolsClass = 'logged-in';
 
@@ -933,6 +933,8 @@ class SplashTemplate extends BaseTemplate {
 			'icon-style' => 'icononly',
 			'link-style' => null
 		];
+
+		// phpcs:ignore Generic.Files.LineLength.TooLong
 		'@phan-var array{id:string,class:string,order:string,link-prefix:string,icon-style:string,link-style:?string} $options';
 
 		$validFooterIcons = $this->getFooterIcons( $options['icon-style'] );

@@ -740,12 +740,6 @@ div.toc ul {
 	font-variant: small-caps;
 }
 
-.oo-ui-menuSelectWidget {
-	// How about we don't randomly override this inline and break things?
-	// See: recent changes filters
-	z-index: 4 !important;
-}
-
 .mw-editsection-divider,
 .mw-editsection-bracket {
 	display: none;
@@ -872,6 +866,16 @@ div.gallerytext {
 .mw-body .floatnone > img {
 	height: auto !important;
 	max-width: 100% !important;
+}
+
+a > img,
+.floatnone > img {
+	// Hopefully these are only templates or something sane to begin with
+	// See: T269970
+	.mw-body .mw-parser-output table & {
+		height: unset !important;
+		max-width: unset !important;
+	}
 }
 
 #content-footer {

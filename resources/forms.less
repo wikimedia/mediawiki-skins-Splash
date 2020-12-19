@@ -5,6 +5,7 @@ div.oo-ui-popupWidget {
 	z-index: 10;
 }
 
+.oo-ui-tagMultiselectWidget-handle,
 textarea,
 select,
 input[type='text'],
@@ -18,10 +19,12 @@ input[size='30'] {
 	padding: 0.45em 0.5em;
 	border: solid 1px @grey2;
 	background: rgba( 255, 255, 255, 0.75 );
+	.box-shadow( 0 2px 4px -1px rgba( 0, 0, 0, 0.25 ) inset );
+	border-radius: 0;
 }
 
 select {
-	padding: 0.35em 0.5em;
+	padding: 0.45em 0.5em;
 }
 
 // Above catches upload wodgits
@@ -44,25 +47,13 @@ input {
 }
 
 label {
-	font-weight: bold;
 	display: inline-block;
 	line-height: 1.125;
 }
 
 textarea,
-input[type='text'],
-input[size='60'],
-input[size='50'],
-input[size='40'],
-input[size='30'] {
-	.box-shadow( 0 2px 4px -1px rgba( 0, 0, 0, 0.25 ) inset );
-	border-radius: 0;
-}
-
-textarea,
 input[type='text'] {
 	font-family: @fonts-mono;
-	padding: 0.5em;
 	width: 100%;
 }
 
@@ -78,12 +69,13 @@ input[type='text'] {
 	font-family: @fonts-header;
 }
 
+.oo-ui-actionFieldLayout .oo-ui-actionFieldLayout-button .oo-ui-buttonElement-framed > .oo-ui-buttonElement-button,
 button,
 input[type='submit'] {
-	border-radius: 1px;
+	border-radius: 2px;
 	padding: 0.45em 1em;
 	background-color: #36c;
-	font-weight: bold;
+	font-weight: normal;
 	color: @grey6;
 	border: 0;
 
@@ -148,7 +140,6 @@ fieldset {
 	border-radius: 0;
 	width: 100%;
 
-
 	// Okay, this might be why not...
 	.oo-ui-panelLayout-framed {
 		.unbox();
@@ -165,4 +156,51 @@ fieldset {
 .oo-ui-textInputWidget .oo-ui-inputWidget-input {
 	border-color: @grey2;
 	border-radius: 0;
+}
+
+// What in the world...?
+#mw-content-text {
+	// See special:block (?)
+	.mw-htmlform > .oo-ui-panelLayout-padded {
+		box-shadow: unset;
+		background: transparent;
+		margin-bottom: 1.5em;
+
+		legend {
+			.line;
+			background-position: 0 1.5em;
+		}
+	}
+
+	// More block stuff?
+	#mw-htmlform-actions .oo-ui-tagMultiselectWidget-handle {
+		margin-right: 0;
+		padding: 0;
+
+		input {
+			box-shadow: unset;
+			margin: 0;
+		}
+	}
+
+	.mw-widgets-datetime-dateTimeInputWidget-field {
+		display: initial;
+	}
+
+	.mw-widgets-datetime-dateTimeInputWidget-handle {
+		.box-shadow( 0 2px 4px -1px rgba( 0, 0, 0, 0.25 ) inset );
+		padding: 0.45em 0.5em;
+
+		input {
+			box-shadow: unset;
+			padding: 0;
+			border: 0;
+			display: initial;
+			font-family: @fonts-main;
+
+			.windows-fonts & {
+				font-family: @fonts-main-windows;
+			}
+		}
+	}
 }

@@ -59,6 +59,9 @@
 	#p-personal.not-logged-in {
 		.header-header();
 		font-family: @fonts-main;
+		text-shadow: 0 -0.5px 0 @grey6, 0 -0.25px 0 @grey6,  // Avoid visible gaps on HiDPI
+			0 1px 0 @grey0,
+			0 2px 2px @grey0;
 	}
 
 	#p-global-links a,
