@@ -5,5 +5,13 @@
 		]
 	},
 	"splash-skin-desc": "Тема оформления Splash для MediaWiki, разработанная для zaori.org",
+	"splash-userpage": "Страница участника",
+	"splash-talkpage": "Страница обсуждения",
+	"splash-page-tools": "Инструменты для страниц",
+	"splash-talk": "Обсудить",
+	"splash-jumptonavigation": "Перейти к навигации",
+	"splash-jumptocontent": "Перейти к содержанию",
+	"splash-jumptosearch": "Перейти к поиску",
+	"splash-toolbox": "Другие инструменты",
 	"global-links": "Прочая навигация"
 }
