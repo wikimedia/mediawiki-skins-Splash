@@ -1,9 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
+			"Lakejason0",
 			"Liuxinyu970226"
 		]
 	},
 	"splash-skin-desc": "用于MediaWiki的飞溅皮肤，专为zaori.org设计",
+	"splash-notloggedin": "未登录",
+	"splash-userpage": "用户页",
+	"splash-talkpage": "讨论页",
+	"splash-page-tools": "页面工具",
+	"splash-talk": "讨论",
+	"splash-jumptonavigation": "跳到导航",
+	"splash-jumptocontent": "跳到内容",
+	"splash-jumptosearch": "跳到搜索",
+	"splash-toolbox": "其他工具",
 	"global-links": "其他导航"
 }
