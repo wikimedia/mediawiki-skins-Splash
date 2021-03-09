@@ -123,6 +123,11 @@ ul {
 	display: inherit;
 }
 
+.oo-ui-windowManager-floating {
+	position: relative;
+	z-index: 10;
+}
+
 /* HEADER */
 
 #header {
@@ -165,10 +170,11 @@ ul {
 	.box-shadow( 0 2px 7px -3px @grey0 inset );
 	margin: 0;
 	border-radius: 0;
+	font-weight: 300;
 }
 
 .splash-standard #searchGoButton {
-	color: @grey1;
+	color: @grey05;
 	border-radius: 3px;
 	margin: 0 0 0 0.5em;
 	.box-shadow( 0 1px 2px rgba( 64, 64, 64, 0.1 ) );
@@ -219,6 +225,7 @@ ul {
 .mw-footer {
 	color: @grey6;
 	font-size: @text-resize;
+	font-weight: 300;
 	padding: 0 0 1em;
 	text-shadow: 0 0.5px 0 rgba( 0, 0, 0, 0.35 ), 0 1px 0 rgba( 0, 0, 0, 0.35 ), // Avoid visible gaps on HiDPI
 		0 1px 1px rgba( 0, 0, 0, 0.25 ),
@@ -576,7 +583,8 @@ div.mw-content-rtl {
 
 #contentSub {
 	margin: -0.85em 0 1em;
-	color: @grey1;
+	color: @grey05;
+	font-weight: 300;
 	font-style: italic;
 
 	// Subpages!
@@ -609,7 +617,7 @@ div.mw-content-rtl {
 	}
 
 	p:empty {
-		display: none;
+		height: 1px;
 	}
 }
 
@@ -683,6 +691,7 @@ pre {
 
 	a {
 		font-size: @text-resize;
+		font-weight: 300;
 	}
 }
 
@@ -777,6 +786,7 @@ div.toc ul {
 	padding: 0.5em 1em;
 	text-align: center;
 	font-variant: small-caps;
+	font-weight: 300;
 
 	p {
 		margin: 0.5em 1em;
@@ -828,8 +838,8 @@ div.toc ul {
 
 .thumbcaption {
 	font-size: @text-resize;
-	line-height: 1.125;
-	color: @grey1;
+	font-weight: 300;
+	color: @grey05;
 	padding: 0.5em 0 0;
 	/* For the magnify link on empty captions */
 	min-height: 1em;
@@ -859,6 +869,7 @@ ul.gallery {
 div.gallerytext {
 	text-align: left;
 	font-size: @text-resize;
+	font-weight: 300;
 }
 
 // Keep images from overflowing
@@ -879,10 +890,11 @@ a > img,
 }
 
 #content-footer {
-	color: @grey1;
+	color: @grey05;
 	margin: 1em auto -1.5em;
-	line-height: 1.125;
+	line-height: 1.25;
 	font-size: @text-resize;
+	font-weight: 300;
 
 	p {
 		margin: 0.85em 0 0.75em;

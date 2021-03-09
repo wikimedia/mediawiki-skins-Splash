@@ -133,7 +133,8 @@
 
 // Content margins: Keep border, but smaller margins
 @media screen and ( max-width: @content-width ) {
-	.mw-body {
+	// This file loads before the others for some reason...
+	div.mw-body {
 		padding-right: 1em;
 		padding-left: 1em;
 	}
