@@ -4,6 +4,9 @@
  *
  * @ingroup Skins
  */
+
+use MediaWiki\MediaWikiServices;
+
 class SplashTemplate extends BaseTemplate {
 
 	/**
@@ -275,8 +278,13 @@ class SplashTemplate extends BaseTemplate {
 			);
 		}
 
-		$language = $this->getSkin()->getLanguage();
-		$siteTitle = $language->convert( $this->getMsg( 'sitetitle' )->inContentLanguage()->escaped() );
+		$langFactory = MediaWikiServices::getInstance()->getLanguageConverterFactory();
+		$langConv = $langFactory->getLanguageConverter( $this->getSkin()->getLanguage() );
+		if ( $langConv->hasVariants() ) {
+			$siteTitle = $langConv->convert( $this->getMsg( 'sitetitle' )->escaped() );
+		} else {
+			$siteTitle = $this->getMsg( 'sitetitle' )->escaped();
+		}
 
 		$html .= Html::rawElement(
 			$wrapper,
