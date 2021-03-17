@@ -27,9 +27,8 @@ body {
 
 a {
 	text-decoration: none;
-	color: @blue;
+	color: @blue-bright;
 
-	&:hover,
 	&:visited {
 		color: @blue-dark;
 	}
@@ -38,21 +37,23 @@ a {
 	.new & {
 		color: @red-bright;
 
-		&:hover,
 		&:visited {
 			color: @red;
 		}
+	}
+
+	&:hover {
+		text-shadow: 0 1px 2px @grey2, 0 -1px 0 @grey6;
 	}
 }
 
 .mw-parser-output a.extiw,
 .mw-parser-output a.extiw:active,
 .mw-parser-output a.external {
-	color: @purple;
+	color: @purple-bright;
 
-	&:hover,
 	&:visited {
-		color: @purple-dark;
+		color: @purple;
 	}
 }
 
@@ -144,6 +145,10 @@ ul {
 			0 1px 0 @grey0,
 			0 3px 3px @grey0;
 		color: @grey3;
+
+		a &:hover {
+			text-shadow: inherit;
+		}
 	}
 }
 
@@ -241,6 +246,7 @@ ul {
 
 		&:hover {
 			color: @grey6;
+			text-shadow: inherit;
 		}
 	}
 
@@ -327,7 +333,11 @@ ul {
 	#page-tools-dropdowns h3,
 	.page-tools-inline {
 		font-variant: small-caps;
-		text-shadow: 0 -1px 0 #fff, 0 1px 2px #aaa;
+		text-shadow: 0 -1px 0 @grey6, 0 1px 2px @grey2;
+
+		a:hover {
+			text-shadow: inherit;
+		}
 	}
 
 	#page-tools-dropdowns {
@@ -425,6 +435,10 @@ ul {
 		color: @red-dark;
 		font-family: @fonts-main;
 		line-height: 1;
+
+		a:hover {
+			text-shadow: inherit;
+		}
 	}
 
 	h1,
@@ -738,6 +752,10 @@ div.toc ul {
 		text-shadow: 0 -1px 0 @grey6, 0 1px 1px @grey2;
 		color: @red-dark;
 		font-size: 115%;
+
+		a:hover {
+			text-shadow: inherit;
+		}
 	}
 
 	.mw-collapsible-content {
