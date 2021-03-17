@@ -534,34 +534,35 @@ ul {
 		padding: 0;
 		margin: 0.5em 0;
 	}
+}
 
-	.mw_metadata,
-	.mw-datatable,
-	.wikitable {
-		border-color: @grey5;
-		background-color: rgba( 255, 255, 255, 0.65 );
-		.box-shadow( 0 1px 5px 1px rgba( 0, 0, 0, 0.15 ) );
-		margin: 0.5em 0 1em;
+.mw_metadata,
+.mw-datatable,
+.wikitable {
+	border-color: @grey5;
+	background-color: rgba( 255, 255, 255, 0.65 );
+	.box-shadow( 0 1px 5px 1px rgba( 0, 0, 0, 0.15 ) );
+	margin: 0.5em 0 1em;
 
-		> tr > th,
-		> tr > td,
-		> * > tr > th,
-		> * > tr > td {
-			border: 1px solid @grey5;
-			padding: 0.4em 0.5em;
-		}
-
-		th,
-		caption {
-			font-variant: small-caps;
-		}
+	> tr > th,
+	> tr > td,
+	> * > tr > th,
+	> * > tr > td {
+		border: 1px solid @grey5;
+		padding: 0.35em 0.65em;
 	}
 
-	.mw_metadata th,
-	.mw-datatable th,
-	.wikitable th {
-		background-color: lighten( @grey5, 2.5% );
+	th,
+	caption {
+		font-variant: small-caps;
 	}
+}
+
+.mw_metadata th,
+.mw-datatable th,
+.wikitable > tr > th,
+.wikitable > * > tr > th {
+	background-color: lighten( @grey5, 2.5% );
 }
 
 div.mw-content-ltr {

@@ -100,7 +100,12 @@
 			],
 			"scripts": [
 				"resources/main.js"
-			]
+			],
+			"styles": {
+				"resources/main.js.less": {
+					"media": "screen"
+				}
+			}
 		}
 	},
 	"ResourceModuleSkinStyles": {

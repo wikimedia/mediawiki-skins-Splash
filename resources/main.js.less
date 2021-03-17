@@ -1,0 +1,132 @@
+@import 'mixins.less';
+
+// Experimental overflowing table scrolling
+.overflowed {
+	&.content-table-wrapper {
+		margin: 1em 0;
+		position: relative;
+		overflow: hidden;
+	}
+
+	// move ususal wikitable shadow out
+	&.wikitable-wrapper {
+		.box-shadow( 0 1px 5px 1px rgba( 0, 0, 0, 0.15 ) );
+
+		// fix for captions
+		&.content-table-wrapper-wrapper {
+			position: relative;
+		}
+
+		.caption-wrapper-left,
+		.caption-wrapper-right,
+		.caption-wrapper-top {
+			display: block;
+			position: absolute;
+			top: -3px;
+			z-index: 1;
+			border-radius: 2px;
+			background: @grey6;
+			box-shadow: 0 0 2px 2px @grey6;
+		}
+
+		.caption-wrapper-left {
+			width: 2px;
+			left: -2px;
+		}
+
+		.caption-wrapper-right {
+			width: 2px;
+			right: -2px;
+		}
+
+		.caption-wrapper-top {
+			height: 2px;
+			top: -2px;
+			left: 0;
+		}
+	}
+
+	// Shadow-border containers
+	.content-table-left,
+	.content-table-right {
+		height: 100%;
+		position: absolute;
+		bottom: 0;
+		z-index: 1;
+	}
+
+	// Noflips because scrollbar direction depends on the content direction
+	.content-table-right {
+		/* @noflip */
+		right: 0;
+
+		.mw-content-rtl & {
+			/* @noflip */
+			left: 0;
+			/* @noflip */
+			right: unset;
+		}
+
+		.scroll-right& {
+			box-shadow: 0 0 6px 8px @grey6;
+			border-left: solid 1px @grey6;
+		}
+	}
+
+	.content-table-left {
+		/* @noflip */
+		left: 0;
+
+		.mw-content-rtl & {
+			/* @noflip */
+			right: 0;
+			/* @noflip */
+			left: unset;
+		}
+
+		.scroll-left& {
+			box-shadow: 0 0 6px 8px @grey6;
+			border-left: solid 1px @grey6;
+		}
+	}
+
+	.content-table {
+		overflow: hidden;
+		overflow-x: scroll;
+
+		> table {
+			margin: 0;
+
+			&.mw_metadata,
+			&.mw-datatable,
+			&.wikitable {
+				border-bottom-width: 0;
+			}
+		}
+	}
+}
+
+.caption-wrapper-left,
+.caption-wrapper-right,
+.caption-wrapper-top {
+	display: none;
+}
+
+// Desktop sticky scrollbars
+.content-table-scrollbar.inactive {
+	position: absolute;
+	top: -99999px;
+	bottom: unset;
+	left: -99999px;
+}
+
+.content-table-scrollbar {
+	position: fixed;
+	bottom: 0;
+	overflow-x: scroll;
+	z-index: 1;
+}
+
+.content-table-spoof {
+	height: 1px;
+}
