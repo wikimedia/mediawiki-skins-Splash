@@ -688,6 +688,7 @@ pre {
 	.box();
 }
 
+.toccolours,
 .toc {
 	.box();
 	margin-top: 1em;
@@ -695,7 +696,11 @@ pre {
 	min-width: 15em;
 	line-height: 1.125;
 	padding: 1em;
+	border: unset;
+	font-size: 100%;
+}
 
+.toc {
 	li {
 		margin: 0.3em 0;
 		list-style: none;
@@ -716,8 +721,9 @@ div.toc ul {
 	margin-left: 0;
 }
 
-.toctitle {
+.toc .toctitle {
 	margin-bottom: 0.75em;
+	text-align: left;
 }
 
 .toctogglespan {
