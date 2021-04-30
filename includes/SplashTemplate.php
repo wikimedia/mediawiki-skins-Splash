@@ -253,6 +253,7 @@ class SplashTemplate extends BaseTemplate {
 	 */
 	protected function getLogo( $setOptions = [] ) {
 		$config = $this->getSkin()->getContext()->getConfig();
+		$logos = ResourceLoaderSkinModule::getAvailableLogos( $config );
 		$options = $setOptions + [
 			'id' => 'p-logo',
 			'link' => $this->data['nav_urls']['mainpage']['href'],
@@ -269,13 +270,23 @@ class SplashTemplate extends BaseTemplate {
 			]
 		);
 		if ( $config->get( 'SplashUseLogoImage' ) ) {
-			$html .= Html::element(
-				$wrapper,
-				[
-					'href' => $options['link'],
-					'class' => 'mw-wiki-logo',
-				] + Linker::tooltipAndAccesskeyAttribs( 'p-logo' )
-			);
+			if ( isset( $logos['icon'] ) ) {
+				$html .= Html::rawElement( 'div', [ 'class' => 'p-logo' ],
+					Html::rawElement(
+						$wrapper,
+						[ 'href' => $this->data['nav_urls']['mainpage']['href'] ],
+						Html::element( 'img', [ 'src' => $logos['icon'] ] )
+					)
+				);
+			} else {
+				$html .= Html::element(
+					$wrapper,
+					[
+						'href' => $options['link'],
+						'class' => 'mw-wiki-logo',
+					] + Linker::tooltipAndAccesskeyAttribs( 'p-logo' )
+				);
+			}
 		}
 
 		$langFactory = MediaWikiServices::getInstance()->getLanguageConverterFactory();
