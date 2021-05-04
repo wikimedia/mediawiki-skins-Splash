@@ -3,16 +3,18 @@
 
 /* Print styles */
 
+#p-global-links,
+#site-navigation,
+#p-search,
 .firstHeading::before,
+#user-tools,
 #page-tools,
-#toc,
-#filetoc,
 .fullMedia,
 .mw-jump-link,
 .mw-imagepage-upload-links,
 #mw-imagepage-section-filehistory > p,
 #content-footer,
-#footer-icons {
+#footer {
 	display: none;
 }
 
@@ -36,23 +38,27 @@ dt {
 }
 
 h1 {
-	font-size: 1.75em;
+	font-size: 2em;
 }
 
 h2 {
-	font-size: 1.5em;
+	font-size: 1.75em;
+
+	.toc & {
+		font-size: 1.25em;
+	}
 }
 
 h3 {
-	font-size: 1.3em;
+	font-size: 1.5em;
 }
 
 h4 {
-	font-size: 1.2em;
+	font-size: 1.3em;
 }
 
 h5 {
-	font-size: 1.1em;
+	font-size: 1.15em;
 }
 
 h6 {
@@ -71,6 +77,33 @@ dd {
 	margin: 0 0 0.25em;
 }
 
+.printfooter,
 #siteSub {
 	font-style: italic;
+}
+
+#p-logo img {
+	float: left;
+	width: 50px;
+	height: auto;
+	margin: 0 1.5em 0 0;
+}
+
+.mw-wiki-title {
+	font-family: @fonts-banner;
+	font-size: 250%;
+	display: block;
+	padding: 8px 0 0 0 !important;
+}
+
+#content-container {
+	clear: both;
+}
+
+#content {
+	margin-top: 1em;
+}
+
+#mw-content-text {
+	margin-bottom: 2em;
 }
