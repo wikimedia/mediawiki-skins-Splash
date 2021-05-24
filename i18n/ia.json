@@ -5,5 +5,14 @@
 		]
 	},
 	"splash-skin-desc": "Apparentia splash pro MediaWiki, designate pro zaori.org",
+	"splash-notloggedin": "Tu non ha aperite session",
+	"splash-userpage": "Pagina de usator",
+	"splash-talkpage": "Pagina de discussion",
+	"splash-page-tools": "Instrumentos pro paginas",
+	"splash-talk": "Discuter",
+	"splash-jumptonavigation": "Saltar al navigation",
+	"splash-jumptocontent": "Saltar al contento",
+	"splash-jumptosearch": "Saltar al recerca",
+	"splash-toolbox": "Altere instrumentos",
 	"global-links": "Altere navigation"
 }
