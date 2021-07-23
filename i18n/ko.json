@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Apzp79",
 			"Ykhwong",
 			"아라"
 		]
@@ -12,8 +13,8 @@
 	"splash-page-tools": "문서 도구",
 	"splash-talk": "토론",
 	"splash-jumptonavigation": "둘러보기로 이동",
-	"splash-jumptocontent": "본문으로 건너뛰기",
-	"splash-jumptosearch": "검색하러 이동",
+	"splash-jumptocontent": "본문으로 이동",
+	"splash-jumptosearch": "검색으로 이동",
 	"splash-toolbox": "다른 도구",
 	"global-links": "기타 둘러보기"
 }
