@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Metalhead64"
+			"Metalhead64",
+			"Umlaut"
 		]
 	},
 	"splash-skin-desc": "Benutzeroberfläche „Splash“ für MediaWiki, wie für zaori.org entworfen",
@@ -13,5 +14,6 @@
 	"splash-jumptonavigation": "Zur Navigation springen",
 	"splash-jumptocontent": "Zum Inhalt springen",
 	"splash-jumptosearch": "Zur Suche springen",
+	"splash-toolbox": "Andere Tools",
 	"global-links": "Weitere Navigation"
 }
