@@ -5,5 +5,14 @@
 		]
 	},
 	"splash-skin-desc": "עיצוב ספלאש למדיה־ויקי, כפי שעוצב עבור zaori.org",
+	"splash-notloggedin": "לא נכנסת לחשבון",
+	"splash-userpage": "דף משתמש",
+	"splash-talkpage": "דף שיחה",
+	"splash-page-tools": "כלי דף",
+	"splash-talk": "דיון",
+	"splash-jumptonavigation": "קפיצה לניווט",
+	"splash-jumptocontent": "קפיצה לתוכן",
+	"splash-jumptosearch": "קפיצה לחיפוש",
+	"splash-toolbox": "כלים אחרים",
 	"global-links": "ניווט אחר"
 }
