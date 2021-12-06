@@ -13,5 +13,5 @@
 	"site-banner": "{{ignore}}\nUsed as the banner text for the site.",
 	"global-links-menu": "{{ignore}}\nOptional menu that appears at the top left of the skin, above the banner. Parses like a mini sidebar.",
 	"global-links-menu-header": "Header message for optional global-links-menu",
-	"content-footer": "{{ignore}}\nOptional footer content to display after the page content."
+	"content-footer": "{{ignore}}\nOptional footer content to display on all pages after the page content."
 }
