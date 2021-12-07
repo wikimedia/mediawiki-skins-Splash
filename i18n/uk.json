@@ -6,5 +6,14 @@
 		]
 	},
 	"splash-skin-desc": "Тема оформлення Splash для MediaWiki, розроблена для zaori.org",
+	"splash-notloggedin": "Не увійшли до системи",
+	"splash-userpage": "Сторінка користувача",
+	"splash-talkpage": "Сторінка обговорення",
+	"splash-page-tools": "Інструменти сторінки",
+	"splash-talk": "Обговорити",
+	"splash-jumptonavigation": "Перейти до навігації",
+	"splash-jumptocontent": "Перейти до вмісту",
+	"splash-jumptosearch": "Перейти до пошуку",
+	"splash-toolbox": "Інші інструменти",
 	"global-links": "Інша навігація"
 }

@@ -2,8 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Pippinu",
-			"Sarvaturi"
+			"Sarvaturi",
+			"Ajeje Brazorf"
 		]
 	},
-	"splash-skin-desc": "Peddi Splash pi MediaWiki, pruggittata pi zaori.org"
+	"splash-skin-desc": "Peddi Splash pi MediaWiki, pruggittata pi zaori.org",
+	"splash-notloggedin": "Nun trasutu",
+	"splash-userpage": "Pàggina di l'utenti",
+	"splash-talkpage": "Pàggina di discussioni"
 }
