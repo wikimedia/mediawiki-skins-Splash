@@ -1,8 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Khun Kt",
 			"咽頭べさ"
 		]
 	},
-	"splash-talk": "အုံကွံ"
+	"splash-notloggedin": "နွို့ခါꩻတဝ်းအကောက်",
+	"splash-userpage": "ကေားသုင်ꩻသား လိတ်မဲ့ငါ",
+	"splash-talkpage": "အိုင်ကိုမ်ဒေါ့ꩻရီ လိတ်မဲ့ငါ",
+	"splash-page-tools": "လိတ်မဲ့ငါ ကိရိယာႏ",
+	"splash-talk": "အုံကွံ",
+	"splash-toolbox": "ကိရိယာႏအလင်ဖိုင်ႏ"
 }
