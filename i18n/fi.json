@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"01miki10",
+			"Korjaus1",
 			"McSalama",
 			"Pyscowicz"
 		]
@@ -14,5 +15,6 @@
 	"splash-talk": "Keskustele",
 	"splash-jumptonavigation": "Siirry navigaatioon",
 	"splash-jumptocontent": "Siirry sisältöön",
+	"splash-toolbox": "Muut työkalut",
 	"global-links": "Muu navigaatio"
 }
