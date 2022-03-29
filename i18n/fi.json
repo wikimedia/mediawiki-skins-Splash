@@ -3,7 +3,8 @@
 		"authors": [
 			"01miki10",
 			"McSalama",
-			"Pyscowicz"
+			"Pyscowicz",
+			"Korjaus1"
 		]
 	},
 	"splash-skin-desc": "Roiskahdus-teema MediaWikiin, kuten zaori.orgille suunniteltu",
@@ -14,5 +15,6 @@
 	"splash-talk": "Keskustele",
 	"splash-jumptonavigation": "Siirry navigaatioon",
 	"splash-jumptocontent": "Siirry sisältöön",
+	"splash-toolbox": "Muut työkalut",
 	"global-links": "Muu navigaatio"
 }
