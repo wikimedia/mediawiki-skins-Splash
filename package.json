@@ -1,4 +1,5 @@
 {
+	"name": "Splash",
 	"private": true,
 	"scripts": {
 		"test": "grunt test"
