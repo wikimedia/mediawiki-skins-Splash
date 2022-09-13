@@ -31,7 +31,6 @@ class SplashTemplate extends BaseTemplate {
 		}
 
 		$html = '';
-		$html .= $this->get( 'headelement' );
 
 		// Special case the mainpage! And we'll be hella dumb about it because who cares, really...
 		if ( $title->isMainPage() && $action == 'view' && $config->get( 'SplashUseNewMainPage' ) ) {
@@ -65,10 +64,6 @@ class SplashTemplate extends BaseTemplate {
 				) ) )
 			);
 		}
-
-		$html .= $this->getTrail();
-		$html .= Html::closeElement( 'body' );
-		$html .= Html::closeElement( 'html' );
 
 		echo $html;
 	}
@@ -502,7 +497,7 @@ class SplashTemplate extends BaseTemplate {
 	 */
 	protected function getLanguageLinks() {
 		$html = '';
-		if ( $this->data['language_urls'] !== false || $this->getAfterPortlet( 'lang' ) !== '' ) {
+		if ( $this->data['language_urls'] !== false || $this->getSkin()->getAfterPortlet( 'lang' ) !== '' ) {
 			$html .= $this->getPortlet(
 				'lang',
 				$this->data['language_urls'],
@@ -890,10 +885,10 @@ class SplashTemplate extends BaseTemplate {
 			}
 			$body = Html::rawElement( $options['body-wrapper'], $bodyDivOptions,
 				$contentText .
-				$this->getAfterPortlet( $name )
+				$this->getSkin()->getAfterPortlet( $name )
 			);
 		} else {
-			$body = $contentText . $this->getAfterPortlet( $name );
+			$body = $contentText . $this->getSkin()->getAfterPortlet( $name );
 		}
 
 		$html = Html::rawElement( 'div', $divOptions,
