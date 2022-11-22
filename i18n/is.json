@@ -5,5 +5,14 @@
 		]
 	},
 	"splash-skin-desc": "Forsíðuskinn fyrir MediaWiki, hannað fyrir zaori.org",
+	"splash-notloggedin": "Ekki skráð/ur inn",
+	"splash-userpage": "Notandasíða",
+	"splash-talkpage": "Spjallsíða",
+	"splash-page-tools": "Síðuverkfæri",
+	"splash-talk": "Ræða",
+	"splash-jumptonavigation": "Fara í flakk",
+	"splash-jumptocontent": "Fara í efni",
+	"splash-jumptosearch": "Fara í leit",
+	"splash-toolbox": "Önnur verkfæri",
 	"global-links": "Annað flakk"
 }
