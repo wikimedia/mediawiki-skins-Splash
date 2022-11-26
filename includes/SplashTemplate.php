@@ -356,7 +356,6 @@ class SplashTemplate extends BaseTemplate {
 			// Numeric strings gets an integer when set as key, cast back - T73639
 			$name = (string)$name;
 
-			// @phan-suppress-next-line SecurityCheck-DoubleEscaped
 			$html .= $this->getPortlet( $name, $content['content'] );
 		}
 
@@ -607,7 +606,6 @@ class SplashTemplate extends BaseTemplate {
 		// Ext:Collection tools
 		$sidebar = $this->getSidebar();
 		if ( isset( $sidebar['coll-print_export'] ) ) {
-			// @phan-suppress-next-line SecurityCheck-DoubleEscaped
 			$dropdowns .= $this->getPortlet(
 				'coll-print_export',
 				$sidebar['coll-print_export']['content'],
