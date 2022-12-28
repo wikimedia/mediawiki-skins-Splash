@@ -5,5 +5,15 @@
 			"Eleassar"
 		]
 	},
-	"splash-skin-desc": "Preobleka Splash za MediaWiki, oblikovana za zaori.org"
+	"splash-skin-desc": "Preobleka Splash za MediaWiki, oblikovana za zaori.org",
+	"splash-notloggedin": "Neprijavljeni",
+	"splash-userpage": "Uporabniška stran",
+	"splash-talkpage": "Pogovorna stran",
+	"splash-page-tools": "Orodja strani",
+	"splash-talk": "Razpravljaj",
+	"splash-jumptonavigation": "Skoči na navigacijo",
+	"splash-jumptocontent": "Skoči na vsebino",
+	"splash-jumptosearch": "Skoči na iskanje",
+	"splash-toolbox": "Druga orodja",
+	"global-links": "Druga navigacija"
 }
