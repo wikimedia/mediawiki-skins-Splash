@@ -33,6 +33,10 @@
 
 	.ve-ui-overlay {
 		font-family: @fonts-main;
+		// Correct z-index for correct stacking
+		// Some VE module sets this to 2, but we need it to be one greater
+		// than the value of z-index for .splash-standard #page-tools in screen-desktop.less
+		z-index: 11;
 
 		.windows-fonts & {
 			font-family: @fonts-main-windows;

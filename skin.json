@@ -141,6 +141,7 @@
 			"+mediawiki.action.view.filepage": "resources/modules/filepage.less",
 			"+mediawiki.action.edit.styles": "resources/modules/edit.less",
 			"+mediawiki.special.preferences.styles.ooui": "resources/modules/preferences.less",
+			"+oojs-ui-windows": "resources/modules/oojs-ui-windows.less",
 			"+ext.screenplay": "resources/extensions/Screenplay.less",
 			"+ext.CodeMirror": "resources/extensions/CodeMirror.less",
 			"+ext.wikiEditor.styles": "resources/extensions/WikiEditor.less"
