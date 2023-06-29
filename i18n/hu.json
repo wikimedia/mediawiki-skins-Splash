@@ -2,8 +2,10 @@
 	"@metadata": {
 		"authors": [
 			"Bencemac",
-			"Wolf Rex"
+			"Wolf Rex",
+			"Krisztina"
 		]
 	},
-	"splash-skin-desc": "A zaori.org számára tervezett Splash skin."
+	"splash-skin-desc": "A zaori.org számára tervezett Splash skin.",
+	"splash-jumptosearch": "Ugrás a kereséshez"
 }
