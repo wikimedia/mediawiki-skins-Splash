@@ -22,7 +22,7 @@ class SplashTemplate extends BaseTemplate {
 		$skin = $this->getSkin();
 		$title = $skin->getTitle();
 		$request = $skin->getRequest();
-		$action = $request->getVal( 'action', 'view' );
+		$action = $request->getRawVal( 'action', 'view' );
 		$config = $skin->getContext()->getConfig();
 
 		$wrapperClass = '';
@@ -33,7 +33,7 @@ class SplashTemplate extends BaseTemplate {
 		$html = '';
 
 		// Special case the mainpage! And we'll be hella dumb about it because who cares, really...
-		if ( $title->isMainPage() && $action == 'view' && $config->get( 'SplashUseNewMainPage' ) ) {
+		if ( $title->isMainPage() && $action === 'view' && $config->get( 'SplashUseNewMainPage' ) ) {
 			// Paranoia...
 			$wrapperClass = [ $wrapperClass, 'splash-mainpage' ];
 			$this->isMainPage = true;
@@ -433,7 +433,7 @@ class SplashTemplate extends BaseTemplate {
 		$links = [];
 		foreach ( $lines as $line ) {
 			// ignore empty lines
-			if ( strlen( $line ) == 0 ) {
+			if ( strlen( $line ) === 0 ) {
 				continue;
 			}
 
@@ -445,7 +445,7 @@ class SplashTemplate extends BaseTemplate {
 				$link = $this->getMsg( $line_temp[0] )->inContentLanguage()->text();
 
 				// Pull out third item as a class
-				if ( count( $line_temp ) == 3 ) {
+				if ( count( $line_temp ) === 3 ) {
 					$item['class'] = Sanitizer::escapeIdForAttribute( $line_temp[2] );
 				}
 			} else {
