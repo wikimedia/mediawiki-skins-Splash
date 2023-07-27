@@ -39,6 +39,7 @@ $( function () {
 		if ( !toggled ) {
 			// swap hide method from screen-reader-friendly .hidden to display:none,
 			// as presumably people are actually poking a screen for this...
+			// eslint-disable-next-line no-jquery/no-each-util
 			$.each( toggles, function ( toggle, target ) {
 				$( target ).hide();
 				$( target ).addClass( 'toggled' );
@@ -48,11 +49,14 @@ $( function () {
 		}
 	}
 
+	// eslint-disable-next-line no-jquery/no-each-util
 	$.each( toggles, function ( toggle, target ) {
 		$( toggle ).on( 'click', function () {
-			if ( mobileMediaQuery.matches && $( toggle ).closest( '.emptyPortlet' ).length == 0 ) {
+			if ( mobileMediaQuery.matches && $( toggle ).closest( '.emptyPortlet' ).length === 0 ) {
 				setToggled();
+				// eslint-disable-next-line no-jquery/no-fade
 				$( target ).fadeToggle( toggleTime );
+				// eslint-disable-next-line no-jquery/no-fade
 				$( '#menus-cover' ).fadeToggle( toggleTime );
 			}
 		} );
@@ -61,7 +65,9 @@ $( function () {
 	// Close menus on click outside
 	$( document ).on( 'click touchstart', function ( e ) {
 		if ( $( e.target ).closest( '#menus-cover' ).length > 0 ) {
+			// eslint-disable-next-line no-jquery/no-fade
 			$( Object.values( toggles ).join( ', ' ) ).fadeOut( toggleTime );
+			// eslint-disable-next-line no-jquery/no-fade
 			$( '#menus-cover' ).fadeOut( toggleTime );
 		}
 	} );
@@ -70,11 +76,11 @@ $( function () {
 // Desktop click toggles
 $( function () {
 	// all possible toggle items
-	var allDropdowns = '#p-personal, #p-lang, #mw-sidebar, #mw-tools, '
-		+ '#mw-sidebar .mw-portlet, #p-tb, #page-tools-dropdowns .mw-portlet';
+	var allDropdowns = '#p-personal, #p-lang, #mw-sidebar, #mw-tools, ' +
+		'#mw-sidebar .mw-portlet, #p-tb, #page-tools-dropdowns .mw-portlet';
 
-	$( allDropdowns ).click( function( e ) {
-		var dropdowns= '', toggles = '';
+	$( allDropdowns ).on( 'click', function ( e ) {
+		var dropdowns = '', toggles = '';
 
 		// Okay, what actually are our current dropdowns?
 		if ( window.matchMedia( 'screen and (min-width: 700px)' ).matches ) {
@@ -95,6 +101,7 @@ $( function () {
 		// We got here from all possible dropdowns; make sure this is a current dropdown
 		if ( $( dropdowns ).is( this ) ) { // or: Is this in dropdowns?
 			// Check if it's already open so we don't open it again
+			// eslint-disable-next-line no-jquery/no-class-state
 			if ( $( this ).hasClass( 'dropdown-active' ) ) {
 				if ( $( e.target ).closest( $( toggles ) ).length > 0 ) {
 					// treat reclick on the header as a toggle
@@ -109,7 +116,7 @@ $( function () {
 		}
 	} );
 
-	$( document ).click( function ( e ) {
+	$( document ).on( 'click', function ( e ) {
 		if ( $( e.target ).closest( '.dropdown-active' ).length > 0 ) {
 			// Clicked inside an open menu; don't close anything
 		} else {
@@ -125,7 +132,7 @@ $( function () {
 
 // TABLE SCROLLING WHOOO YEAH BABY (funky shadows edition)
 $( function () {
-	$content = $( '#content' );
+	var $content = $( '#content' );
 
 	// Gotta wrap them for this to work; maybe later the parser etc will do this for us?!
 	$content.find( 'div > table:not( table table )' ).wrap( '<div class="content-table-wrapper"><div class="content-table"></div></div>' );
@@ -224,6 +231,7 @@ $( function () {
 		$spoof = $( '<div>' ).addClass( 'content-table-spoof' ).width( $table.outerWidth() );
 		$tableWrapper.parent().prepend( $scrollbar.prepend( $spoof ) );
 
+		// eslint-disable-next-line no-jquery/no-class-state
 		if ( $table.hasClass( 'wikitable' ) ) {
 			// Add spoofs to remove border shadows from ions
 			if ( $table.children( 'caption' ).length ) {
