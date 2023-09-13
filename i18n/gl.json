@@ -2,9 +2,19 @@
 	"@metadata": {
 		"authors": [
 			"Banjo",
-			"Elisardojm"
+			"Elisardojm",
+			"Toliño"
 		]
 	},
-	"splash-skin-desc": "Tema Splash para MediaWiki, deseñado por zaori.org",
+	"splash-skin-desc": "Tema Splash para MediaWiki, deseñado para zaori.org",
+	"splash-notloggedin": "Non accediches ao sistema",
+	"splash-userpage": "Páxina de usuario",
+	"splash-talkpage": "Páxina de conversa",
+	"splash-page-tools": "Ferramentas das páxinas",
+	"splash-talk": "Conversa",
+	"splash-jumptonavigation": "Saltar á navegación",
+	"splash-jumptocontent": "Saltar ao contido",
+	"splash-jumptosearch": "Saltar á procura",
+	"splash-toolbox": "Outras ferramentas",
 	"global-links": "Outra navegación"
 }
