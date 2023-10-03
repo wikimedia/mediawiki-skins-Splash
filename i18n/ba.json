@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sagan"
+			"Sagan",
+			"З. ӘЙЛЕ"
 		]
 	},
-	"splash-skin-desc": "Splash для MediaWiki өсөн биһәлеш темаһы,  zaori.org эшләгән."
+	"splash-skin-desc": "MediaWiki өсөн zaori.org өсөн эшләнгән Splash биҙәлеш темаһы."
 }
