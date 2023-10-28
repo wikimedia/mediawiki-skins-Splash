@@ -7,6 +7,7 @@
 			"Tacsipacsi"
 		]
 	},
+	"splash-prefs-talkpage": "{{optional}}\nLink to the skin's talk page on MediaWiki.org; it is shown before the preview link in skin preferences on Special:Preferences. Inspired by [https://phabricator.wikimedia.org/T307113 T307113].",
 	"splash-skin-desc": "{{desc|what=skin|name=Splash|url=https://www.mediawiki.org/wiki/Skin:Splash}}",
 	"splash-loggedinas": "{{ignore}}\nToggle for dropdown for personal tools menu for logged-in users",
 	"splash-notloggedin": "Userpage link for anonymous users",

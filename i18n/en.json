@@ -4,6 +4,7 @@
 			"Isarra"
 		]
 	},
+	"splash-prefs-talkpage": "[[mw:Skin talk:Splash|{{int:talk}}]]",
 	"splash-skin-desc": "Splash skin for MediaWiki, as designed for zaori.org",
 	"splash-loggedinas": "$1",
 	"splash-notloggedin": "Not logged in",
