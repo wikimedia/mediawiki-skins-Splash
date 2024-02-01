@@ -4,6 +4,8 @@
  *
  * @ingroup Skins
  */
+use MediaWiki\ResourceLoader\ResourceLoader;
+
 class SkinSplash extends SkinTemplate {
 	public $stylename = 'splash',
 		$template = 'SplashTemplate';

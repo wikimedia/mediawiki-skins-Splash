@@ -6,6 +6,7 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\ResourceLoader\SkinModule;
 
 class SplashTemplate extends BaseTemplate {
 
@@ -248,7 +249,7 @@ class SplashTemplate extends BaseTemplate {
 	 */
 	protected function getLogo( $setOptions = [] ) {
 		$config = $this->getSkin()->getContext()->getConfig();
-		$logos = ResourceLoaderSkinModule::getAvailableLogos( $config );
+		$logos = SkinModule::getAvailableLogos( $config );
 		$options = $setOptions + [
 			'id' => 'p-logo',
 			'link' => $this->data['nav_urls']['mainpage']['href'],
