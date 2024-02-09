@@ -683,7 +683,7 @@ class SplashTemplate extends BaseTemplate {
 		$html .= Html::openElement( 'div', [ 'id' => 'mw-user-links' ] );
 
 		// Place the extra icons/outside stuff
-		if ( !empty( $extraTools ) ) {
+		if ( $extraTools ) {
 			$iconList = '';
 			foreach ( $extraTools as $key => $item ) {
 				$iconList .= $this->makeListItem( $key, $item );
@@ -832,7 +832,7 @@ class SplashTemplate extends BaseTemplate {
 			$msgObj = $this->getMsg( $msg );
 		}
 		if ( $msgObj->exists() ) {
-			if ( isset( $msgParams ) && !empty( $msgParams ) ) {
+			if ( !empty( $msgParams ) ) {
 				$msgString = $this->getMsg( $msg, $msgParams )->parse();
 			} else {
 				$msgString = $msgObj->parse();
