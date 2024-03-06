@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Anakmalaysia"
+			"Anakmalaysia",
+			"Hakimi97"
 		]
 	},
-	"splash-skin-desc": "Kulit splash untuk MediaWiki seperti yang direka untuk zaori.org"
+	"splash-skin-desc": "Kulit splash untuk MediaWiki seperti yang direka untuk zaori.org",
+	"splash-userpage": "Laman pengguna"
 }
