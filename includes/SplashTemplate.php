@@ -659,6 +659,12 @@ class SplashTemplate extends BaseTemplate {
 			unset( $personalTools['notifications-notice'] );
 		}
 
+		// Echo sets this awfully pointless thing which makes no sense on skins implementing
+		// drop-down menus for the user tools and such, so...unset it.
+		if ( isset( $personalTools['talk-alert'] ) ) {
+			unset( $personalTools['talk-alert'] );
+		}
+
 		// Re-label some messages
 		if ( isset( $personalTools['userpage'] ) ) {
 			$personalTools['userpage']['links'][0]['text'] = $this->getMsg( 'splash-userpage' )->text();
