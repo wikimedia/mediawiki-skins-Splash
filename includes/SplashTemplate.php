@@ -162,7 +162,7 @@ class SplashTemplate extends BaseTemplate {
 						$this->get( 'undelete' )
 					)
 				) .
-				Html::rawElement( 'div', [ 'id' => 'content-inner' ],
+				Html::rawElement( 'div', [ 'id' => 'content-inner', 'data-mw-ve-target-container' => true ],
 					$this->get( 'bodycontent' )
 				) .
 				$this->getClear() .
