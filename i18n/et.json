@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jack Phoenix"
+		]
+	},
+	"splash-notloggedin": "Sisse logimata",
+	"splash-userpage": "Kasutajaleht",
+	"splash-page-tools": "Lehekülje tööriistad",
+	"splash-jumptonavigation": "Mine navigeerimisribale",
+	"splash-jumptocontent": "Mine sisu juurde",
+	"splash-jumptosearch": "Mine otsikasti",
+	"splash-toolbox": "Muud tööriistad"
+}
