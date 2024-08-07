@@ -1,9 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Zoranzoki21"
+			"Zoranzoki21",
+			"Jack Phoenix"
 		]
 	},
 	"splash-skin-desc": "Spleš tema za Medijaviki, po dizajnu za zaori.org",
+	"splash-notloggedin": "Niste prijavljeni",
+	"splash-userpage": "Korisnička stranica",
+	"splash-talkpage": "Stranica za razgovor",
+	"splash-page-tools": "Alatke za stranicu",
+	"splash-talk": "Diskutuj",
+	"splash-jumptonavigation": "Pređi na navigaciju",
+	"splash-jumptosearch": "Pređi na pretragu",
+	"splash-toolbox": "Druge alatke",
 	"global-links": "Druga navigacija"
 }
