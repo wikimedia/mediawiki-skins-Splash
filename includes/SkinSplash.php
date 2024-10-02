@@ -19,7 +19,7 @@ class SkinSplash extends SkinTemplate {
 		// Special mainpage styles
 		$config = $this->getConfig();
 		$title = $this->getTitle();
-		$action = $this->getRequest()->getRawVal( 'action', 'view' );
+		$action = $this->getRequest()->getRawVal( 'action' ) ?? 'view';
 		if ( $title->isMainPage() && $action === 'view' && $config->get( 'SplashUseNewMainPage' ) ) {
 			$out->addModuleStyles( 'skins.splash.mainpage' );
 		}

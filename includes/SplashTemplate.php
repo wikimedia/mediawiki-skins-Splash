@@ -25,7 +25,7 @@ class SplashTemplate extends BaseTemplate {
 		$skin = $this->getSkin();
 		$title = $skin->getTitle();
 		$request = $skin->getRequest();
-		$action = $request->getRawVal( 'action', 'view' );
+		$action = $request->getRawVal( 'action' ) ?? 'view';
 		$config = $skin->getContext()->getConfig();
 
 		$wrapperClass = '';
