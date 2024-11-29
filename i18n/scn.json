@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Ajeje Brazorf",
+			"GianAntonucci",
 			"Pippinu",
 			"Sarvaturi"
 		]
@@ -9,5 +10,5 @@
 	"splash-skin-desc": "Peḍḍi Splash pi MediaWiki, pruggittata pi zaori.org",
 	"splash-notloggedin": "Nun trasutu",
 	"splash-userpage": "Pàggina di l'utenti",
-	"splash-talkpage": "Pàggina di discussioni"
+	"splash-talkpage": "Pàggina di discurruta"
 }
