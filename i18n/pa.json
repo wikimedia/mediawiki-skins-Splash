@@ -1,8 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
+			"Cabal",
 			"Tow"
 		]
 	},
-	"splash-skin-desc": "ਮੀਡੀਵਿਕੀ ਲਈ ਸਪਲੈਸ਼ ਚਮੜੀ"
+	"splash-skin-desc": "ਮੀਡੀਵਿਕੀ ਲਈ ਸਪਲੈਸ਼ ਚਮੜੀ",
+	"splash-notloggedin": "ਦਾਖ਼ਲ ਨਹੀਂ ਹੋ",
+	"splash-userpage": "ਵਰਤੋਂਕਾਰ ਵਰਕਾ",
+	"splash-talkpage": "ਗੱਲਬਾਤ ਸਫ਼ਾ",
+	"splash-page-tools": "ਸਫ਼ੇ ਦੇ ਸੰਦ",
+	"splash-talk": "ਚਰਚਾ ਕਰੋ",
+	"splash-toolbox": "ਹੋਰ ਸਾਧਨ"
 }
