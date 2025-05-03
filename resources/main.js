@@ -1,15 +1,15 @@
 /* JavaScript for the splash skin */
 
 // Don't use Libertinus sans/biolinum for content on low-res windows (massive over-bolding)
-$( function () {
-	if ( navigator.appVersion.indexOf( 'Win' ) !== -1 && window.devicePixelRatio < 1.5 ) {
+$( () => {
+	if ( navigator.appVersion.includes( 'Win' ) && window.devicePixelRatio < 1.5 ) {
 		$( 'body' ).addClass( 'windows-fonts' );
 	}
 } );
 
 // Mobile popups
-$( function () {
-	var toggleTime = 200,
+$( () => {
+	let toggleTime = 200,
 		mobileMediaQuery = window.matchMedia( 'screen and (max-width: 699px)' ),
 		toggled = false,
 		toggles = {
@@ -40,7 +40,7 @@ $( function () {
 			// swap hide method from screen-reader-friendly .hidden to display:none,
 			// as presumably people are actually poking a screen for this...
 			// eslint-disable-next-line no-jquery/no-each-util
-			$.each( toggles, function ( toggle, target ) {
+			$.each( toggles, ( toggle, target ) => {
 				$( target ).hide();
 				$( target ).addClass( 'toggled' );
 			} );
@@ -50,8 +50,8 @@ $( function () {
 	}
 
 	// eslint-disable-next-line no-jquery/no-each-util
-	$.each( toggles, function ( toggle, target ) {
-		$( toggle ).on( 'click', function () {
+	$.each( toggles, ( toggle, target ) => {
+		$( toggle ).on( 'click', () => {
 			if ( mobileMediaQuery.matches && $( toggle ).closest( '.emptyPortlet' ).length === 0 ) {
 				setToggled();
 				// eslint-disable-next-line no-jquery/no-fade
@@ -63,7 +63,7 @@ $( function () {
 	} );
 
 	// Close menus on click outside
-	$( document ).on( 'click touchstart', function ( e ) {
+	$( document ).on( 'click touchstart', ( e ) => {
 		if ( $( e.target ).closest( '#menus-cover' ).length > 0 ) {
 			// eslint-disable-next-line no-jquery/no-fade
 			$( Object.values( toggles ).join( ', ' ) ).fadeOut( toggleTime );
@@ -74,13 +74,13 @@ $( function () {
 } );
 
 // Desktop click toggles
-$( function () {
+$( () => {
 	// all possible toggle items
-	var allDropdowns = '#p-personal, #p-lang, #mw-sidebar, #mw-tools, ' +
+	const allDropdowns = '#p-personal, #p-lang, #mw-sidebar, #mw-tools, ' +
 		'#mw-sidebar .mw-portlet, #p-tb, #page-tools-dropdowns .mw-portlet';
 
 	$( allDropdowns ).on( 'click', function ( e ) {
-		var dropdowns = '', toggles = '';
+		let dropdowns = '', toggles = '';
 
 		// Okay, what actually are our current dropdowns?
 		if ( window.matchMedia( 'screen and (min-width: 700px)' ).matches ) {
@@ -116,7 +116,7 @@ $( function () {
 		}
 	} );
 
-	$( document ).on( 'click', function ( e ) {
+	$( document ).on( 'click', ( e ) => {
 		if ( $( e.target ).closest( '.dropdown-active' ).length > 0 ) {
 			// Clicked inside an open menu; don't close anything
 		} else {
@@ -131,8 +131,8 @@ $( function () {
 } );
 
 // TABLE SCROLLING WHOOO YEAH BABY (funky shadows edition)
-$( function () {
-	var $content = $( '#content' );
+$( () => {
+	const $content = $( '#content' );
 
 	// Gotta wrap them for this to work; maybe later the parser etc will do this for us?!
 	$content.find( 'div > table:not( table table )' ).wrap( '<div class="content-table-wrapper"><div class="content-table"></div></div>' );
@@ -146,7 +146,7 @@ $( function () {
 	 * @param {jQuery} $table
 	 */
 	function setScrollClass( $table ) {
-		var $tableWrapper = $table.parent(),
+		const $tableWrapper = $table.parent(),
 			$wrapper = $tableWrapper.parent(),
 			// wtf browser rtl implementations
 			scroll = Math.abs( $tableWrapper.scrollLeft() );
@@ -180,7 +180,7 @@ $( function () {
 	 */
 	function unOverflowTables() {
 		$content.find( '.content-table > table' ).each( function () {
-			var $table = $( this ),
+			const $table = $( this ),
 				$wrapper = $table.parent().parent();
 			if ( $table.outerWidth() > $wrapper.outerWidth() ) {
 				$wrapper.addClass( 'overflowed' );
@@ -192,7 +192,7 @@ $( function () {
 
 		// Set up sticky captions
 		$content.find( '.content-table > table > caption' ).each( function () {
-			var $container, $containerContainer, tableHeight, captionHeight,
+			let $container, $containerContainer, tableHeight, captionHeight,
 				$table = $( this ).parent(),
 				$wrapper = $table.parent().parent();
 
@@ -221,7 +221,7 @@ $( function () {
 	 * Sticky scrollbars maybe?! Also some more fucking caption stuff.
 	 */
 	$content.find( '.content-table' ).each( function () {
-		var $table, $tableWrapper, $spoof, $scrollbar;
+		let $table, $tableWrapper, $spoof, $scrollbar;
 
 		$tableWrapper = $( this );
 		$table = $tableWrapper.children( 'table' ).first();
@@ -255,12 +255,12 @@ $( function () {
 	 */
 	$content.find( '.content-table' ).on( 'scroll', function () {
 		// Only do this here if we're not already mirroring the spoof
-		var $mirror = $( this ).siblings( '.inactive' ).first();
+		const $mirror = $( this ).siblings( '.inactive' ).first();
 
 		$mirror.scrollLeft( $( this ).scrollLeft() );
 	} );
 	$content.find( '.content-table-scrollbar' ).on( 'scroll', function () {
-		var $mirror = $( this ).siblings( '.content-table' ).first();
+		const $mirror = $( this ).siblings( '.content-table' ).first();
 
 		// Only do this here if we're not already mirroring the table
 		// eslint-disable-next-line no-jquery/no-class-state
@@ -274,7 +274,7 @@ $( function () {
 	 */
 	function determineActiveSpoofScrollbars() {
 		$content.find( '.overflowed .content-table' ).each( function () {
-			var $scrollbar = $( this ).siblings( '.content-table-scrollbar' ).first(),
+			let $scrollbar = $( this ).siblings( '.content-table-scrollbar' ).first(),
 				tableTop, tableBottom, viewBottom, captionHeight;
 
 			// Skip caption
@@ -305,9 +305,9 @@ $( function () {
 	/**
 	 * Make sure tablespoofs remain correctly-sized?
 	 */
-	$( window ).on( 'resize', function () {
+	$( window ).on( 'resize', () => {
 		$content.find( '.content-table-scrollbar' ).each( function () {
-			var width = $( this ).siblings().first().find( 'table' ).first().width();
+			const width = $( this ).siblings().first().find( 'table' ).first().width();
 			$( this ).find( '.content-table-spoof' ).first().width( width );
 			$( this ).width( $content.width() );
 		} );
