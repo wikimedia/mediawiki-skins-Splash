@@ -1,8 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmed-Najib-Biabani-Ibrahimkhel"
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"شاه زمان پټان"
 		]
 	},
-	"splash-skin-desc": "د مېډياويکي لپاره سپلش پوښۍ، چې د zaori.org لپاره سکښتل شوې"
+	"splash-skin-desc": "د مېډياويکي لپاره سپلش پوښۍ، چې د zaori.org لپاره سکښتل شوې",
+	"splash-notloggedin": "غونډال کې ننوتي نه ياست",
+	"splash-userpage": "کارن مخ",
+	"splash-talkpage": "د خبرواترو مخ",
+	"splash-page-tools": "مخ‌ توکي",
+	"splash-talk": "شنل",
+	"splash-jumptonavigation": "چلند ته ورتلل",
+	"splash-jumptocontent": "منځپانگې ته ورتلل",
+	"splash-jumptosearch": "پلټنې ته ورتلل",
+	"splash-toolbox": "نور توکي",
+	"global-links": "نورچلندونه"
 }
