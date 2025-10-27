@@ -3,9 +3,11 @@
 		"authors": [
 			"BadDog",
 			"Obsuser",
-			"Aca"
+			"Aca",
+			"Milicevic01"
 		]
 	},
 	"splash-skin-desc": "Сплеш тема за Медијавики, по дизајну за zaori.org",
+	"splash-notloggedin": "Нисте пријављени",
 	"global-links": "Друга навигација"
 }
