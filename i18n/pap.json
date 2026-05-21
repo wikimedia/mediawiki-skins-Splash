@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kallmemel"
+		]
+	},
+	"splash-skin-desc": "Diseño Splash pa MediaWiki, diseñá pa zaori.org",
+	"splash-notloggedin": "No ta outentiká",
+	"splash-userpage": "Página di usadó",
+	"splash-talkpage": "Página di diskushon",
+	"splash-page-tools": "Hèrmènt di página",
+	"splash-talk": "Diskutí",
+	"splash-jumptonavigation": "Salta pa nabegashon",
+	"splash-jumptocontent": "Salta pa kontenido",
+	"splash-jumptosearch": "Salta pa bùskeda",
+	"splash-toolbox": "Otro hèrmèntnan",
+	"global-links": "Otro nabegashon"
+}
