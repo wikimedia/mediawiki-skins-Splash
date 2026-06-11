@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wizzard"
+		]
+	},
+	"splash-prefs-talkpage": "[[mw:Skin talk:Splash|{{int:talk}}]]",
+	"splash-skin-desc": "Téma vzhľadu Splash pre MediaWiki, navrhnutá pre zaori.org",
+	"splash-notloggedin": "Neprihlásený",
+	"splash-userpage": "Používateľská stránka",
+	"splash-talkpage": "Diskusná stránka",
+	"splash-page-tools": "Nástroje stránky",
+	"splash-talk": "Diskutovať",
+	"splash-jumptonavigation": "Skočiť na navigáciu",
+	"splash-jumptocontent": "Skočiť na obsah",
+	"splash-jumptosearch": "Skočiť na vyhľadávanie",
+	"splash-toolbox": "Ostatné nástroje",
+	"global-links": "Ostatná navigácia"
+}
