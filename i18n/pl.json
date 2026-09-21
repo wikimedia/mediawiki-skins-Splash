@@ -3,12 +3,13 @@
 		"authors": [
 			"Chrumps",
 			"Darellur",
+			"PanWor",
 			"Rail",
 			"Railfail536"
 		]
 	},
 	"splash-skin-desc": "Splash, skórka do MediaWiki, stworzona dla zaori.org",
-	"splash-notloggedin": "Nie jesteś zalogowany(a)",
+	"splash-notloggedin": "Nie zalogowano się",
 	"splash-userpage": "Strona użytkownika",
 	"splash-talkpage": "Strona dyskusji",
 	"splash-page-tools": "Narzędzia dla stron",
