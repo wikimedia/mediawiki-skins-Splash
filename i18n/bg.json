@@ -6,6 +6,14 @@
 		]
 	},
 	"splash-skin-desc": "Облик „Splash“ за MediaWiki, разработен за zaori.org",
+	"splash-notloggedin": "Не сте влезли",
 	"splash-userpage": "Потребителска страница",
+	"splash-talkpage": "Беседа",
+	"splash-page-tools": "Инструменти за страниците",
+	"splash-talk": "Разговор",
+	"splash-jumptonavigation": "Направо към навигацията",
+	"splash-jumptocontent": "Направо към съдържанието",
+	"splash-jumptosearch": "Направо към търсенето",
+	"splash-toolbox": "Други инструменти",
 	"global-links": "Друга навигация"
 }
