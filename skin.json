@@ -9,7 +9,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "skin",
 	"requires": {
-		"MediaWiki": ">= 1.43.0"
+		"MediaWiki": ">= 1.47.0"
 	},
 	"ValidSkinNames": {
 		"splash": {
@@ -20,6 +20,16 @@
 					"name": "splash",
 					"bodyOnly": true,
 					"responsive": "true",
+					"menus": [
+						"associated-pages",
+						"views",
+						"actions",
+						"variants",
+						"user-page",
+						"user-interface-preferences",
+						"notifications",
+						"user-menu"
+					],
 					"styles": [
 						"skins.splash"
 					],

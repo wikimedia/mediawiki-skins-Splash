@@ -384,7 +384,7 @@ class SplashTemplate extends BaseTemplate {
 			$views = $this->getPortlet(
 				'page-views',
 				// @phan-suppress-next-line PhanTypeMismatchArgument
-				$this->data['content_navigation']['namespaces'] + $this->data['content_navigation']['views'],
+				$this->data['content_navigation']['associated-pages'] + $this->data['content_navigation']['views'],
 				'actions'
 			);
 			$actions = $this->getPortlet(
@@ -545,7 +545,7 @@ class SplashTemplate extends BaseTemplate {
 	 * @return string html
 	 */
 	protected function getPageLinks() {
-		$namespaces = $this->data['content_navigation']['namespaces'];
+		$namespaces = $this->data['content_navigation']['associated-pages'];
 		$views = $this->data['content_navigation']['views'];
 		$actions = $this->data['content_navigation']['actions'];
 
@@ -582,7 +582,7 @@ class SplashTemplate extends BaseTemplate {
 		// Page link
 		// TODO: use i18n for ':' here, instead of CSS
 		$html .= $this->getPortlet(
-			'namespaces',
+			'associated-pages',
 			$namespaces,
 			null,
 			[ 'extra-classes' => 'page-tools-inline' ]
@@ -637,13 +637,31 @@ class SplashTemplate extends BaseTemplate {
 	}
 
 	/**
+	 * Backwards compatibility method to get personal tools the "classic way" that doesn't trigger
+	 * deprecation warnings (T422975).
+	 *
+	 * @return array
+	 */
+	private function getPersonalToolsClassic() {
+		$cNav = $this->get( 'content_navigation' );
+		$personalTools = array_merge(
+			$cNav['user-interface-preferences'],
+			$cNav['user-page'],
+			$cNav['notifications'],
+			$cNav['user-menu']
+		);
+
+		return $this->getSkin()->getPersonalToolsForMakeListItem( $personalTools );
+	}
+
+	/**
 	 * Generate user tools menu
 	 *
 	 * @return string HTML
 	 */
 	protected function getUserLinks() {
 		$user = $this->getSkin()->getUser();
-		$personalTools = $this->getPersonalTools();
+		$personalTools = $this->getPersonalToolsClassic();
 
 		$html = '';
 
